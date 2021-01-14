@@ -1,5 +1,8 @@
 package net.nergi;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -28,5 +31,33 @@ public final class Utils {
 
       return map;
     }
+  }
+
+  /**
+   * Gets lines of input from the user. Stops collecting lines when EOF is given (via
+   * CTRL+Z in Windows or CTRL+D in *nix).
+   */
+  public static ArrayList<String> getUserLines() {
+    ArrayList<String> lines = new ArrayList<>();
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String line;
+
+    do {
+      try {
+        line = br.readLine();
+
+        if (line != null) {
+          lines.add(line);
+        } else {
+          br.close();
+        }
+      } catch (IOException e) {
+        // Exit the program, something went wrong.
+        e.printStackTrace();
+        return null;
+      }
+    } while (line != null);
+
+    return lines;
   }
 }

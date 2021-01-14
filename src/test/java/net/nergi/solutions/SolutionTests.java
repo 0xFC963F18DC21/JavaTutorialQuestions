@@ -1,5 +1,6 @@
 package net.nergi.solutions;
 
+import static net.nergi.Utils.arrayListOf;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -31,7 +32,18 @@ public class SolutionTests {
     assertEquals("eyhay", Pf7c3.pigLatinise("hey"));
     assertEquals("Eyhay", Pf7c3.pigLatinise("Hey"));
 
-    assertEquals("oh", Pf7c3.pigLatinise("oh"));
-    assertEquals("Oh", Pf7c3.pigLatinise("Oh"));
+    assertEquals("ohway", Pf7c3.pigLatinise("oh"));
+    assertEquals("Ohway", Pf7c3.pigLatinise("Oh"));
+  }
+
+  @Test
+  public void getWords67dd() {
+    assertEquals(arrayListOf("a", "new", "day"), P67dd.getWords("a new day"));
+    assertEquals(arrayListOf("21", "12", "2012"), P67dd.getWords("21/12/2012"));
+    assertEquals(
+        arrayListOf("supercalifragilisticexpieleedotious"),
+        P67dd.getWords("supercalifragilisticexpieleedotious")
+    );
+    assertEquals(arrayListOf("Area", "51"), P67dd.getWords("Area 51"));
   }
 }
