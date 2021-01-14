@@ -19,12 +19,12 @@ public class P98e3 implements Solution {
    */
   @Override
   public void exec() {
-    if (Main.secondArg.isEmpty()) {
-      System.out.println("This solution needs an integer as an input.");
+    if (Main.otherArgs.isEmpty()) {
+      System.out.println("This solution requires an integer input.");
       return;
     }
 
-    int x = Integer.parseInt(Main.secondArg);
+    int x = Integer.parseInt(Main.otherArgs.get(0));
     while (x != 1) {
       System.out.print(x + " ");
       x = next(x);

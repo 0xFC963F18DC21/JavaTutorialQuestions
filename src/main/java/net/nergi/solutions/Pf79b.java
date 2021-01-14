@@ -5,6 +5,8 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class Pf79b implements Solution {
 
+  private static final int ITERATIONS = 1500;
+
   /**
    * Returns the header for the solution, which is the problem's name.
    */
@@ -18,7 +20,7 @@ public class Pf79b implements Solution {
    */
   @Override
   public void exec() {
-    for (int i = 0; i < 1500; ++i) {
+    for (int i = 0; i < ITERATIONS; ++i) {
       int cubed = i * i * i;
 
       if (isPalindromic(Integer.toString(cubed))) {

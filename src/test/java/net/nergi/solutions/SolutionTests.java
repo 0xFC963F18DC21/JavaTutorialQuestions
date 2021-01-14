@@ -1,6 +1,6 @@
 package net.nergi.solutions;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -13,5 +13,16 @@ public class SolutionTests {
     assertEquals(8, P98e3.next(16));
     assertEquals(10, P98e3.next(3));
     assertEquals(3, P98e3.next(6));
+  }
+
+  @Test
+  public void isPalindromicf79b() {
+    assertTrue(Pf79b.isPalindromic("w"));
+    assertTrue(Pf79b.isPalindromic("hh"));
+    assertTrue(Pf79b.isPalindromic("wow"));
+
+    assertFalse(Pf79b.isPalindromic("pantalones giganticus"));
+    assertFalse(Pf79b.isPalindromic("oh no"));
+    assertFalse(Pf79b.isPalindromic("not again"));
   }
 }

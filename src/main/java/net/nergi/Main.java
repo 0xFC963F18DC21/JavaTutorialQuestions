@@ -1,18 +1,22 @@
 package net.nergi;
 
 import java.lang.reflect.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
 
-  public static String secondArg = "";
+  public static ArrayList<String> otherArgs = new ArrayList<>();
 
   public static void main(String[] args) {
     if (args.length >= 1) {
       System.out.println("Received problem input: " + args[0]);
 
       if (args.length >= 2) {
-        System.out.println("Received second arg: " + args[1]);
-        secondArg = args[1];
+        otherArgs.addAll(Arrays.asList(args));
+        otherArgs.remove(0);
+
+        System.out.println("Received more args: " + otherArgs);
       }
     } else {
       System.out.println("Please give the problem hex string as an argument.");
