@@ -1,11 +1,10 @@
-package net.nergi.solutions;
+package net.nergi;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import net.nergi.Utils;
 import org.junit.jupiter.api.Test;
 
 public class UtilsTests {
