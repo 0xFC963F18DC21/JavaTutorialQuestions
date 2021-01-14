@@ -29,9 +29,9 @@ public class Main {
 
       Object solClass = ctor.newInstance();
       if (solClass instanceof Solution) {
-        System.out.println("-----------------------------------------");
+        System.out.println("-------------------------------------------------------------");
         System.out.println(((Solution) solClass).getName());
-        System.out.println("-----------------------------------------");
+        System.out.println("-------------------------------------------------------------");
 
         ((Solution) solClass).exec();
       }

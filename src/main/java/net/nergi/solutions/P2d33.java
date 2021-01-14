@@ -45,7 +45,7 @@ public class P2d33 implements Solution {
 
     System.out.println("Printing in reverse order:");
     while (!lines.isEmpty()) {
-      System.out.print(lines.pop());
+      System.out.println(lines.pop());
     }
   }
 }

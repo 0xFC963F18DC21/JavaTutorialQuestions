@@ -25,4 +25,13 @@ public class SolutionTests {
     assertFalse(Pf79b.isPalindromic("oh no"));
     assertFalse(Pf79b.isPalindromic("not again"));
   }
+
+  @Test
+  public void pigLatinisef7c3() {
+    assertEquals("eyhay", Pf7c3.pigLatinise("hey"));
+    assertEquals("Eyhay", Pf7c3.pigLatinise("Hey"));
+
+    assertEquals("oh", Pf7c3.pigLatinise("oh"));
+    assertEquals("Oh", Pf7c3.pigLatinise("Oh"));
+  }
 }

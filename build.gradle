@@ -18,6 +18,13 @@ test {
     useJUnitPlatform()
 }
 
+build {
+    if (JavaVersion.current() != JavaVersion.VERSION_15) {
+        System.out.println(JavaVersion.current())
+        throw new GradleException("This build must be run with Java 15")
+    }
+}
+
 jar {
     manifest {
         attributes(
