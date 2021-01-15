@@ -3,7 +3,7 @@ package net.nergi.solutions;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-import java.util.Stack;
+import java.util.ArrayDeque;
 import net.nergi.Solution;
 
 @SuppressWarnings("unused")
@@ -22,7 +22,7 @@ public class P2d33 implements Solution {
    */
   @Override
   public void exec() {
-    Stack<String> lines = new Stack<>();
+    ArrayDeque<String> lines = new ArrayDeque<>();
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     String line;
 
@@ -32,7 +32,7 @@ public class P2d33 implements Solution {
         line = br.readLine();
 
         if (line != null) {
-          lines.add(line);
+          lines.push(line);
         } else {
           br.close();
         }
