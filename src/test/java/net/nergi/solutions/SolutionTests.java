@@ -5,7 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-/** This class contains testing for all solution classes. */
+/**
+ * This class contains testing for all solution classes.
+ */
 public class SolutionTests {
 
   @Test

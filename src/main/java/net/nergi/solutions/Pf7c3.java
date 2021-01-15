@@ -84,7 +84,7 @@ public class Pf7c3 implements Solution {
       return "";
     }
 
-    if (word.length() == 1 && Character.isLetter(word.charAt(0))){
+    if (word.length() == 1 && Character.isLetter(word.charAt(0))) {
       return vowels.contains(Character.toLowerCase(word.charAt(0))) ? word : word + "ay";
     } else if (word.length() == 1) {
       return word;

@@ -46,6 +46,7 @@ public class P67dd implements Solution {
   /**
    * Gets the words from a string. A word in this case is defined as an alphanumeric string which
    * contains no symbols.
+   *
    * @param str String to split into words
    * @return A list of words in the string
    */

@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public final class Utils {
+
   @SafeVarargs
   public static <T> List<T> listOf(T... items) {
     return Arrays.asList(items);
@@ -19,7 +20,8 @@ public final class Utils {
     return new ArrayList<>(Arrays.asList(items));
   }
 
-  public static <X, Y> HashMap<X, Y> hashMapOf(X[] keys, Y[] values) throws IllegalArgumentException {
+  public static <X, Y> HashMap<X, Y> hashMapOf(X[] keys, Y[] values)
+      throws IllegalArgumentException {
     if (keys.length != values.length) {
       throw new IllegalArgumentException("The arrays of keys and values are not of equal length.");
     } else {
@@ -33,9 +35,24 @@ public final class Utils {
     }
   }
 
+  public static <X, Y> HashMap<X, Y> hashMapOf(List<X> keys, List<Y> values)
+      throws IllegalArgumentException {
+    if (keys.size() != values.size()) {
+      throw new IllegalArgumentException("The arrays of keys and values are not of equal length.");
+    } else {
+      HashMap<X, Y> map = new HashMap<>();
+
+      for (int i = 0; i < keys.size(); ++i) {
+        map.put(keys.get(i), values.get(i));
+      }
+
+      return map;
+    }
+  }
+
   /**
-   * Gets lines of input from the user. Stops collecting lines when EOF is given (via
-   * CTRL+Z in Windows or CTRL+D in *nix).
+   * Gets lines of input from the user. Stops collecting lines when EOF is given (via CTRL+Z in
+   * Windows or CTRL+D in *nix).
    */
   public static ArrayList<String> getUserLines() {
     ArrayList<String> lines = new ArrayList<>();
