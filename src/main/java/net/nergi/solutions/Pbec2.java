@@ -12,7 +12,7 @@ public class Pbec2 implements Solution {
    */
   @Override
   public String getName() {
-    return null;
+    return "bec2: Music collection";
   }
 
   /**
