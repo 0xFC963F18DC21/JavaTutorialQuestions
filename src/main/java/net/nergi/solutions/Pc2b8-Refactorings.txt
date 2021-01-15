@@ -29,6 +29,7 @@ public class Point {
   as field is final and is a primitive.
 - From the above, the getters are redundant.
 - toString can optionally be implemented using String.Format
+- toString is missing @Override, as required by the Google Java Code Style
 
 ----------------------------------------------------------------------------------------------------
 RECTANGLE CLASS
@@ -129,7 +130,8 @@ public class DrawingEngine {
 
 }
 
-- area, contains and getBottomRight can be static.
+- area, contains and getBottomRight can be static. they could also be moved into the Rectangle class
+  as instance methods.
 - getBottomRight could also be moved into the Rectangle class as an instance method instead.
 - rectangleToString can either be made static or moved into the Rectangle class as an override of
   toString.
