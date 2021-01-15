@@ -1,0 +1,168 @@
+----------------------------------------------------------------------------------------------------
+POINT CLASS
+
+public class Point {
+
+  private final int coordX;
+  private final int coordY;
+
+  public Point(int coordX, int coordY) {
+    this.coordX = coordX;
+    this.coordY = coordY;
+  }
+
+  public int getCoordX() {
+    return coordX;
+  }
+
+  public int getCoordY() {
+    return coordY;
+  }
+
+  public String toString() {
+    return "(" + getCoordX() + ", " + getCoordY() + ")";
+  }
+
+}
+
+- There is no reason to hide away the coordX and coordY fields behind a private access modidfier
+  as field is final and is a primitive.
+- From the above, the getters are redundant.
+- toString can optionally be implemented using String.Format
+
+----------------------------------------------------------------------------------------------------
+RECTANGLE CLASS
+
+public class Rectangle {
+
+  private final Point topLeft;
+  private final int width;
+  private final int height;
+
+  public Rectangle(Point topLeft, int width, int height) {
+    this.topLeft = topLeft;
+    this.width = width;
+    this.height = height;
+  }
+
+  public Point getTopLeft() {
+    return topLeft;
+  }
+
+  public int getWidth() {
+    return width;
+  }
+
+  public int getHeight() {
+    return height;
+  }
+
+}
+
+- As with the Point class, there is no reason to hide away the width and height fields as they are
+  final and are primitive.
+- Point is an immutable class, so there is no need to make it private (since the field is also
+  final).
+- From the above, the getters are redundant.
+
+----------------------------------------------------------------------------------------------------
+DRAWING ENGINE CLASS
+
+public class DrawingEngine {
+
+  private final Set<Rectangle> rectangles;
+
+  public DrawingEngine() {
+    rectangles = new HashSet<>();
+  }
+
+  public void addRectangle(Rectangle rectangle) {
+    rectangles.add(rectangle);
+  }
+
+  public int area(Rectangle rectangle) {
+    return rectangle.getWidth() * rectangle.getHeight();
+  }
+
+  public boolean contains(Rectangle r1, Rectangle r2) {
+    return
+        r1.getTopLeft().getCoordX() <= r2.getTopLeft().getCoordX()
+            && r1.getTopLeft().getCoordY() <= r2.getTopLeft().getCoordY()
+            && getBottomRight(r1).getCoordX() >= getBottomRight(r2).getCoordX()
+            && getBottomRight(r1).getCoordY() >= getBottomRight(r2).getCoordY();
+  }
+
+  private Point getBottomRight(Rectangle r) {
+    return new Point(
+        r.getTopLeft().getCoordX() + r.getWidth(),
+        r.getTopLeft().getCoordY() + r.getHeight()
+    );
+  }
+
+  public int maxArea() {
+    int result = 0;
+    for (Rectangle r : rectangles) {
+      if (area(r) > result) {
+        result = area(r);
+      }
+    }
+    return result;
+  }
+
+  public String toString() {
+
+    final StringBuilder result = new StringBuilder(
+        "Drawing engine is looking after these rectangles:"
+    );
+    for (Rectangle r : rectangles) {
+      result.append("\n   ").append(rectangleToString(r));
+    }
+    return result.toString();
+
+  }
+
+  public String rectangleToString(Rectangle rectangle) {
+    return "(top-left = " + rectangle.getTopLeft() + ", width = " + rectangle.getWidth()
+        + ", height = " + rectangle.getHeight() + ")";
+  }
+
+
+}
+
+- area, contains and getBottomRight can be static.
+- getBottomRight could also be moved into the Rectangle class as an instance method instead.
+- rectangleToString can either be made static or moved into the Rectangle class as an override of
+  toString.
+
+----------------------------------------------------------------------------------------------------
+DRAWING ENGINE DEMO CLASS
+
+public class DrawingEngineDemo {
+
+  public static void main(String[] args) {
+
+    DrawingEngine engine = new DrawingEngine();
+
+    engine.addRectangle(new Rectangle(new Point(0, 0), 10, 20));
+    engine.addRectangle(new Rectangle(new Point(2, 2), 100, 1));
+    engine.addRectangle(new Rectangle(new Point(50, 10), 22, 22));
+
+    System.out.println(engine);
+
+    System.out.println("Max area of these rectangles is "
+        + engine.maxArea());
+
+    Rectangle r1 = new Rectangle(new Point(5, 5), 10, 20);
+    Rectangle r2 = new Rectangle(new Point(2, 2), 15, 25);
+
+    System.out.println("Rectangle " + engine.rectangleToString(r2) + " contains "
+        + engine.rectangleToString(r1) + ": " + engine.contains(r2, r1));
+
+  }
+
+
+}
+
+- In the current state of the other classes, there is no way of improving this implementation.
+
+----------------------------------------------------------------------------------------------------
