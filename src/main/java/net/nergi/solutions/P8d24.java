@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import net.nergi.Solution;
-import net.nergi.solutions.P7ec8.Fighter;
 import net.nergi.solutions.P7ec8.GameEngine;
 
 @SuppressWarnings("unused")

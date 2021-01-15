@@ -4,7 +4,7 @@ import java.lang.reflect.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Main {
+public final class Main {
 
   public static ArrayList<String> otherArgs = new ArrayList<>();
 
