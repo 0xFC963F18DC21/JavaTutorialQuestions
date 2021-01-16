@@ -1,7 +1,6 @@
 package net.nergi.solutions;
 
 import static net.nergi.Utils.arrayListOf;
-import static net.nergi.Utils.listOf;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +49,7 @@ public class P8d24 implements Solution {
 
     private static final int LUCK_UPPER_BOUND = 18;
 
-    private static final List<FighterStyle> STYLES = listOf(FighterStyle.NORMAL,
+    private static final List<FighterStyle> STYLES = List.of(FighterStyle.NORMAL,
         FighterStyle.AGGRESSIVE, FighterStyle.DEFENSIVE);
 
     private final FighterStyle style;

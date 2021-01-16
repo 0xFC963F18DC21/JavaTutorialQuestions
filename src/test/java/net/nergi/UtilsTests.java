@@ -11,7 +11,11 @@ import org.junit.jupiter.api.Test;
 public class UtilsTests {
 
   @Test
+  @SuppressWarnings("deprecation")
   public void listOfTests() {
+    /* Suppressing annotation for deprecation warnings required as this unit test was used to test
+     * the (now deprecated) Utils.listOf() method.
+     */
     assertEquals(Arrays.asList(1, 2, 3, 4, 5), Utils.listOf(1, 2, 3, 4, 5));
     assertNotEquals(Arrays.asList(1f, 2f, 3f, 4f, 5f), Utils.listOf(2f, 2f, 3f, 4f, 5f));
   }
@@ -41,10 +45,10 @@ public class UtilsTests {
     assertNotEquals(correctMap, Utils.hashMapOf(arr1, arr3));
     assertThrows(IllegalArgumentException.class, () -> Utils.hashMapOf(arr4, arr2));
 
-    List<Integer> l1 = Utils.listOf(1, 2, 3, 4, 5);
-    List<Integer> l2 = Utils.listOf(1, 2, 3, 4);
-    List<String> l3 = Utils.listOf("a", "b", "c", "d", "e");
-    List<String> l4 = Utils.listOf("e", "d", "c", "b", "a");
+    List<Integer> l1 = List.of(1, 2, 3, 4, 5);
+    List<Integer> l2 = List.of(1, 2, 3, 4);
+    List<String> l3 = List.of("a", "b", "c", "d", "e");
+    List<String> l4 = List.of("e", "d", "c", "b", "a");
 
     assertEquals(correctMap, Utils.hashMapOf(l1, l3));
     assertNotEquals(correctMap, Utils.hashMapOf(l1, l4));

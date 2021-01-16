@@ -7,12 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import net.nergi.Solution;
-import net.nergi.Utils;
 
 @SuppressWarnings("unused")
 public class Pf7c3 implements Solution {
 
-  public static final List<Character> vowels = Utils.listOf('a', 'e', 'i', 'o', 'u');
+  public static final List<Character> vowels = List.of('a', 'e', 'i', 'o', 'u');
 
   /**
    * Returns the header for the solution, which is the problem's name.

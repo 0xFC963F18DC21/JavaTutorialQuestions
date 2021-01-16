@@ -10,16 +10,38 @@ import java.util.List;
 
 public final class Utils {
 
+  /**
+   * Constructs an immutable list of items. Depreciated. Use List.of() instead.
+   * @param items Items of a certain type
+   * @param <T> Type to use in list
+   * @return An immutable list of type T
+   */
   @SafeVarargs
+  @Deprecated(since = "2021/01/16")
   public static <T> List<T> listOf(T... items) {
     return Arrays.asList(items);
   }
 
+  /**
+   * Constructs a mutable ArrayList of items.
+   * @param items Items of a certain type
+   * @param <T> Type to use in list
+   * @return A mutable ArrayList of type T
+   */
   @SafeVarargs
   public static <T> ArrayList<T> arrayListOf(T... items) {
-    return new ArrayList<>(Arrays.asList(items));
+    return new ArrayList<>(List.of(items));
   }
 
+  /**
+   * Constructs a HashMap from two arrays. The arrays must be of equal length.
+   * @param keys The final map's key set
+   * @param values The final map's value set
+   * @param <X> Type of keys
+   * @param <Y> Type of values
+   * @return An instance of HashMap with the desired keys and values.
+   * @throws IllegalArgumentException If the arrays are not of equal length.
+   */
   public static <X, Y> HashMap<X, Y> hashMapOf(X[] keys, Y[] values)
       throws IllegalArgumentException {
     if (keys.length != values.length) {
@@ -35,6 +57,15 @@ public final class Utils {
     }
   }
 
+  /**
+   * Constructs a HashMap from two Lists. The Lists must be of equal length.
+   * @param keys The final map's key set
+   * @param values The final map's value set
+   * @param <X> Type of keys
+   * @param <Y> Type of values
+   * @return An instance of HashMap with the desired keys and values.
+   * @throws IllegalArgumentException If the Lists are not of equal length.
+   */
   public static <X, Y> HashMap<X, Y> hashMapOf(List<X> keys, List<Y> values)
       throws IllegalArgumentException {
     if (keys.size() != values.size()) {
@@ -69,9 +100,9 @@ public final class Utils {
           br.close();
         }
       } catch (IOException e) {
-        // Exit the program, something went wrong.
+        // Stop taking in input, something went wrong.
         e.printStackTrace();
-        return null;
+        return lines;
       }
     } while (line != null);
 
