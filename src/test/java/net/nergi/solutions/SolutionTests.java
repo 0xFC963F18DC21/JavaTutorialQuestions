@@ -48,4 +48,42 @@ public class SolutionTests {
     );
     assertEquals(arrayListOf("Area", "51"), P67dd.getWords("Area 51"));
   }
+
+  @Test
+  public void rectanglec2b8() {
+    Pc2b8.Rectangle rectangle1 = new Pc2b8.Rectangle(
+        new Pc2b8.Point(0, 0), 4, 4
+    );
+
+    Pc2b8.Rectangle rectangle2 = new Pc2b8.Rectangle(
+        new Pc2b8.Point(1, 1), 2, 2
+    );
+
+    Pc2b8.Rectangle rectangle3 = new Pc2b8.Rectangle(
+        new Pc2b8.Point(1, 0), 1, 1
+    );
+
+    assertEquals(16, rectangle1.area());
+    assertEquals(4, rectangle2.area());
+    assertEquals(1, rectangle3.area());
+
+    assertEquals(
+        new Pc2b8.Point(4, 4), rectangle1.getBottomRight()
+    );
+    assertEquals(
+        new Pc2b8.Point(3, 3), rectangle2.getBottomRight()
+    );
+    assertEquals(
+        new Pc2b8.Point(2, 1), rectangle3.getBottomRight()
+    );
+
+    assertTrue(rectangle1.contains(rectangle2));
+    assertFalse(rectangle2.contains(rectangle1));
+
+    assertTrue(rectangle1.contains(rectangle3));
+    assertFalse(rectangle3.contains(rectangle1));
+
+    assertFalse(rectangle2.contains(rectangle3));
+    assertFalse(rectangle3.contains(rectangle2));
+  }
 }

@@ -30,6 +30,7 @@ public class Point {
 - From the above, the getters are redundant.
 - toString can optionally be implemented using String.Format
 - toString is missing @Override, as required by the Google Java Code Style
+- Overriding equals and hashCode seems sensible for a class that stores coordinates.
 
 ----------------------------------------------------------------------------------------------------
 RECTANGLE CLASS
@@ -65,6 +66,7 @@ public class Rectangle {
 - Point is an immutable class, so there is no need to make it private (since the field is also
   final).
 - From the above, the getters are redundant.
+- Overriding equals and hashCode seems sensible for a class that stores rectangles.
 
 ----------------------------------------------------------------------------------------------------
 DRAWING ENGINE CLASS

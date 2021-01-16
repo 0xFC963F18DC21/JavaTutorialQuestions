@@ -6,9 +6,16 @@ import java.util.Arrays;
 
 public final class Main {
 
+  /**
+   * Any other command-line arguments given to the program. Solutions may need these in order to
+   * test them outside of the unit tests.
+   */
   public static ArrayList<String> otherArgs = new ArrayList<>();
 
   public static void main(String[] args) {
+    // The first argument expected is the hex string of the problem the user wants the solution to.
+    // All other arguments are coalesced into the list otherArgs so that the solution classes can
+    // use the other arguments.
     if (args.length >= 1) {
       System.out.println("Received problem input: " + args[0]);
 
@@ -24,6 +31,10 @@ public final class Main {
     }
 
     try {
+      // In order to support selecting different solutions as the user wishes, we will pick the
+      // class to run via reflection.
+      // This is why all solution classes are prefixed with P, as some hex strings are not valid
+      // identifiers.
       Class<?> clazz = Class.forName("net.nergi.solutions.P" + args[0]);
       Constructor<?> ctor = clazz.getConstructor();
 
@@ -36,11 +47,18 @@ public final class Main {
         ((Solution) solClass).exec();
       }
     } catch (ClassNotFoundException e) {
+      // This error catches any typing errors or erroneous problem hex strings.
       System.out.println("Invalid problem hex string! [" + args[0] + "]");
     } catch (NoSuchMethodException
         | IllegalAccessException
         | InstantiationException
         | InvocationTargetException e) {
+      // For all other reflection-related exceptions, its stack trace is printed along with a
+      // warning message.
+      System.out.println("*** REFLECTION EXCEPTION ***");
+      e.printStackTrace();
+    } catch (Exception e) {
+      System.out.println("*** MISCELLANEOUS EXCEPTION ***");
       e.printStackTrace();
     }
   }
