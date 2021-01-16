@@ -1,7 +1,7 @@
 package net.nergi.solutions;
 
-import static net.nergi.Utils.listOf;
 import static net.nergi.Utils.arrayListOf;
+import static net.nergi.Utils.listOf;
 
 import java.util.ArrayList;
 import java.util.List;

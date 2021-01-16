@@ -10,7 +10,7 @@ public class Pbdb4 implements Solution {
    */
   @Override
   public String getName() {
-    return null;
+    return "bdb4: Flawed house";
   }
 
   /**
