@@ -18,6 +18,7 @@ public final class Main {
     // All other arguments are coalesced into the list otherArgs so that the solution classes can
     // use the other arguments.
     if (args.length >= 1) {
+      args[0] = args[0].toLowerCase();
       System.out.println("Received problem input: " + args[0]);
 
       if (args.length >= 2) {
