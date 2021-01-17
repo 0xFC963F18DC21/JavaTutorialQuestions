@@ -42,10 +42,9 @@ public class P8d24 implements Solution {
     );
 
     GameEngine.simulateBattle(fighter1, fighter2);
-
   }
 
-  private static class LuckyFighter extends P7ec8.Fighter {
+  public static class LuckyFighter extends P7ec8.Fighter {
 
     private static final int LUCK_UPPER_BOUND = 18;
 
@@ -171,7 +170,7 @@ public class P8d24 implements Solution {
     }
   }
 
-  private enum FighterStyle {
+  public enum FighterStyle {
     NORMAL(0.25, 0.25), AGGRESSIVE(0.1, 0.4), DEFENSIVE(0.4, 0.1);
 
     public double useLuckDefendChance;
