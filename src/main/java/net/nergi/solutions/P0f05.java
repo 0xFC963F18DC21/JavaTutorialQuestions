@@ -1,6 +1,5 @@
 package net.nergi.solutions;
 
-import java.util.HashMap;
 import java.util.Objects;
 import net.nergi.Solution;
 
