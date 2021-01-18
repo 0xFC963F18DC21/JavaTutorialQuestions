@@ -177,4 +177,5 @@ public class SolutionTests {
     assertThrows(IllegalArgumentException.class, () -> bsa.add(Integer.MAX_VALUE));
     assertThrows(IllegalArgumentException.class, () -> bsa.add(-1));
   }
+
 }

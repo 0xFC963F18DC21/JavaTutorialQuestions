@@ -1,5 +1,7 @@
 package net.nergi.solutions;
 
+import java.util.HashMap;
+import java.util.Objects;
 import net.nergi.Solution;
 
 @SuppressWarnings("unused")
@@ -68,6 +70,22 @@ public class P0f05 implements Solution {
       return String.format("(%f, %f, %f)", x, y, z);
     }
 
+    // Extension for 5235
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(x, y, z);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (o instanceof Point) {
+        final Point p = (Point) o;
+        return p.x == x && p.y == y && p.z == z;
+      } else {
+        return false;
+      }
+    }
   }
 
   public static class ColouredPoint extends Point {
@@ -96,5 +114,23 @@ public class P0f05 implements Solution {
 
       return init.toString();
     }
+
+    // Extension for 5235
+
+    @Override
+    public int hashCode() {
+      return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (o instanceof ColouredPoint) {
+        final ColouredPoint cp = (ColouredPoint) o;
+        return super.equals(cp) && cp.red == red && cp.green == green && cp.blue == blue;
+      } else {
+        return false;
+      }
+    }
   }
+
 }
