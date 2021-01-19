@@ -47,7 +47,15 @@ public class P0c21 implements Solution {
     System.out.println("Terraced Houses: " + propCollection.getTerracedHouses().size());
   }
 
-  public interface Property {}
+  public interface Property {
+
+    int getBedrooms();
+
+    int getBathrooms();
+
+    int getSquareFootage();
+
+  }
 
   public static class PropertyCollection {
 
@@ -99,24 +107,196 @@ public class P0c21 implements Solution {
 
   }
 
+  // These have extensions for 236b
+
   public interface House extends Property {}
 
-  public static class TeracedHouse implements House {}
+  public static class TeracedHouse implements House {
 
-  public static class SemiDetachedHouse implements House {}
+    protected final int bedrooms;
+    protected final int bathrooms;
+    protected final int squareFootage;
 
-  public static class DetachedHouse implements House {}
+    public TeracedHouse() {
+      this(0, 0, 0);
+    }
+
+    public TeracedHouse(int bedrooms, int bathrooms, int squareFootage) {
+      this.bedrooms = bedrooms;
+      this.bathrooms = bathrooms;
+      this.squareFootage = squareFootage;
+    }
+
+    @Override
+    public int getBedrooms() {
+      return bedrooms;
+    }
+
+    @Override
+    public int getBathrooms() {
+      return bathrooms;
+    }
+
+    @Override
+    public int getSquareFootage() {
+      return squareFootage;
+    }
+
+  }
+
+  public static class SemiDetachedHouse implements House {
+
+    protected final int bedrooms;
+    protected final int bathrooms;
+    protected final int squareFootage;
+
+    public SemiDetachedHouse() {
+      this(0, 0, 0);
+    }
+
+    public SemiDetachedHouse(int bedrooms, int bathrooms, int squareFootage) {
+      this.bedrooms = bedrooms;
+      this.bathrooms = bathrooms;
+      this.squareFootage = squareFootage;
+    }
+
+    @Override
+    public int getBedrooms() {
+      return bedrooms;
+    }
+
+    @Override
+    public int getBathrooms() {
+      return bathrooms;
+    }
+
+    @Override
+    public int getSquareFootage() {
+      return squareFootage;
+    }
+
+  }
+
+  public static class DetachedHouse implements House {
+
+    protected final int bedrooms;
+    protected final int bathrooms;
+    protected final int squareFootage;
+
+    public DetachedHouse() {
+      this(0, 0, 0);
+    }
+
+    public DetachedHouse(int bedrooms, int bathrooms, int squareFootage) {
+      this.bedrooms = bedrooms;
+      this.bathrooms = bathrooms;
+      this.squareFootage = squareFootage;
+    }
+
+    @Override
+    public int getBedrooms() {
+      return bedrooms;
+    }
+
+    @Override
+    public int getBathrooms() {
+      return bathrooms;
+    }
+
+    @Override
+    public int getSquareFootage() {
+      return squareFootage;
+    }
+
+  }
 
   public interface Bungalow extends House {}
 
-  public static class TeracedBungalow extends TeracedHouse implements Bungalow {}
+  public static class TeracedBungalow extends TeracedHouse implements Bungalow {
 
-  public static class SemiDetachedBungalow extends SemiDetachedHouse implements Bungalow {}
+    public TeracedBungalow() {
+      this(0, 0, 0);
+    }
 
-  public static class DetachedBungalow extends DetachedHouse implements Bungalow {}
+    public TeracedBungalow(int bedrooms, int bathrooms, int squareFootage) {
+      super(bedrooms, bathrooms, squareFootage);
+    }
 
-  public static class Flat implements Property {}
+  }
 
-  public static class Maisonette extends Flat {}
+  public static class SemiDetachedBungalow extends SemiDetachedHouse implements Bungalow {
+
+    public SemiDetachedBungalow() {
+      this(0, 0, 0);
+    }
+
+    public SemiDetachedBungalow(int bedrooms, int bathrooms, int squareFootage) {
+      super(bedrooms, bathrooms, squareFootage);
+    }
+
+  }
+
+  public static class DetachedBungalow extends DetachedHouse implements Bungalow {
+
+    public DetachedBungalow() {
+      this(0, 0, 0);
+    }
+
+    public DetachedBungalow(int bedrooms, int bathrooms, int squareFootage) {
+      super(bedrooms, bathrooms, squareFootage);
+    }
+
+  }
+
+  public static class Flat implements Property {
+
+    protected final int bedrooms;
+    protected final int bathrooms;
+    protected final int receptionRooms;
+    protected final int squareFootage;
+
+    public Flat() {
+      this(0, 0, 0, 0);
+    }
+
+    public Flat(int bedrooms, int bathrooms, int receptionRooms, int squareFootage) {
+      this.bedrooms = bedrooms;
+      this.bathrooms = bathrooms;
+      this.receptionRooms = receptionRooms;
+      this.squareFootage = squareFootage;
+    }
+
+    public int getReceptionRooms() {
+      return receptionRooms;
+    }
+
+    @Override
+    public int getBedrooms() {
+      return bedrooms;
+    }
+
+    @Override
+    public int getBathrooms() {
+      return bathrooms;
+    }
+
+    @Override
+    public int getSquareFootage() {
+      return squareFootage;
+    }
+
+  }
+
+  public static class Maisonette extends Flat {
+
+    public Maisonette() {
+      this(0, 0, 0, 0);
+    }
+
+    public Maisonette(int bedrooms, int bathrooms, int receptionRooms, int squareFootage) {
+      super(bedrooms, bathrooms, receptionRooms, squareFootage);
+    }
+
+  }
 
 }
