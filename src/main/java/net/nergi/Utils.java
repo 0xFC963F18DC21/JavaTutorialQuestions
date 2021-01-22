@@ -11,6 +11,11 @@ import java.util.List;
 public final class Utils {
 
   /**
+   * BufferedReader for all methods and for use elsewhere.
+   */
+  public static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+  /**
    * Constructs an immutable list of items. Depreciated. Use List.of() instead.
    * @param items Items of a certain type
    * @param <T> Type to use in list
@@ -86,8 +91,15 @@ public final class Utils {
    * Windows or CTRL+D in *nix).
    */
   public static ArrayList<String> getUserLines() {
-    ArrayList<String> lines = new ArrayList<>();
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    return getUserLines(-1);
+  }
+
+  /**
+   * Gets lines of input from the user. Stops collecting lines when EOF is given (via CTRL+Z in
+   * Windows or CTRL+D in *nix), or when the number of collected lines exceeds some amount.
+   */
+  public static ArrayList<String> getUserLines(int amount) {
+    final ArrayList<String> lines = new ArrayList<>();
     String line;
 
     do {
@@ -96,8 +108,10 @@ public final class Utils {
 
         if (line != null) {
           lines.add(line);
-        } else {
-          br.close();
+
+          if (lines.size() >= amount && amount > 0) {
+            break;
+          }
         }
       } catch (IOException e) {
         // Stop taking in input, something went wrong.

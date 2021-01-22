@@ -47,6 +47,8 @@ public final class Main {
         System.out.println("-------------------------------------------------------------");
 
         ((Solution) solClass).exec();
+
+        Utils.br.close();
       }
     } catch (ClassNotFoundException e) {
       // This error catches any typing errors or erroneous problem hex strings.
