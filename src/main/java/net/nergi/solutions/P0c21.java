@@ -87,7 +87,8 @@ public class P0c21 implements Solution {
       return properties.stream()
           .filter((p) -> p instanceof Flat)
           .map((p) -> (Flat) p)
-          .collect(Collectors.toSet());    }
+          .collect(Collectors.toSet());
+    }
 
     // Return the set of all maisonettes in the collection
     public Set<Maisonette> getMaisonettes() {
