@@ -99,18 +99,18 @@ public class P2ffc implements Solution {
     private int currentPointer = 0;
     private final Object[] backingArray;
 
-    // Creates an empty string stack
+    // Creates an empty stack of E
     public GenericStackArray() {
       this(100);
     }
 
-    // Creates an empty string stack
+    // Creates an empty stack of E
     public GenericStackArray(int capacity) {
       this.backingArray = new Object[capacity];
     }
 
     // If the stack is full, does nothing.
-    // Otherwise, pushes the given String on to the top of the stack
+    // Otherwise, pushes the given E on to the top of the stack
     @Override
     public void push(E item) {
       if (currentPointer >= backingArray.length) {
@@ -121,7 +121,7 @@ public class P2ffc implements Solution {
     }
 
     // If the stack is empty, leaves the stack unchanged and returns
-    // null. Otherwise, removes the string that is on the top of
+    // null. Otherwise, removes the item that is on the top of
     // the stack and returns it
     @Override
     public E pop() {
