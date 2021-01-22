@@ -1,19 +1,19 @@
 package net.nergi.solutions;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import net.nergi.Solution;
-import net.nergi.solutions.P85bb.StringStackIterator;
 
 @SuppressWarnings("unused")
-public class P1486 implements Solution {
+public class P2ffc implements Solution {
 
   /**
    * Returns the header for the solution, which is the problem's name.
    */
   @Override
   public String getName() {
-    return "1486: String stack";
+    return "2ffc: Generic stacks";
   }
 
   /**
@@ -21,65 +21,69 @@ public class P1486 implements Solution {
    */
   @Override
   public void exec() {
-    // Stacks
-    final StringStack sstka = new StringStackArray();
-    final StringStack sstkl = new StringStackList();
+    // Test new generic stacks
+    final GenericStack<Integer> intStk = new GenericStackList<>();
 
-    sstka.push("this");
-    sstka.push("is");
-    sstka.push("my");
-    sstka.push("message");
-    sstka.push("to");
-    sstka.push("my");
-    sstka.push("master");
+    intStk.push(5);
+    intStk.push(3);
+    intStk.push(2);
+    intStk.push(1);
+    intStk.push(1);
 
-    sstkl.push("win");
-    sstkl.push("cannot");
-    sstkl.push("you");
-    sstkl.push("fight");
-    sstkl.push("a");
-    sstkl.push("is");
-    sstkl.push("this");
+    final GenericStack<String> strStk = new GenericStackArray<>();
 
-    // Transfer the array stack to the list stack
-    transferStacks(sstkl, sstka);
+    strStk.push("dead");
+    strStk.push("already");
+    strStk.push("are");
+    strStk.push("you");
 
-    // Assertion
-    System.out.printf("Is sstka empty? %s\n", sstka.isEmpty());
-
-    // Print all in second stack
-    while (!sstkl.isEmpty()) {
-      System.out.printf("%s ", sstkl.pop());
-    }
-
-    System.out.print('\n');
+    System.out.println(intStk);
+    System.out.println(strStk);
   }
 
-  // Modified for 85bb
-  public interface StringStack extends Iterable<String> {
+  /**
+   * Generic stack interface for holding any reference type.
+   * @param <E> Type to store
+   */
+  public interface GenericStack<E> extends Iterable<E> {
 
-    void push(String s);
+    void push(E item);
 
-    String pop();
+    E pop();
 
     boolean isEmpty();
 
-    StringStackIterator iterator();
+    GenericStackIterator<E> iterator();
 
   }
 
-  public abstract static class AbstractStringStack implements StringStack {
+  /**
+   * Gives a top-down iterator for a string stack. Does not empty the stack.
+   */
+  public interface GenericStackIterator<T> extends Iterator<T> {
+
+    boolean hasNext();
+
+    T next();
+
+  }
+
+  /**
+   * Abstract class which all generic stacks inherit from.
+   * @param <E> Type to store
+   */
+  public abstract static class AbstractGenericStack<E> implements GenericStack<E> {
 
     @Override
     public String toString() {
       final StringBuilder sb = new StringBuilder("[");
 
-      for (String s : this) {
+      for (E e : this) {
         if (sb.length() > 1) {
           sb.append(", ");
         }
 
-        sb.append(s);
+        sb.append(e);
       }
 
       sb.append("]");
@@ -89,49 +93,44 @@ public class P1486 implements Solution {
 
   }
 
-  public static void transferStacks(StringStack dst, StringStack src) {
-    while (!src.isEmpty()) {
-      dst.push(src.pop());
-    }
-  }
-
-  public static class StringStackArray extends AbstractStringStack {
+  @SuppressWarnings("unchecked")
+  public static class GenericStackArray<E> extends AbstractGenericStack<E> {
 
     private int currentPointer = 0;
-    private final String[] backingArray;
+    private final Object[] backingArray;
 
     // Creates an empty string stack
-    public StringStackArray() {
+    public GenericStackArray() {
       this(100);
     }
 
     // Creates an empty string stack
-    public StringStackArray(int capacity) {
-      this.backingArray = new String[capacity];
+    public GenericStackArray(int capacity) {
+      this.backingArray = new Object[capacity];
     }
 
     // If the stack is full, does nothing.
     // Otherwise, pushes the given String on to the top of the stack
     @Override
-    public void push(String s) {
+    public void push(E item) {
       if (currentPointer >= backingArray.length) {
         return;
       }
 
-      backingArray[currentPointer++] = s;
+      backingArray[currentPointer++] = item;
     }
 
     // If the stack is empty, leaves the stack unchanged and returns
     // null. Otherwise, removes the string that is on the top of
     // the stack and returns it
     @Override
-    public String pop() {
+    public E pop() {
       if (isEmpty()) {
         return null;
       }
 
       // Strings do NOT get cleared from the array
-      return backingArray[--currentPointer];
+      return (E) backingArray[--currentPointer];
     }
 
     // Returns true iff the stack is empty
@@ -143,8 +142,8 @@ public class P1486 implements Solution {
     // Extension for 85bb
     // NOT THREAD SAFE
     @Override
-    public StringStackIterator iterator() {
-      return new StringStackIterator() {
+    public GenericStackIterator<E> iterator() {
+      return new GenericStackIterator<>() {
 
         private int counter = currentPointer;
 
@@ -154,8 +153,8 @@ public class P1486 implements Solution {
         }
 
         @Override
-        public String next() {
-          return backingArray[--counter];
+        public E next() {
+          return (E) backingArray[--counter];
         }
 
       };
@@ -163,27 +162,27 @@ public class P1486 implements Solution {
 
   }
 
-  public static class StringStackList extends AbstractStringStack {
+  public static class GenericStackList<E> extends AbstractGenericStack<E> {
 
-    private final List<String> backingList;
+    private final List<E> backingList;
 
-    // Creates an empty string stack
-    public StringStackList() {
+    // Creates an empty stack of E
+    public GenericStackList() {
       this.backingList = new LinkedList<>();
     }
 
     // If the stack is full, does nothing.
-    // Otherwise, pushes the given String on to the top of the stack
+    // Otherwise, pushes the given item on to the top of the stack
     @Override
-    public void push(String s) {
-      backingList.add(s);
+    public void push(E item) {
+      backingList.add(item);
     }
 
     // If the stack is empty, leaves the stack unchanged and returns
     // null. Otherwise, removes the string that is on the top of
     // the stack and returns it
     @Override
-    public String pop() {
+    public E pop() {
       if (isEmpty()) {
         return null;
       }
@@ -197,11 +196,10 @@ public class P1486 implements Solution {
       return backingList.isEmpty();
     }
 
-    // Extension for 85bb
     // NOT THREAD SAFE
     @Override
-    public StringStackIterator iterator() {
-      return new StringStackIterator() {
+    public GenericStackIterator<E> iterator() {
+      return new GenericStackIterator<>() {
 
         private int counter = backingList.size();
 
@@ -211,7 +209,7 @@ public class P1486 implements Solution {
         }
 
         @Override
-        public String next() {
+        public E next() {
           return backingList.get(--counter);
         }
 

@@ -3,10 +3,12 @@ package net.nergi.solutions;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import net.nergi.Main;
+import net.nergi.solutions.Pa6e7.IntSetIterator;
 import net.nergi.Solution;
 import net.nergi.Utils;
 
@@ -85,7 +87,7 @@ public class P8a61 implements Solution {
     return output;
   }
 
-  public interface IntSet {
+  public interface IntSet extends Iterable<Integer> {
 
     // Adds the integer x to the set
     void add(int x);
@@ -100,9 +102,62 @@ public class P8a61 implements Solution {
     // Returns true iff the set contains the integer x
     boolean contains(int x);
 
+    // Extension for 8a61
+    IntSetIterator iterator();
+
+    // Add to the set each element in 'other'
+    default void addAll(IntSet other) {
+      for (Integer i : other) {
+        add(i);
+      }
+    }
+
+    // Remove from the set each element in 'other'
+    default void removeAll(IntSet other) {
+      for (Integer i : other) {
+        remove(i);
+      }
+    }
+
+    // Return true iff the set contains every element of 'other'
+    default boolean contains(IntSet other) {
+      boolean conts = true;
+
+      for (Integer i : other) {
+        conts = contains(i);
+
+        if (!conts) {
+          break;
+        }
+      }
+
+      return conts;
+    }
+
   }
 
-  public static class MemoryEfficientSet implements IntSet {
+  // Added for a6e7
+  public abstract static class AbstractIntSet implements IntSet {
+
+    @Override
+    public String toString() {
+      final StringBuilder sb = new StringBuilder("[");
+
+      for (Integer i : this) {
+        if (sb.length() > 1) {
+          sb.append(", ");
+        }
+
+        sb.append(i);
+      }
+
+      sb.append("]");
+
+      return sb.toString();
+    }
+  }
+
+  public static class MemoryEfficientSet extends AbstractIntSet {
 
     private final Set<Integer> backingSet = new HashSet<>();
 
@@ -126,9 +181,28 @@ public class P8a61 implements Solution {
       return backingSet.contains(x);
     }
 
+    // Added for a6e7
+    @Override
+    public IntSetIterator iterator() {
+      return new IntSetIterator() {
+
+        final Iterator<Integer> backingIterator = backingSet.iterator();
+
+        @Override
+        public boolean hasNext() {
+          return backingIterator.hasNext();
+        }
+
+        @Override
+        public Integer next() {
+          return backingIterator.next();
+        }
+      };
+    }
+
   }
 
-  public static class SpeedEfficientSet implements IntSet {
+  public static class SpeedEfficientSet extends AbstractIntSet {
 
     private final HashMap<Integer, Boolean> backingMap = new HashMap<>();
 
@@ -151,6 +225,25 @@ public class P8a61 implements Solution {
     public boolean contains(int x) {
       final Boolean val = backingMap.get(x);
       return val != null ? val : false;
+    }
+
+    // Added for a6e7
+    @Override
+    public IntSetIterator iterator() {
+      return new IntSetIterator() {
+
+        final Iterator<Integer> backingIterator = backingMap.keySet().iterator();
+
+        @Override
+        public boolean hasNext() {
+          return backingIterator.hasNext();
+        }
+
+        @Override
+        public Integer next() {
+          return backingIterator.next();
+        }
+      };
     }
 
   }

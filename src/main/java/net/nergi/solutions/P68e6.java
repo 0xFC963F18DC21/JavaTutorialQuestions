@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import net.nergi.Solution;
 
 @SuppressWarnings("unused")
-public class P69e6 implements Solution {
+public class P68e6 implements Solution {
 
   /**
    * Returns the header for the solution, which is the problem's name.
@@ -85,11 +85,7 @@ public class P69e6 implements Solution {
   }
 
   public static int findMinOrZero(List<Integer> numbers) {
-    if (numbers.isEmpty()) {
-      return 0;
-    }
-
-    return numbers.stream().reduce(numbers.get(0), Math::min);
+    return numbers.stream().reduce(Math::min).orElse(0);
   }
 
   @SuppressWarnings("Convert2MethodRef")
@@ -103,17 +99,13 @@ public class P69e6 implements Solution {
   @SuppressWarnings("Convert2MethodRef")
   public static int findMaxOrZero(List<Integer> numbers) {
     // See above method for relevant comment on warning suppression.
-    if (numbers.isEmpty()) {
-      return 0;
-    }
-
-    return numbers.stream().reduce(numbers.get(0), (a, b) -> Math.max(a, b));
+    return numbers.stream().reduce((a, b) -> Math.max(a, b)).orElse(0);
   }
 
   public static int findMinOfMaxes(List<List<Integer>> listOfLists) {
     return findMin(
         listOfLists.stream()
-            .map(P69e6::findMax)
+            .map(P68e6::findMax)
             .collect(Collectors.toList())
     );
   }
