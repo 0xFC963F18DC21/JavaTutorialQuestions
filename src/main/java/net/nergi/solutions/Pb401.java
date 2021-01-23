@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import net.nergi.Solution;
+import net.nergi.solutions.P735a.GenericCollection;
+import net.nergi.solutions.P735a.GenericIterator;
 
 @SuppressWarnings("unused")
 public class Pb401 implements Solution {
@@ -53,7 +55,12 @@ public class Pb401 implements Solution {
     }
   }
 
-  public interface GenericSet<E> extends Iterable<E> {
+  /**
+   * Generic set implementation for reference types.
+   * @param <E> Type to store
+   */
+  // Modified for 735a
+  public interface GenericSet<E> extends GenericCollection<E> {
 
     // Adds the item to the set
     void add(E item);
@@ -67,9 +74,6 @@ public class Pb401 implements Solution {
 
     // Returns true iff the set contains item
     boolean contains(E item);
-
-    // Extension for 8a61
-    GenericSetIterator<E> iterator();
 
     // Add to the set each element in 'other'
     default void addAll(GenericSet<E> other) {
@@ -131,8 +135,22 @@ public class Pb401 implements Solution {
         }
 
         @Override
-        public GenericSetIterator<E> iterator() {
-          return backingSet.iterator();
+        public GenericIterator<E> iterator() {
+          return new GenericIterator<>() {
+
+            private final Iterator<E> backingIterator = backingSet.iterator();
+
+            @Override
+            public boolean hasNext() {
+              return backingIterator.hasNext();
+            }
+
+            @Override
+            public E next() {
+              return backingIterator.next();
+            }
+
+          };
         }
 
       };
@@ -161,14 +179,6 @@ public class Pb401 implements Solution {
 
   }
 
-  public interface GenericSetIterator<T> extends Iterator<T> {
-
-    boolean hasNext();
-
-    T next();
-
-  }
-
   public static class MemoryEfficientGenericSet<E> extends AbstractGenericSet<E> {
 
     private final Set<E> backingSet = new HashSet<>();
@@ -194,8 +204,8 @@ public class Pb401 implements Solution {
     }
 
     @Override
-    public GenericSetIterator<E> iterator() {
-      return new GenericSetIterator<>() {
+    public GenericIterator<E> iterator() {
+      return new GenericIterator<>() {
 
         private final Iterator<E> internalIterator = backingSet.iterator();
 
@@ -240,8 +250,8 @@ public class Pb401 implements Solution {
     }
 
     @Override
-    public GenericSetIterator<E> iterator() {
-      return new GenericSetIterator<>() {
+    public GenericIterator<E> iterator() {
+      return new GenericIterator<>() {
 
         private final Iterator<E> backingIterator = backingMap.keySet().iterator();
 

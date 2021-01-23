@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import net.nergi.Solution;
+import net.nergi.solutions.P735a.GenericCollection;
+import net.nergi.solutions.P735a.GenericIterator;
 
 @SuppressWarnings("unused")
 public class P2ffc implements Solution {
@@ -45,26 +47,14 @@ public class P2ffc implements Solution {
    * Generic stack interface for holding any reference type.
    * @param <E> Type to store
    */
-  public interface GenericStack<E> extends Iterable<E> {
+  // Modified for 735a
+  public interface GenericStack<E> extends GenericCollection<E> {
 
     void push(E item);
 
     E pop();
 
     boolean isEmpty();
-
-    GenericStackIterator<E> iterator();
-
-  }
-
-  /**
-   * Gives a top-down iterator for a string stack. Does not empty the stack.
-   */
-  public interface GenericStackIterator<T> extends Iterator<T> {
-
-    boolean hasNext();
-
-    T next();
 
   }
 
@@ -142,8 +132,8 @@ public class P2ffc implements Solution {
     // Extension for 85bb
     // NOT THREAD SAFE
     @Override
-    public GenericStackIterator<E> iterator() {
-      return new GenericStackIterator<>() {
+    public GenericIterator<E> iterator() {
+      return new GenericIterator<>() {
 
         private int counter = currentPointer;
 
@@ -198,8 +188,8 @@ public class P2ffc implements Solution {
 
     // NOT THREAD SAFE
     @Override
-    public GenericStackIterator<E> iterator() {
-      return new GenericStackIterator<>() {
+    public GenericIterator<E> iterator() {
+      return new GenericIterator<>() {
 
         private int counter = backingList.size();
 

@@ -1,5 +1,6 @@
 package net.nergi.solutions;
 
+import java.util.ArrayDeque;
 import net.nergi.Solution;
 
 @SuppressWarnings("unused")
@@ -56,7 +57,31 @@ public class P7041 implements Solution {
       return children[childIndex];
     }
 
-    public void setChild(int childIndex, TreeNode<E> child) {
+    // We don't want cycles in our trees, as trees *must* be acyclic.
+    public void setChild(int childIndex, TreeNode<E> child) throws IllegalArgumentException {
+      final IllegalArgumentException potentialException = new IllegalArgumentException(
+          "Trees must not contain cycles!"
+      );
+
+      // Prevent direct and indirect cycles in a tree.
+      final ArrayDeque<TreeNode<E>> toVisit = new ArrayDeque<>();
+      toVisit.add(child);
+
+      while (!toVisit.isEmpty()) {
+        final var t = toVisit.pop();
+
+        if (t == this) {
+          throw potentialException;
+        }
+
+        for (int i = 0; i < t.getNumberOfChildren(); ++i) {
+          final var cc = t.getChild(i);
+          if (cc != null) {
+            toVisit.add(cc);
+          }
+        }
+      }
+
       children[childIndex] = child;
     }
 
