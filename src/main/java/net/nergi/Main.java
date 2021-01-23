@@ -37,10 +37,10 @@ public final class Main {
       // class to run via reflection.
       // This is why all solution classes are prefixed with P, as some hex strings are not valid
       // identifiers.
-      Class<?> clazz = Class.forName("net.nergi.solutions.P" + args[0]);
-      Constructor<?> ctor = clazz.getConstructor();
+      final Class<?> clazz = Class.forName("net.nergi.solutions.P" + args[0]);
+      final Constructor<?> ctor = clazz.getConstructor();
 
-      Object solClass = ctor.newInstance();
+      final Object solClass = ctor.newInstance();
       if (solClass instanceof Solution) {
         System.out.println("-------------------------------------------------------------");
         System.out.println(((Solution) solClass).getName());
