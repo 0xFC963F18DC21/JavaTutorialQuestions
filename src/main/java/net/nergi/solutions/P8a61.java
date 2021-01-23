@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import net.nergi.Main;
@@ -155,6 +156,7 @@ public class P8a61 implements Solution {
 
       return sb.toString();
     }
+
   }
 
   public static class MemoryEfficientSet extends AbstractIntSet {
@@ -204,7 +206,7 @@ public class P8a61 implements Solution {
 
   public static class SpeedEfficientSet extends AbstractIntSet {
 
-    private final HashMap<Integer, Boolean> backingMap = new HashMap<>();
+    private final Map<Integer, Boolean> backingMap = new HashMap<>();
 
     @Override
     public void add(int x) {

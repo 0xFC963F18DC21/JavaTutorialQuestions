@@ -122,4 +122,40 @@ public final class Utils {
 
     return lines;
   }
+
+  /**
+   * Runs some code and prints the approximate average time taken to complete.
+   * This default version runs 100 times and prints the average.
+   */
+  public static void benchmarkTime(Runnable r) {
+    benchmarkTime(r, 100);
+  }
+
+  /**
+   * Runs some code and prints the approximate average time taken to complete.
+   * @param r Runnable code
+   * @param amount Amount of runs
+   */
+  @SuppressWarnings("TextBlockMigration")
+  public static void benchmarkTime(Runnable r, int amount) {
+    final long startTime = System.nanoTime();
+
+    for (int i = 0; i < amount; ++i) {
+      r.run();
+    }
+
+    final long endTime = System.nanoTime();
+
+    final double difference = endTime - startTime;
+    final double average = difference / amount;
+
+    System.out.printf(
+        "Time taken for %d runs: %s ns\n"
+            + "     Average time taken: %s ns\n",
+        amount,
+        difference,
+        average
+    );
+  }
+
 }
