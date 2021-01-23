@@ -158,4 +158,9 @@ public final class Utils {
     );
   }
 
+  /**
+   * An empty method used as a sort of "do nothing" method.
+   */
+  public static void pass() {}
+
 }
