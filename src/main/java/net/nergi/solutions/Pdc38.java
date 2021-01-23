@@ -1,9 +1,11 @@
 package net.nergi.solutions;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayDeque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.WeakHashMap;
 import java.util.stream.Collectors;
 import net.nergi.Solution;
 
@@ -58,8 +60,9 @@ public class Pdc38 implements Solution {
     higherups.getTargets().forEach(System.out::println);
   }
 
-  public abstract class EmailAddress {
+  public static abstract class EmailAddress {
 
+    private static final WeakHashMap<String, WeakReference<String>> used = new WeakHashMap<>();
     protected final String identifier;
 
     private EmailAddress() {
@@ -67,7 +70,12 @@ public class Pdc38 implements Solution {
     }
 
     protected EmailAddress(String identifier) {
+      if (used.get(identifier) != null) {
+        throw new IllegalArgumentException("Email address has already been used!");
+      }
+
       this.identifier = identifier;
+      used.put(identifier, new WeakReference<>(identifier));
     }
 
     @Override
@@ -93,7 +101,7 @@ public class Pdc38 implements Solution {
 
   }
 
-  public class IndividualAddress extends EmailAddress {
+  public static class IndividualAddress extends EmailAddress {
 
     public IndividualAddress(String identifier) {
       super(identifier);
@@ -106,7 +114,7 @@ public class Pdc38 implements Solution {
 
   }
 
-  public class GroupAddress extends EmailAddress {
+  public static class GroupAddress extends EmailAddress {
 
     private final Set<EmailAddress> targets;
 
@@ -115,8 +123,31 @@ public class Pdc38 implements Solution {
       targets = new HashSet<>();
     }
 
-    public void addTarget(EmailAddress target) {
+    public void addTarget(EmailAddress target, boolean shouldThrow)
+        throws IllegalArgumentException {
+      if (shouldThrow) {
+        final ArrayDeque<EmailAddress> toVisit = new ArrayDeque<>();
+        toVisit.add(target);
+
+        while (!toVisit.isEmpty()) {
+          final EmailAddress current = toVisit.pop();
+
+          if (current == this) {
+            throw new IllegalArgumentException("Cyclic addition!");
+          }
+
+          if (current instanceof GroupAddress) {
+            toVisit.addAll(((GroupAddress) current).targets);
+          }
+        }
+
+      }
+
       targets.add(target);
+    }
+
+    public void addTarget(EmailAddress target) {
+      addTarget(target, false);
     }
 
     @Override

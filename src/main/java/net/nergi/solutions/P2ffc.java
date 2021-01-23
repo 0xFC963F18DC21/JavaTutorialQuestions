@@ -1,6 +1,6 @@
 package net.nergi.solutions;
 
-import java.util.Iterator;
+import java.util.EmptyStackException;
 import java.util.LinkedList;
 import java.util.List;
 import net.nergi.Solution;
@@ -52,7 +52,7 @@ public class P2ffc implements Solution {
 
     void push(E item);
 
-    E pop();
+    E pop() throws EmptyStackException;
 
     boolean isEmpty();
 
@@ -99,24 +99,24 @@ public class P2ffc implements Solution {
       this.backingArray = new Object[capacity];
     }
 
-    // If the stack is full, does nothing.
+    // If the stack is full, throws an exception (for 5566).
     // Otherwise, pushes the given E on to the top of the stack
     @Override
-    public void push(E item) {
+    public void push(E item) throws ArrayIndexOutOfBoundsException {
       if (currentPointer >= backingArray.length) {
-        return;
+        throw new ArrayIndexOutOfBoundsException("Stack is full!");
       }
 
       backingArray[currentPointer++] = item;
     }
 
-    // If the stack is empty, leaves the stack unchanged and returns
-    // null. Otherwise, removes the item that is on the top of
+    // If the stack is empty, leaves the stack unchanged throws an exception
+    // (for 5566). Otherwise, removes the item that is on the top of
     // the stack and returns it
     @Override
-    public E pop() {
+    public E pop() throws EmptyStackException {
       if (isEmpty()) {
-        return null;
+        throw new EmptyStackException();
       }
 
       // Strings do NOT get cleared from the array
@@ -161,20 +161,20 @@ public class P2ffc implements Solution {
       this.backingList = new LinkedList<>();
     }
 
-    // If the stack is full, does nothing.
+    // If the stack is full, throws an exception (for 5566).
     // Otherwise, pushes the given item on to the top of the stack
     @Override
     public void push(E item) {
       backingList.add(item);
     }
 
-    // If the stack is empty, leaves the stack unchanged and returns
-    // null. Otherwise, removes the string that is on the top of
+    // If the stack is empty, leaves the stack unchanged throws an exception
+    // (for 5566). Otherwise, removes the string that is on the top of
     // the stack and returns it
     @Override
-    public E pop() {
+    public E pop() throws EmptyStackException {
       if (isEmpty()) {
-        return null;
+        throw new EmptyStackException();
       }
 
       return backingList.remove(backingList.size() - 1);
