@@ -3,6 +3,8 @@ package net.nergi.solutions;
 import static net.nergi.Utils.arrayListOf;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.function.Supplier;
 import net.nergi.solutions.Pe6fd.BitSet;
 import net.nergi.solutions.Pe6fd.BitSet32;
@@ -17,7 +19,7 @@ import org.junit.jupiter.api.Test;
 public class SolutionTests {
 
   @Test
-  public void next98e3() {
+  public void next98E3() {
     assertEquals(16, P98e3.next(5));
     assertEquals(8, P98e3.next(16));
     assertEquals(10, P98e3.next(3));
@@ -25,7 +27,7 @@ public class SolutionTests {
   }
 
   @Test
-  public void isPalindromicf79b() {
+  public void isPalindromicF79B() {
     assertTrue(Pf79b.isPalindromic("w"));
     assertTrue(Pf79b.isPalindromic("hh"));
     assertTrue(Pf79b.isPalindromic("wow"));
@@ -36,7 +38,7 @@ public class SolutionTests {
   }
 
   @Test
-  public void pigLatinisef7c3() {
+  public void pigLatiniseF7C3() {
     assertEquals("eyhay", Pf7c3.pigLatinise("hey"));
     assertEquals("Eyhay", Pf7c3.pigLatinise("Hey"));
 
@@ -45,7 +47,7 @@ public class SolutionTests {
   }
 
   @Test
-  public void getWords67dd() {
+  public void getWords67DD() {
     assertEquals(arrayListOf("a", "new", "day"), P67dd.getWords("a new day"));
     assertEquals(arrayListOf("21", "12", "2012"), P67dd.getWords("21/12/2012"));
     assertEquals(
@@ -56,7 +58,7 @@ public class SolutionTests {
   }
 
   @Test
-  public void rectanglec2b8() {
+  public void rectangleC2B8() {
     Pc2b8.Rectangle rectangle1 = new Pc2b8.Rectangle(
         new Pc2b8.Point(0, 0), 4, 4
     );
@@ -94,7 +96,7 @@ public class SolutionTests {
   }
 
   @Test
-  public void bitSet36fd() {
+  public void bitSet36FD() {
     final Supplier<BitSet> intersectionTestSetSupplier = () -> {
       BitSet8 set = new BitSet8();
       set.add(1);
@@ -176,6 +178,57 @@ public class SolutionTests {
 
     assertThrows(IllegalArgumentException.class, () -> bsa.add(Integer.MAX_VALUE));
     assertThrows(IllegalArgumentException.class, () -> bsa.add(-1));
+  }
+
+  @Test
+  public void streamMethodsFE94() {
+    final List<String> testList = List.of("The", "quick", "brown", "fox");
+    final List<String> expectedReversals = List.of("ehT", "kciuq", "nworb", "xof");
+
+    assertEquals(expectedReversals, Pfe94.reverseEachString(testList));
+    assertEquals(expectedReversals, Pfe94.reverseEachStringMonolithic(testList));
+    assertEquals(Pfe94.reverseEachString(testList), Pfe94.reverseEachStringMonolithic(testList));
+
+    final List<String> anotherTestList = List.of("9nine'r", "invuhlid", "4kliks", "yote");
+    final List<Double> expectedDoubles = List.of(3.0, 2.0);
+
+    assertEquals(expectedDoubles, Pfe94.sqrtsOfFirstDigits(anotherTestList));
+    assertEquals(expectedDoubles, Pfe94.sqrtsOfFirstDigitsMonolithic(anotherTestList));
+    assertEquals(
+        Pfe94.sqrtsOfFirstDigits(anotherTestList),
+        Pfe94.sqrtsOfFirstDigitsMonolithic(anotherTestList)
+    );
+  }
+
+  @Test
+  public void streamMethods68E6() {
+    final List<Integer> list1 = List.of(1, 2, 3, 4, 5, 9);
+    final List<Integer> list2 = List.of(1, 10, 100, 1000, 10000);
+    final List<Integer> list3 = List.of(6, 7, 8);
+    final List<List<Integer>> listOfLists = List.of(list1, list2, list3);
+
+    final List<Integer> allIntegers = P68e6.concatenate(listOfLists);
+    final int maxList1 = P68e6.findMax(list1);
+    final int minList2 = P68e6.findMin(list2);
+    final int maxEmpty = P68e6.findMax(Collections.emptyList());
+    final int minEmpty = P68e6.findMin(Collections.emptyList());
+    final int maxOrZeroEmpty = P68e6.findMinOrZero(Collections.emptyList());
+    final int minOrZeroEmpty = P68e6.findMaxOrZero(Collections.emptyList());
+    final int minOfMaxes = P68e6.findMinOfMaxes(listOfLists);
+    final int minOfMaxesEmpty = P68e6.findMinOfMaxes(Collections.emptyList());
+    final int minOfMaxesListOfEmptyLists = P68e6.findMinOfMaxes(
+        List.of(Collections.emptyList(), Collections.emptyList()));
+
+    assertEquals(List.of(1, 2, 3, 4, 5, 9, 1, 10, 100, 1000, 10000, 6, 7, 8), allIntegers);
+    assertEquals(9, maxList1);
+    assertEquals(1, minList2);
+    assertEquals(Integer.MIN_VALUE, maxEmpty);
+    assertEquals(Integer.MAX_VALUE, minEmpty);
+    assertEquals(0, maxOrZeroEmpty);
+    assertEquals(0, minOrZeroEmpty);
+    assertEquals(8, minOfMaxes);
+    assertEquals(Integer.MAX_VALUE, minOfMaxesEmpty);
+    assertEquals(Integer.MIN_VALUE, minOfMaxesListOfEmptyLists);
   }
 
 }
