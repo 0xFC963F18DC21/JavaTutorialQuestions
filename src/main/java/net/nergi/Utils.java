@@ -12,9 +12,15 @@ public final class Utils {
 
   /**
    * BufferedReader for all methods and for use elsewhere.
+   * Final warning suppressed due to 5d30.
    */
+  @SuppressWarnings("FieldMayBeFinal")
   private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+  /**
+   * Gets the current BufferedReader instance in this class.
+   * Required due to 5d30.
+   */
   public static BufferedReader getBr() {
     return br;
   }
