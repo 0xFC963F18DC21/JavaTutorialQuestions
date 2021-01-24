@@ -80,9 +80,9 @@ public class P5d30 implements Solution {
 
   /**
    * This has real
-   *
+   * --------------------------------
    * #define true (rand() % 100 < 95)
-   *
+   * --------------------------------
    * vibes.
    */
   public static class UnreliableBufferedReader extends BufferedReader {
