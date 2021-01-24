@@ -13,7 +13,11 @@ public final class Utils {
   /**
    * BufferedReader for all methods and for use elsewhere.
    */
-  public static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+  private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+  public static BufferedReader getBr() {
+    return br;
+  }
 
   /**
    * Constructs an immutable list of items. Depreciated. Use List.of() instead.
@@ -99,6 +103,15 @@ public final class Utils {
    * Windows or CTRL+D in *nix), or when the number of collected lines exceeds some amount.
    */
   public static ArrayList<String> getUserLines(int amount) {
+    return getUserLines(amount, true);
+  }
+
+  /**
+   * Gets lines of input from the user. Stops collecting lines when EOF is given (via CTRL+Z in
+   * Windows or CTRL+D in *nix), or when the number of collected lines exceeds some amount.
+   * Does not return early on IOException or null input if shouldEarlyReturn is false.
+   */
+  public static ArrayList<String> getUserLines(int amount, boolean shouldEarlyReturn) {
     final ArrayList<String> lines = new ArrayList<>();
     String line;
 
@@ -112,11 +125,20 @@ public final class Utils {
           if (lines.size() >= amount && amount > 0) {
             break;
           }
+        } else {
+          if (!shouldEarlyReturn) {
+            line = "";
+          }
         }
       } catch (IOException e) {
         // Stop taking in input, something went wrong.
-        e.printStackTrace();
-        return lines;
+        if (shouldEarlyReturn) {
+          e.printStackTrace();
+          return lines;
+        } else {
+          System.out.println("Input ignored due to IOException.");
+          line = "";
+        }
       }
     } while (line != null);
 

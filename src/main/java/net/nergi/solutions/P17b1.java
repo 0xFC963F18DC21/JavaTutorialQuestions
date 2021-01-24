@@ -146,7 +146,7 @@ public class P17b1 implements Solution {
     // Added original as signature does not match
     public int foobarOriginal() throws IOException {
       try {
-        return Integer.parseInt(Utils.br.readLine());
+        return Integer.parseInt(Utils.getBr().readLine());
       } catch (NumberFormatException e) {
         return -1;
       }

@@ -49,7 +49,7 @@ public class P8a61 implements Solution {
       do {
         try {
           System.out.println("Enter int to test for membership:");
-          line = Utils.br.readLine();
+          line = Utils.getBr().readLine();
 
           if (line != null) {
             int res = Integer.parseInt(line);
