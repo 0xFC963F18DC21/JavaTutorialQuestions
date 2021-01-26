@@ -75,9 +75,9 @@ loadScripts(document, 'script');</script>
 <div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">net.nergi.solutions</a></div>
 <h1 title="Class Pdc38.GroupAddress" class="title">Class Pdc38.GroupAddress</h1>
 </div>
-<div class="inheritance" title="Inheritance Tree">java.lang.Object
-<div class="inheritance"><a href="Pdc38.EmailAddress.html" title="class in net.nergi.solutions">net.nergi.solutions.Pdc38.EmailAddress</a>
-<div class="inheritance">net.nergi.solutions.Pdc38.GroupAddress</div>
+<div class="inheritance" title="Inheritance Tree">Object
+<div class="inheritance"><a href="Pdc38.EmailAddress.html" title="class in net.nergi.solutions">Pdc38.EmailAddress</a>
+<div class="inheritance">GroupAddress</div>
 </div>
 </div>
 <section class="description">
@@ -96,7 +96,7 @@ extends <a href="Pdc38.EmailAddress.html" title="class in net.nergi.solutions">P
 <section class="field-summary" id="field.summary">
 <h2>Field Summary</h2>
 <div class="inherited-list">
-<h3 id="fields.inherited.from.class.net.nergi.solutions.Pdc38.EmailAddress">Fields inherited from class&nbsp;net.nergi.solutions.<a href="Pdc38.EmailAddress.html" title="class in net.nergi.solutions">Pdc38.EmailAddress</a></h3>
+<h3 id="fields.inherited.from.class.Pdc38.EmailAddress">Fields inherited from class&nbsp;<a href="Pdc38.EmailAddress.html" title="class in net.nergi.solutions">Pdc38.EmailAddress</a></h3>
 <code><a href="Pdc38.EmailAddress.html#identifier">identifier</a></code></div>
 </section>
 </li>
@@ -115,7 +115,7 @@ extends <a href="Pdc38.EmailAddress.html" title="class in net.nergi.solutions">P
 </thead>
 <tbody>
 <tr class="alt-color">
-<th class="col-constructor-name" scope="row"><code><span class="member-name-link"><a href="#%3Cinit%3E(java.lang.String)">GroupAddress</a></span>&#8203;(java.lang.String&nbsp;identifier)</code></th>
+<th class="col-constructor-name" scope="row"><code><span class="member-name-link"><a href="#%3Cinit%3E(java.lang.String)">GroupAddress</a></span>&#8203;(String&nbsp;identifier)</code></th>
 <td class="col-last">&nbsp;</td>
 </tr>
 </tbody>
@@ -151,7 +151,7 @@ boolean&nbsp;shouldThrow)</code></th>
 <td class="col-last">&nbsp;</td>
 </tr>
 <tr class="alt-color" id="i2">
-<td class="col-first"><code>java.util.Set&lt;<a href="Pdc38.IndividualAddress.html" title="class in net.nergi.solutions">Pdc38.IndividualAddress</a>&gt;</code></td>
+<td class="col-first"><code>Set&lt;<a href="Pdc38.IndividualAddress.html" title="class in net.nergi.solutions">Pdc38.IndividualAddress</a>&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#getTargets()">getTargets</a></span>()</code></th>
 <td class="col-last">&nbsp;</td>
 </tr>
@@ -160,10 +160,10 @@ boolean&nbsp;shouldThrow)</code></th>
 </div>
 </div>
 <div class="inherited-list">
-<h3 id="methods.inherited.from.class.net.nergi.solutions.Pdc38.EmailAddress">Methods inherited from class&nbsp;net.nergi.solutions.<a href="Pdc38.EmailAddress.html" title="class in net.nergi.solutions">Pdc38.EmailAddress</a></h3>
+<h3 id="methods.inherited.from.class.Pdc38.EmailAddress">Methods inherited from class&nbsp;<a href="Pdc38.EmailAddress.html" title="class in net.nergi.solutions">Pdc38.EmailAddress</a></h3>
 <code><a href="Pdc38.EmailAddress.html#equals(java.lang.Object)">equals</a>, <a href="Pdc38.EmailAddress.html#hashCode()">hashCode</a>, <a href="Pdc38.EmailAddress.html#toString()">toString</a></code></div>
 <div class="inherited-list">
-<h3 id="methods.inherited.from.class.java.lang.Object">Methods inherited from class&nbsp;java.lang.Object</h3>
+<h3 id="methods.inherited.from.class.Object">Methods inherited from class&nbsp;Object</h3>
 <code>clone, finalize, getClass, notify, notifyAll, wait, wait, wait</code></div>
 </section>
 </li>
@@ -179,7 +179,7 @@ boolean&nbsp;shouldThrow)</code></th>
 <li>
 <section class="detail" id="&lt;init&gt;(java.lang.String)">
 <h3>GroupAddress</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="member-name">GroupAddress</span>&#8203;(<span class="parameters">java.lang.String&nbsp;identifier)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="member-name">GroupAddress</span>&#8203;(<span class="parameters">String&nbsp;identifier)</span></div>
 </section>
 </li>
 </ul>
@@ -195,10 +195,10 @@ boolean&nbsp;shouldThrow)</code></th>
 <h3>addTarget</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="member-name">addTarget</span>&#8203;(<span class="parameters"><a href="Pdc38.EmailAddress.html" title="class in net.nergi.solutions">Pdc38.EmailAddress</a>&nbsp;target,
 boolean&nbsp;shouldThrow)</span>
-               throws <span class="exceptions">java.lang.IllegalArgumentException</span></div>
+               throws <span class="exceptions">IllegalArgumentException</span></div>
 <dl class="notes">
 <dt>Throws:</dt>
-<dd><code>java.lang.IllegalArgumentException</code></dd>
+<dd><code>IllegalArgumentException</code></dd>
 </dl>
 </section>
 </li>
@@ -211,13 +211,13 @@ boolean&nbsp;shouldThrow)</span>
 <li>
 <section class="detail" id="getTargets()">
 <h3>getTargets</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">java.util.Set&lt;<a href="Pdc38.IndividualAddress.html" title="class in net.nergi.solutions">Pdc38.IndividualAddress</a>&gt;</span>&nbsp;<span class="member-name">getTargets</span>()
-                                                  throws <span class="exceptions">java.lang.IllegalArgumentException</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">Set&lt;<a href="Pdc38.IndividualAddress.html" title="class in net.nergi.solutions">Pdc38.IndividualAddress</a>&gt;</span>&nbsp;<span class="member-name">getTargets</span>()
+                                        throws <span class="exceptions">IllegalArgumentException</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Pdc38.EmailAddress.html#getTargets()">getTargets</a></code>&nbsp;in class&nbsp;<code><a href="Pdc38.EmailAddress.html" title="class in net.nergi.solutions">Pdc38.EmailAddress</a></code></dd>
 <dt>Throws:</dt>
-<dd><code>java.lang.IllegalArgumentException</code></dd>
+<dd><code>IllegalArgumentException</code></dd>
 </dl>
 </section>
 </li>

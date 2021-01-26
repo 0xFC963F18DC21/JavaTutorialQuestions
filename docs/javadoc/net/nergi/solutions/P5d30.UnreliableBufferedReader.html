@@ -75,17 +75,17 @@ loadScripts(document, 'script');</script>
 <div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">net.nergi.solutions</a></div>
 <h1 title="Class P5d30.UnreliableBufferedReader" class="title">Class P5d30.UnreliableBufferedReader</h1>
 </div>
-<div class="inheritance" title="Inheritance Tree">java.lang.Object
-<div class="inheritance">java.io.Reader
-<div class="inheritance">java.io.BufferedReader
-<div class="inheritance">net.nergi.solutions.P5d30.UnreliableBufferedReader</div>
+<div class="inheritance" title="Inheritance Tree">Object
+<div class="inheritance">Reader
+<div class="inheritance">BufferedReader
+<div class="inheritance">UnreliableBufferedReader</div>
 </div>
 </div>
 </div>
 <section class="description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code>java.io.Closeable</code>, <code>java.lang.AutoCloseable</code>, <code>java.lang.Readable</code></dd>
+<dd><code>Closeable</code>, <code>AutoCloseable</code>, <code>Readable</code></dd>
 </dl>
 <dl class="notes">
 <dt>Enclosing class:</dt>
@@ -93,7 +93,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <pre>public static class <span class="type-name-label">P5d30.UnreliableBufferedReader</span>
-extends java.io.BufferedReader</pre>
+extends BufferedReader</pre>
 <div class="block">This has real <code>#define true (rand() % 100 &lt; 95)</code> vibes.</div>
 </section>
 <section class="summary">
@@ -103,7 +103,7 @@ extends java.io.BufferedReader</pre>
 <section class="field-summary" id="field.summary">
 <h2>Field Summary</h2>
 <div class="inherited-list">
-<h3 id="fields.inherited.from.class.java.io.Reader">Fields inherited from class&nbsp;java.io.Reader</h3>
+<h3 id="fields.inherited.from.class.Reader">Fields inherited from class&nbsp;Reader</h3>
 <code>lock</code></div>
 </section>
 </li>
@@ -122,7 +122,7 @@ extends java.io.BufferedReader</pre>
 </thead>
 <tbody>
 <tr class="alt-color">
-<th class="col-constructor-name" scope="row"><code><span class="member-name-link"><a href="#%3Cinit%3E(java.io.Reader,double)">UnreliableBufferedReader</a></span>&#8203;(java.io.Reader&nbsp;in,
+<th class="col-constructor-name" scope="row"><code><span class="member-name-link"><a href="#%3Cinit%3E(java.io.Reader,double)">UnreliableBufferedReader</a></span>&#8203;(Reader&nbsp;in,
 double&nbsp;probabilityOfError)</code></th>
 <td class="col-last">&nbsp;</td>
 </tr>
@@ -153,7 +153,7 @@ double&nbsp;probabilityOfError)</code></th>
 <td class="col-last">&nbsp;</td>
 </tr>
 <tr class="row-color" id="i1">
-<td class="col-first"><code>java.lang.String</code></td>
+<td class="col-first"><code>String</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#readLine()">readLine</a></span>()</code></th>
 <td class="col-last">&nbsp;</td>
 </tr>
@@ -162,13 +162,13 @@ double&nbsp;probabilityOfError)</code></th>
 </div>
 </div>
 <div class="inherited-list">
-<h3 id="methods.inherited.from.class.java.io.BufferedReader">Methods inherited from class&nbsp;java.io.BufferedReader</h3>
+<h3 id="methods.inherited.from.class.BufferedReader">Methods inherited from class&nbsp;BufferedReader</h3>
 <code>close, lines, mark, markSupported, read, read, ready, reset, skip</code></div>
 <div class="inherited-list">
-<h3 id="methods.inherited.from.class.java.io.Reader">Methods inherited from class&nbsp;java.io.Reader</h3>
+<h3 id="methods.inherited.from.class.Reader">Methods inherited from class&nbsp;Reader</h3>
 <code>nullReader, read, read, transferTo</code></div>
 <div class="inherited-list">
-<h3 id="methods.inherited.from.class.java.lang.Object">Methods inherited from class&nbsp;java.lang.Object</h3>
+<h3 id="methods.inherited.from.class.Object">Methods inherited from class&nbsp;Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></div>
 </section>
 </li>
@@ -184,7 +184,7 @@ double&nbsp;probabilityOfError)</code></th>
 <li>
 <section class="detail" id="&lt;init&gt;(java.io.Reader,double)">
 <h3>UnreliableBufferedReader</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="member-name">UnreliableBufferedReader</span>&#8203;(<span class="parameters">java.io.Reader&nbsp;in,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="member-name">UnreliableBufferedReader</span>&#8203;(<span class="parameters">Reader&nbsp;in,
 double&nbsp;probabilityOfError)</span></div>
 </section>
 </li>
@@ -199,13 +199,13 @@ double&nbsp;probabilityOfError)</span></div>
 <li>
 <section class="detail" id="readLine()">
 <h3>readLine</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">java.lang.String</span>&nbsp;<span class="member-name">readLine</span>()
-                          throws <span class="exceptions">java.io.IOException</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">String</span>&nbsp;<span class="member-name">readLine</span>()
+                throws <span class="exceptions">IOException</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
-<dd><code>readLine</code>&nbsp;in class&nbsp;<code>java.io.BufferedReader</code></dd>
+<dd><code>readLine</code>&nbsp;in class&nbsp;<code>BufferedReader</code></dd>
 <dt>Throws:</dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>IOException</code></dd>
 </dl>
 </section>
 </li>

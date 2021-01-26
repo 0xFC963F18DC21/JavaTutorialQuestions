@@ -75,9 +75,9 @@ loadScripts(document, 'script');</script>
 <div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">net.nergi.solutions</a></div>
 <h1 title="Class P8d24.LuckyFighter" class="title">Class P8d24.LuckyFighter</h1>
 </div>
-<div class="inheritance" title="Inheritance Tree">java.lang.Object
-<div class="inheritance"><a href="P7ec8.Fighter.html" title="class in net.nergi.solutions">net.nergi.solutions.P7ec8.Fighter</a>
-<div class="inheritance">net.nergi.solutions.P8d24.LuckyFighter</div>
+<div class="inheritance" title="Inheritance Tree">Object
+<div class="inheritance"><a href="P7ec8.Fighter.html" title="class in net.nergi.solutions">P7ec8.Fighter</a>
+<div class="inheritance">LuckyFighter</div>
 </div>
 </div>
 <section class="description">
@@ -96,7 +96,7 @@ extends <a href="P7ec8.Fighter.html" title="class in net.nergi.solutions">P7ec8.
 <section class="field-summary" id="field.summary">
 <h2>Field Summary</h2>
 <div class="inherited-list">
-<h3 id="fields.inherited.from.class.net.nergi.solutions.P7ec8.Fighter">Fields inherited from class&nbsp;net.nergi.solutions.<a href="P7ec8.Fighter.html" title="class in net.nergi.solutions">P7ec8.Fighter</a></h3>
+<h3 id="fields.inherited.from.class.P7ec8.Fighter">Fields inherited from class&nbsp;<a href="P7ec8.Fighter.html" title="class in net.nergi.solutions">P7ec8.Fighter</a></h3>
 <code><a href="P7ec8.Fighter.html#actionRnd">actionRnd</a>, <a href="P7ec8.Fighter.html#name">name</a>, <a href="P7ec8.Fighter.html#skill">skill</a>, <a href="P7ec8.Fighter.html#SKILL_UPPER_BOUND">SKILL_UPPER_BOUND</a>, <a href="P7ec8.Fighter.html#stamina">stamina</a>, <a href="P7ec8.Fighter.html#STAMINA_UPPER_BOUND">STAMINA_UPPER_BOUND</a>, <a href="P7ec8.Fighter.html#type">type</a></code></div>
 </section>
 </li>
@@ -119,19 +119,19 @@ extends <a href="P7ec8.Fighter.html" title="class in net.nergi.solutions">P7ec8.
 <td class="col-last">&nbsp;</td>
 </tr>
 <tr class="row-color">
-<th class="col-constructor-name" scope="row"><code><span class="member-name-link"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,int,int,int,java.util.Random,net.nergi.solutions.P8d24.FighterStyle)">LuckyFighter</a></span>&#8203;(java.lang.String&nbsp;name,
-java.lang.String&nbsp;type,
+<th class="col-constructor-name" scope="row"><code><span class="member-name-link"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,int,int,int,java.util.Random,net.nergi.solutions.P8d24.FighterStyle)">LuckyFighter</a></span>&#8203;(String&nbsp;name,
+String&nbsp;type,
 int&nbsp;skill,
 int&nbsp;stamina,
 int&nbsp;luck,
-java.util.Random&nbsp;rnd,
+Random&nbsp;rnd,
 <a href="P8d24.FighterStyle.html" title="enum in net.nergi.solutions">P8d24.FighterStyle</a>&nbsp;style)</code></th>
 <td class="col-last">&nbsp;</td>
 </tr>
 <tr class="alt-color">
-<th class="col-constructor-name" scope="row"><code><span class="member-name-link"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.util.Random)">LuckyFighter</a></span>&#8203;(java.lang.String&nbsp;name,
-java.lang.String&nbsp;type,
-java.util.Random&nbsp;generator)</code></th>
+<th class="col-constructor-name" scope="row"><code><span class="member-name-link"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.util.Random)">LuckyFighter</a></span>&#8203;(String&nbsp;name,
+String&nbsp;type,
+Random&nbsp;generator)</code></th>
 <td class="col-last">&nbsp;</td>
 </tr>
 </tbody>
@@ -182,7 +182,7 @@ java.util.Random&nbsp;generator)</code></th>
 </td>
 </tr>
 <tr class="alt-color" id="i4">
-<td class="col-first"><code>java.lang.String</code></td>
+<td class="col-first"><code>String</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#toString()">toString</a></span>()</code></th>
 <td class="col-last">&nbsp;</td>
 </tr>
@@ -191,7 +191,7 @@ java.util.Random&nbsp;generator)</code></th>
 </div>
 </div>
 <div class="inherited-list">
-<h3 id="methods.inherited.from.class.java.lang.Object">Methods inherited from class&nbsp;java.lang.Object</h3>
+<h3 id="methods.inherited.from.class.Object">Methods inherited from class&nbsp;Object</h3>
 <code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></div>
 </section>
 </li>
@@ -213,26 +213,26 @@ java.util.Random&nbsp;generator)</code></th>
 <li>
 <section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.String,int,int,int,java.util.Random,net.nergi.solutions.P8d24.FighterStyle)">
 <h3>LuckyFighter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="member-name">LuckyFighter</span>&#8203;(<span class="parameters">java.lang.String&nbsp;name,
-java.lang.String&nbsp;type,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="member-name">LuckyFighter</span>&#8203;(<span class="parameters">String&nbsp;name,
+String&nbsp;type,
 int&nbsp;skill,
 int&nbsp;stamina,
 int&nbsp;luck,
-java.util.Random&nbsp;rnd,
+Random&nbsp;rnd,
 <a href="P8d24.FighterStyle.html" title="enum in net.nergi.solutions">P8d24.FighterStyle</a>&nbsp;style)</span>
-             throws <span class="exceptions">java.lang.IllegalArgumentException</span></div>
+             throws <span class="exceptions">IllegalArgumentException</span></div>
 <dl class="notes">
 <dt>Throws:</dt>
-<dd><code>java.lang.IllegalArgumentException</code></dd>
+<dd><code>IllegalArgumentException</code></dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.String,java.util.Random)">
 <h3>LuckyFighter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="member-name">LuckyFighter</span>&#8203;(<span class="parameters">java.lang.String&nbsp;name,
-java.lang.String&nbsp;type,
-java.util.Random&nbsp;generator)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="member-name">LuckyFighter</span>&#8203;(<span class="parameters">String&nbsp;name,
+String&nbsp;type,
+Random&nbsp;generator)</span></div>
 </section>
 </li>
 </ul>
@@ -292,7 +292,7 @@ java.util.Random&nbsp;generator)</span></div>
 <li>
 <section class="detail" id="toString()">
 <h3>toString</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">java.lang.String</span>&nbsp;<span class="member-name">toString</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">String</span>&nbsp;<span class="member-name">toString</span>()</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="P7ec8.Fighter.html#toString()">toString</a></code>&nbsp;in class&nbsp;<code><a href="P7ec8.Fighter.html" title="class in net.nergi.solutions">P7ec8.Fighter</a></code></dd>
