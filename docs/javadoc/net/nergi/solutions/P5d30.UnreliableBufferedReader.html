@@ -15,7 +15,7 @@
 <script type="text/javascript" src="../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
-<script type="text/javascript">var data = {"i0":10,"i1":10};
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "alt-color";
 var rowColor = "row-color";
@@ -94,7 +94,8 @@ loadScripts(document, 'script');</script>
 <hr>
 <pre>public static class <span class="type-name-label">P5d30.UnreliableBufferedReader</span>
 extends BufferedReader</pre>
-<div class="block">This has real <code>#define true (rand() % 100 &lt; 95)</code> vibes.</div>
+<div class="block">A <code>BufferedReader</code> that is designed to fail randomly. This has real <code>
+ #define true (rand() % 100 &lt; 95)</code> vibes.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -124,7 +125,10 @@ extends BufferedReader</pre>
 <tr class="alt-color">
 <th class="col-constructor-name" scope="row"><code><span class="member-name-link"><a href="#%3Cinit%3E(java.io.Reader,double)">UnreliableBufferedReader</a></span>&#8203;(Reader&nbsp;in,
 double&nbsp;probabilityOfError)</code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Create a new <code>UnreliableBufferedReader</code> with a given reader and a probability to
+ fail.</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -150,12 +154,32 @@ double&nbsp;probabilityOfError)</code></th>
 <tr class="alt-color" id="i0">
 <td class="col-first"><code>long</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#getReads()">getReads</a></span>()</code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Get the number of times a read method has been called.</div>
+</td>
 </tr>
 <tr class="row-color" id="i1">
+<td class="col-first"><code>int</code></td>
+<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#read()">read</a></span>()</code></th>
+<td class="col-last">
+<div class="block">"""Attempt""" to read a character from the reader.</div>
+</td>
+</tr>
+<tr class="alt-color" id="i2">
+<td class="col-first"><code>int</code></td>
+<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#read(char%5B%5D,int,int)">read</a></span>&#8203;(char[]&nbsp;cbuf,
+int&nbsp;off,
+int&nbsp;len)</code></th>
+<td class="col-last">
+<div class="block">"""Attempt""" to read part of the reader into a given character array.</div>
+</td>
+</tr>
+<tr class="row-color" id="i3">
 <td class="col-first"><code>String</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#readLine()">readLine</a></span>()</code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">"""Attempt""" to read a line from the reader.</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -163,7 +187,7 @@ double&nbsp;probabilityOfError)</code></th>
 </div>
 <div class="inherited-list">
 <h3 id="methods.inherited.from.class.BufferedReader">Methods inherited from class&nbsp;BufferedReader</h3>
-<code>close, lines, mark, markSupported, read, read, ready, reset, skip</code></div>
+<code>close, lines, mark, markSupported, ready, reset, skip</code></div>
 <div class="inherited-list">
 <h3 id="methods.inherited.from.class.Reader">Methods inherited from class&nbsp;Reader</h3>
 <code>nullReader, read, read, transferTo</code></div>
@@ -186,6 +210,13 @@ double&nbsp;probabilityOfError)</code></th>
 <h3>UnreliableBufferedReader</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="member-name">UnreliableBufferedReader</span>&#8203;(<span class="parameters">Reader&nbsp;in,
 double&nbsp;probabilityOfError)</span></div>
+<div class="block">Create a new <code>UnreliableBufferedReader</code> with a given reader and a probability to
+ fail.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>in</code> - <code>Reader</code> to read from</dd>
+<dd><code>probabilityOfError</code> - Probability of read methods throwing an <code>IOException</code>.</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -201,11 +232,51 @@ double&nbsp;probabilityOfError)</span></div>
 <h3>readLine</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">String</span>&nbsp;<span class="member-name">readLine</span>()
                 throws <span class="exceptions">IOException</span></div>
+<div class="block">"""Attempt""" to read a line from the reader.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code>readLine</code>&nbsp;in class&nbsp;<code>BufferedReader</code></dd>
+<dt>Returns:</dt>
+<dd>A line if the read succeeds.</dd>
 <dt>Throws:</dt>
-<dd><code>IOException</code></dd>
+<dd><code>IOException</code> - Throws on a normal <code>IOException</code> or when it decides to based on
+     random chance.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="read()">
+<h3>read</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="member-name">read</span>()
+         throws <span class="exceptions">IOException</span></div>
+<div class="block">"""Attempt""" to read a character from the reader.</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code>read</code>&nbsp;in class&nbsp;<code>BufferedReader</code></dd>
+<dt>Returns:</dt>
+<dd>A character from 0x0000 to 0xffff if successful.</dd>
+<dt>Throws:</dt>
+<dd><code>IOException</code> - Throws on a normal <code>IOException</code> or when it decides to based on
+     random chance.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="read(char[],int,int)">
+<h3>read</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="member-name">read</span>&#8203;(<span class="parameters">char[]&nbsp;cbuf,
+int&nbsp;off,
+int&nbsp;len)</span>
+         throws <span class="exceptions">IOException</span></div>
+<div class="block">"""Attempt""" to read part of the reader into a given character array.</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code>read</code>&nbsp;in class&nbsp;<code>BufferedReader</code></dd>
+<dt>Returns:</dt>
+<dd>Number of characters read, or -1 if the stream ended.</dd>
+<dt>Throws:</dt>
+<dd><code>IOException</code> - Throws on a normal <code>IOException</code> or when it decides to based on
+     random chance.</dd>
 </dl>
 </section>
 </li>
@@ -213,6 +284,7 @@ double&nbsp;probabilityOfError)</span></div>
 <section class="detail" id="getReads()">
 <h3>getReads</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="member-name">getReads</span>()</div>
+<div class="block">Get the number of times a read method has been called.</div>
 </section>
 </li>
 </ul>

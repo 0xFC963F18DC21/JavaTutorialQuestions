@@ -73,18 +73,36 @@ public class P5d30 implements Solution {
     System.out.printf("Attempts: %d, Lines: 5\n", ubr.getReads());
   }
 
-  /** This has real <code>#define true (rand() % 100 &lt; 95)</code> vibes. */
+  /**
+   * A {@link BufferedReader} that is designed to fail randomly. This has real <code>
+   * #define true (rand() % 100 &lt; 95)</code> vibes.
+   */
+  @SuppressWarnings("ResultOfMethodCallIgnored")
   public static class UnreliableBufferedReader extends BufferedReader {
 
     private final Random rnd = new Random();
     private final double probabilityOfError;
     private long reads = 0;
 
+    /**
+     * Create a new <code>UnreliableBufferedReader</code> with a given reader and a probability to
+     * fail.
+     *
+     * @param in {@link Reader} to read from
+     * @param probabilityOfError Probability of read methods throwing an {@link IOException}.
+     */
     public UnreliableBufferedReader(Reader in, double probabilityOfError) {
       super(in);
       this.probabilityOfError = Math.min(1, Math.max(0, probabilityOfError));
     }
 
+    /**
+     * """Attempt""" to read a line from the reader.
+     *
+     * @return A line if the read succeeds.
+     * @throws IOException Throws on a normal {@link IOException} or when it decides to based on
+     *     random chance.
+     */
     @Override
     public String readLine() throws IOException {
       ++reads;
@@ -97,6 +115,47 @@ public class P5d30 implements Solution {
       }
     }
 
+    /**
+     * """Attempt""" to read a character from the reader.
+     *
+     * @return A character from 0x0000 to 0xffff if successful.
+     * @throws IOException Throws on a normal {@link IOException} or when it decides to based on
+     *     random chance.
+     */
+    @Override
+    public int read() throws IOException {
+      ++reads;
+
+      if (rnd.nextDouble() <= probabilityOfError) {
+        super.read();
+        throw new IOException("Error occurred on input stream.");
+      } else {
+        return super.read();
+      }
+    }
+
+    /**
+     * """Attempt""" to read part of the reader into a given character array.
+     *
+     * @return Number of characters read, or -1 if the stream ended.
+     * @throws IOException Throws on a normal {@link IOException} or when it decides to based on
+     *     random chance.
+     */
+    @Override
+    public int read(char[] cbuf, int off, int len) throws IOException {
+      ++reads;
+
+      if (rnd.nextDouble() <= probabilityOfError) {
+        final char[] dummy = new char[len];
+        super.read(dummy, 0, len);
+
+        throw new IOException("Error occurred on input stream.");
+      } else {
+        return super.read(cbuf, off, len);
+      }
+    }
+
+    /** Get the number of times a read method has been called. */
     public long getReads() {
       return reads;
     }
