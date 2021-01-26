@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.Vector;
 import net.nergi.Solution;
 
+/** Solution for 11e2. */
 @SuppressWarnings("unused")
 public class P11e2 implements Solution {
 

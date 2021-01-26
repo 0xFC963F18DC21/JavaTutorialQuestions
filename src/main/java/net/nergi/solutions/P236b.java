@@ -2,6 +2,7 @@ package net.nergi.solutions;
 
 import net.nergi.Solution;
 
+/** Solution for 236b. */
 @SuppressWarnings("unused")
 public class P236b implements Solution {
 

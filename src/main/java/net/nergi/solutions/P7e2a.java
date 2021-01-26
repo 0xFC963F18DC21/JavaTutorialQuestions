@@ -3,8 +3,8 @@ package net.nergi.solutions;
 import net.nergi.Solution;
 
 /**
- * WARNING: this class will force a stack overflow error. I am not responsible for any damage
- * inflicted onto your machine!
+ * Solution for P7e2a. WARNING: this class will force a stack overflow error. I am not responsible
+ * for any damage inflicted onto your machine!
  */
 @SuppressWarnings("unused")
 public class P7e2a implements Solution {

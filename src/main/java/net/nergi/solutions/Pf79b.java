@@ -2,6 +2,7 @@ package net.nergi.solutions;
 
 import net.nergi.Solution;
 
+/** Solution for f79b. */
 @SuppressWarnings("unused")
 public class Pf79b implements Solution {
 

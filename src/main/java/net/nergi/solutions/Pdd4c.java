@@ -4,6 +4,7 @@ import java.util.HashMap;
 import net.nergi.Solution;
 import net.nergi.Utils;
 
+/** Solution for dd4c. */
 @SuppressWarnings("unused")
 public class Pdd4c implements Solution {
 

@@ -6,6 +6,7 @@ import java.util.Set;
 import net.nergi.Solution;
 import net.nergi.solutions.P1171.GraphNode;
 
+/** Solution for f763. */
 @SuppressWarnings("unused")
 public class Pf763 implements Solution {
 

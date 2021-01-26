@@ -3,6 +3,7 @@ package net.nergi.solutions;
 import java.util.ArrayDeque;
 import net.nergi.Solution;
 
+/** Solution for 7041. */
 @SuppressWarnings("unused")
 public class P7041 implements Solution {
 

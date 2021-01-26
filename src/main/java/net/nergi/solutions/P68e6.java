@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import net.nergi.Solution;
 
+/** Solution for 68e6. */
 @SuppressWarnings("unused")
 public class P68e6 implements Solution {
 

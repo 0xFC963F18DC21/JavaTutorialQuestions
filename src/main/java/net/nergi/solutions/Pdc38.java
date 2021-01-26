@@ -9,6 +9,7 @@ import java.util.WeakHashMap;
 import java.util.stream.Collectors;
 import net.nergi.Solution;
 
+/** Solution for dc38. */
 @SuppressWarnings("unused")
 public class Pdc38 implements Solution {
 

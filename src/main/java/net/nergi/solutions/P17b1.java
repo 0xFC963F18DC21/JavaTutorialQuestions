@@ -4,6 +4,7 @@ import java.io.IOException;
 import net.nergi.Solution;
 import net.nergi.Utils;
 
+/** Solution for 17b1. */
 @SuppressWarnings("unused")
 public class P17b1 implements Solution {
 

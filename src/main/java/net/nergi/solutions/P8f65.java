@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import net.nergi.Solution;
 
+/** Solution for 8f65. */
 @SuppressWarnings("unused")
 public class P8f65 implements Solution {
 

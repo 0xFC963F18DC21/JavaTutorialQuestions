@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import net.nergi.Solution;
 
 /**
- * WARNING: this class will force a Heap OOM Error. I am not responsible for any damage inflicted
- * onto your machine!
+ * Solution for 30cd. WARNING: this class will force a Heap OOM Error. I am not responsible for any
+ * damage inflicted onto your machine!
  */
 @SuppressWarnings("unused")
 public class P30cd implements Solution {

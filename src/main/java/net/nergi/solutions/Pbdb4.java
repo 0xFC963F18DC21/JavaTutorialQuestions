@@ -2,6 +2,7 @@ package net.nergi.solutions;
 
 import net.nergi.Solution;
 
+/** Solution for bdb4. */
 @SuppressWarnings("unused")
 public class Pbdb4 implements Solution {
 

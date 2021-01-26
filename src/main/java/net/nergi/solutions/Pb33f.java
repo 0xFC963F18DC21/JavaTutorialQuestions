@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 import net.nergi.Solution;
 import net.nergi.solutions.P888a.ImmutablePair;
 
+/** Solution for b33f. */
 @SuppressWarnings("unused")
 public class Pb33f implements Solution {
 

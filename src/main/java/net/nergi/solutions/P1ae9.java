@@ -8,6 +8,7 @@ import java.util.WeakHashMap;
 import java.util.stream.Collectors;
 import net.nergi.Solution;
 
+/** Solution for 1ae9. */
 @SuppressWarnings("unused")
 public class P1ae9 implements Solution {
 

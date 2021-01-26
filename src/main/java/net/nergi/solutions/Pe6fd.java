@@ -3,6 +3,7 @@ package net.nergi.solutions;
 import java.math.BigInteger;
 import net.nergi.Solution;
 
+/** Solution for e6fd. */
 @SuppressWarnings("unused")
 public class Pe6fd implements Solution {
 

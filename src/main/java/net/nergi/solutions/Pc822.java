@@ -3,6 +3,7 @@ package net.nergi.solutions;
 import net.nergi.Solution;
 import net.nergi.solutions.P7041.TreeNode;
 
+/** Solution for c822. */
 @SuppressWarnings("unused")
 public class Pc822 implements Solution {
 

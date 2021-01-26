@@ -8,6 +8,7 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 import net.nergi.Solution;
 
+/** Solution for 67dd. */
 @SuppressWarnings("unused")
 public class P67dd implements Solution {
 

@@ -3,6 +3,7 @@ package net.nergi.solutions;
 import net.nergi.Solution;
 import net.nergi.solutions.P1ae9.Point;
 
+/** Solution for 290b. */
 @SuppressWarnings("unused")
 public class P290b implements Solution {
 

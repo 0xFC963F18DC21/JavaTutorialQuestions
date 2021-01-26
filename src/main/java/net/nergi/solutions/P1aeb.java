@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import net.nergi.Solution;
 import net.nergi.Utils;
 
+/** Solution for 1aeb. */
 @SuppressWarnings("unused")
 public class P1aeb implements Solution {
 

@@ -10,6 +10,7 @@ import java.util.Random;
 import net.nergi.Solution;
 import net.nergi.Utils;
 
+/** Solution for 5d30. */
 @SuppressWarnings("unused")
 public class P5d30 implements Solution {
 

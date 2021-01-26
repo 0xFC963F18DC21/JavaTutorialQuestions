@@ -3,6 +3,7 @@ package net.nergi.solutions;
 import net.nergi.Main;
 import net.nergi.Solution;
 
+/** Solution for 98e3. */
 @SuppressWarnings("unused")
 public class P98e3 implements Solution {
 

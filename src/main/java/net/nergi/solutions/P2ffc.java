@@ -7,6 +7,7 @@ import net.nergi.Solution;
 import net.nergi.solutions.P735a.GenericCollection;
 import net.nergi.solutions.P735a.GenericIterator;
 
+/** Solution for 2ffc. */
 @SuppressWarnings("unused")
 public class P2ffc implements Solution {
 

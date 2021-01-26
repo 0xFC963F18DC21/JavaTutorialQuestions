@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import net.nergi.Solution;
 
+/** Solution for 7206. */
 @SuppressWarnings("unused")
 public class P7206 implements Solution {
 

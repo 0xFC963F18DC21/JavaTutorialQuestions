@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import net.nergi.Solution;
 
+/** Solution for 888a. */
 @SuppressWarnings("unused")
 public class P888a implements Solution {
 

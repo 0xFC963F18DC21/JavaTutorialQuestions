@@ -2,6 +2,7 @@ package net.nergi.solutions;
 
 import net.nergi.Solution;
 
+/** Solution for 5235. */
 @SuppressWarnings("unused")
 public class P5235 implements Solution {
 

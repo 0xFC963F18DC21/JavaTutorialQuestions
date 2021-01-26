@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.nergi.Solution;
 
+/** Solution for 9a9b. */
 @SuppressWarnings("unused")
 public class P9a9b implements Solution {
 

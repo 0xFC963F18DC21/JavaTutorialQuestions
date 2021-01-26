@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import net.nergi.Solution;
 
+/** Solution for 845d. */
 @SuppressWarnings("unused")
 public class P845d implements Solution {
 

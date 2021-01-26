@@ -5,6 +5,7 @@ import net.nergi.Solution;
 import net.nergi.solutions.P1486.StringStack;
 import net.nergi.solutions.P1486.StringStackList;
 
+/** Solution for 85bb. */
 @SuppressWarnings("unused")
 public class P85bb implements Solution {
 

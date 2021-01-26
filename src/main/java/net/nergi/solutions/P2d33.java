@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import net.nergi.Solution;
 
+/** Solution for 2d33. */
 @SuppressWarnings("unused")
 public class P2d33 implements Solution {
 

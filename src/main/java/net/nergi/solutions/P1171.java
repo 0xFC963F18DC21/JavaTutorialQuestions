@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 import net.nergi.Solution;
 
+/** Solution for 1171. */
 @SuppressWarnings("unused")
 public class P1171 implements Solution {
 

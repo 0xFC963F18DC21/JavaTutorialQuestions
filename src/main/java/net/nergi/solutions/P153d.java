@@ -3,6 +3,7 @@ package net.nergi.solutions;
 import net.nergi.Main;
 import net.nergi.Solution;
 
+/** Solution for 153d. */
 @SuppressWarnings("unused")
 public class P153d implements Solution {
 

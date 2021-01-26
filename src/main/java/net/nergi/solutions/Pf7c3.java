@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import net.nergi.Solution;
 
+/** Solution for f7c3. */
 @SuppressWarnings("unused")
 public class Pf7c3 implements Solution {
 

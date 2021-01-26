@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import net.nergi.Solution;
 
+/** Solution for 5981. */
 @SuppressWarnings("unused")
 public class P5981 implements Solution {
 

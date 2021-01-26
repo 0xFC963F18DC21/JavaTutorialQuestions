@@ -3,6 +3,7 @@ package net.nergi.solutions;
 import java.util.Objects;
 import net.nergi.Solution;
 
+/** Solution for 0f05. */
 @SuppressWarnings("unused")
 public class P0f05 implements Solution {
 

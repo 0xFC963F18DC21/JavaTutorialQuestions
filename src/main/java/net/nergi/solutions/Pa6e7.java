@@ -6,6 +6,7 @@ import net.nergi.solutions.P8a61.IntSet;
 import net.nergi.solutions.P8a61.MemoryEfficientSet;
 import net.nergi.solutions.P8a61.SpeedEfficientSet;
 
+/** Solution for a6e7. */
 @SuppressWarnings("unused")
 public class Pa6e7 implements Solution {
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import net.nergi.Solution;
 
+/** Solution for 4c70. */
 @SuppressWarnings("unused")
 public class P4c70 implements Solution {
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 import net.nergi.Solution;
 
+/** Solution for bec2. */
 @SuppressWarnings("unused")
 public class Pbec2 implements Solution {
 

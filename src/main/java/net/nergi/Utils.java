@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+/** Utility class that holds method shortcuts. */
 public final class Utils {
 
   /** BufferedReader for all methods and for use elsewhere. Final warning suppressed due to 5d30. */

@@ -3,6 +3,7 @@ package net.nergi.solutions;
 import net.nergi.Solution;
 import net.nergi.Utils;
 
+/** Solution for 96df. */
 @SuppressWarnings("unused")
 public class P96df implements Solution {
 

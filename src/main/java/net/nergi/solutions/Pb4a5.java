@@ -2,6 +2,7 @@ package net.nergi.solutions;
 
 import net.nergi.Solution;
 
+/** Solution for b4a5. */
 @SuppressWarnings({"unused", "deprecation"})
 public class Pb4a5 implements Solution {
 

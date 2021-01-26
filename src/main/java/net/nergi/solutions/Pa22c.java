@@ -5,6 +5,7 @@ import net.nergi.solutions.Pdc38.EmailAddress;
 import net.nergi.solutions.Pdc38.GroupAddress;
 import net.nergi.solutions.Pdc38.IndividualAddress;
 
+/** Solution for a22c. */
 @SuppressWarnings("unused")
 public class Pa22c implements Solution {
 

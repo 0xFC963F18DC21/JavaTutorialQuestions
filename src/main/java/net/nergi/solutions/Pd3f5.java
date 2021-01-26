@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.stream.Stream;
 import net.nergi.Solution;
 
+/** Solution for d3f5. */
 @SuppressWarnings("unused")
 public class Pd3f5 implements Solution {
 

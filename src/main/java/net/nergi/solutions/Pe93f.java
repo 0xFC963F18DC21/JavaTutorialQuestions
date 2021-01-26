@@ -2,6 +2,7 @@ package net.nergi.solutions;
 
 import net.nergi.Solution;
 
+/** Solution for e93f. */
 @SuppressWarnings("unused")
 public class Pe93f implements Solution {
 

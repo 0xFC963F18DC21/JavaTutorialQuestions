@@ -13,6 +13,7 @@ import net.nergi.Solution;
 import net.nergi.Utils;
 import net.nergi.solutions.Pa6e7.IntSetIterator;
 
+/** Solution for 8a61. */
 @SuppressWarnings("unused")
 public class P8a61 implements Solution {
 

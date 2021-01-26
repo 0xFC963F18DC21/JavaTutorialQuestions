@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import net.nergi.Solution;
 
+/** Solution for 0378. */
 @SuppressWarnings("unused")
 public class P0378 implements Solution {
 

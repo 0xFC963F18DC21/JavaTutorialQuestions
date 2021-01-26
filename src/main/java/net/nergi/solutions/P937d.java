@@ -2,6 +2,7 @@ package net.nergi.solutions;
 
 import net.nergi.Solution;
 
+/** Solution for 937d. */
 @SuppressWarnings("unused")
 public class P937d implements Solution {
 

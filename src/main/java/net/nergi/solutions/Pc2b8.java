@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import net.nergi.Solution;
 
+/** Solution for c2b8. */
 @SuppressWarnings("unused")
 public class Pc2b8 implements Solution {
 

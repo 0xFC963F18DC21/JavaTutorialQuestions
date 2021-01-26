@@ -4,6 +4,7 @@ import java.util.Random;
 import net.nergi.Main;
 import net.nergi.Solution;
 
+/** Solution for 014e. */
 @SuppressWarnings("unused")
 public class P014e implements Solution {
 

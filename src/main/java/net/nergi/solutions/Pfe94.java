@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import net.nergi.Solution;
 
+/** Solution for fe94. */
 @SuppressWarnings("unused")
 public class Pfe94 implements Solution {
 

@@ -9,6 +9,7 @@ import net.nergi.Solution;
 import net.nergi.solutions.P735a.GenericCollection;
 import net.nergi.solutions.P735a.GenericIterator;
 
+/** Solution for b401. */
 @SuppressWarnings("unused")
 public class Pb401 implements Solution {
 

@@ -5,6 +5,7 @@ import net.nergi.Solution;
 import net.nergi.solutions.P2ffc.GenericStackArray;
 import net.nergi.solutions.P2ffc.GenericStackList;
 
+/** Solution for 5566. */
 @SuppressWarnings("unused")
 public class P5566 implements Solution {
 

@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import net.nergi.Solution;
 
+/** Solution for 876b. */
 @SuppressWarnings("unused")
 public class P876b implements Solution {
 

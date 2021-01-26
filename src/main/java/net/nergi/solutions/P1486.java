@@ -5,6 +5,7 @@ import java.util.List;
 import net.nergi.Solution;
 import net.nergi.solutions.P85bb.StringStackIterator;
 
+/** Solution for 1486. */
 @SuppressWarnings("unused")
 public class P1486 implements Solution {
 

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import net.nergi.Solution;
 import net.nergi.Utils;
 
+/** Solution for e093. */
 @SuppressWarnings("unused")
 public class Pe093 implements Solution {
 

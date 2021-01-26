@@ -6,6 +6,7 @@ import net.nergi.solutions.Pb401.GenericSet;
 import net.nergi.solutions.Pb401.MemoryEfficientGenericSet;
 import net.nergi.solutions.Pb401.SpeedEfficientGenericSet;
 
+/** Solution for 336b. */
 @SuppressWarnings("unused")
 public class P336b implements Solution {
 

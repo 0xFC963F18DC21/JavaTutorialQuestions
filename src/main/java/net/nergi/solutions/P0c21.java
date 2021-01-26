@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import net.nergi.Solution;
 
+/** Solution for 0c21. */
 @SuppressWarnings("unused")
 public class P0c21 implements Solution {
 

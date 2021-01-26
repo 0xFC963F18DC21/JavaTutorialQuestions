@@ -3,6 +3,7 @@ package net.nergi.solutions;
 import java.util.Iterator;
 import net.nergi.Solution;
 
+/** Solution for 735a. */
 @SuppressWarnings("unused")
 public class P735a implements Solution {
 

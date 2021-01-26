@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import net.nergi.Solution;
 
+/** Solution for 7ec8. */
 @SuppressWarnings("unused")
 public class P7ec8 implements Solution {
 
