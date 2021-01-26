@@ -5,17 +5,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P74d2 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "74d2: Exceptions and inheritance (i)";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     System.out.println("There is no Output: Wrong Solutions");
@@ -34,7 +30,6 @@ public class P74d2 implements Solution {
     public void foo() throws Exception {
       throw new Exception();
     }
-
   }
 
   public static class B extends A {
@@ -43,7 +38,5 @@ public class P74d2 implements Solution {
     public void foo() throws Exception {
       super.foo();
     }
-
   }
-
 }

@@ -8,17 +8,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P0c21 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "0c21: Properties";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     final PropertyCollection propCollection = new PropertyCollection();
@@ -54,8 +50,13 @@ public class P0c21 implements Solution {
     int getBathrooms();
 
     int getSquareFootage();
-
   }
+
+  public interface House extends Property {}
+
+  // These have extensions for 236b
+
+  public interface Bungalow extends House {}
 
   public static class PropertyCollection {
 
@@ -105,12 +106,7 @@ public class P0c21 implements Solution {
           .map((p) -> (TeracedHouse) p)
           .collect(Collectors.toSet());
     }
-
   }
-
-  // These have extensions for 236b
-
-  public interface House extends Property {}
 
   public static class TeracedHouse implements House {
 
@@ -142,7 +138,6 @@ public class P0c21 implements Solution {
     public int getSquareFootage() {
       return squareFootage;
     }
-
   }
 
   public static class SemiDetachedHouse implements House {
@@ -175,7 +170,6 @@ public class P0c21 implements Solution {
     public int getSquareFootage() {
       return squareFootage;
     }
-
   }
 
   public static class DetachedHouse implements House {
@@ -208,10 +202,7 @@ public class P0c21 implements Solution {
     public int getSquareFootage() {
       return squareFootage;
     }
-
   }
-
-  public interface Bungalow extends House {}
 
   public static class TeracedBungalow extends TeracedHouse implements Bungalow {
 
@@ -222,7 +213,6 @@ public class P0c21 implements Solution {
     public TeracedBungalow(int bedrooms, int bathrooms, int squareFootage) {
       super(bedrooms, bathrooms, squareFootage);
     }
-
   }
 
   public static class SemiDetachedBungalow extends SemiDetachedHouse implements Bungalow {
@@ -234,7 +224,6 @@ public class P0c21 implements Solution {
     public SemiDetachedBungalow(int bedrooms, int bathrooms, int squareFootage) {
       super(bedrooms, bathrooms, squareFootage);
     }
-
   }
 
   public static class DetachedBungalow extends DetachedHouse implements Bungalow {
@@ -246,7 +235,6 @@ public class P0c21 implements Solution {
     public DetachedBungalow(int bedrooms, int bathrooms, int squareFootage) {
       super(bedrooms, bathrooms, squareFootage);
     }
-
   }
 
   public static class Flat implements Property {
@@ -285,7 +273,6 @@ public class P0c21 implements Solution {
     public int getSquareFootage() {
       return squareFootage;
     }
-
   }
 
   public static class Maisonette extends Flat {
@@ -297,7 +284,5 @@ public class P0c21 implements Solution {
     public Maisonette(int bedrooms, int bathrooms, int receptionRooms, int squareFootage) {
       super(bedrooms, bathrooms, receptionRooms, squareFootage);
     }
-
   }
-
 }

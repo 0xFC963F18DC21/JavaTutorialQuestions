@@ -10,23 +10,18 @@ import java.util.List;
 
 public final class Utils {
 
-  /**
-   * BufferedReader for all methods and for use elsewhere.
-   * Final warning suppressed due to 5d30.
-   */
+  /** BufferedReader for all methods and for use elsewhere. Final warning suppressed due to 5d30. */
   @SuppressWarnings("FieldMayBeFinal")
   private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-  /**
-   * Gets the current BufferedReader instance in this class.
-   * Required due to 5d30.
-   */
+  /** Gets the current BufferedReader instance in this class. Required due to 5d30. */
   public static BufferedReader getBr() {
     return br;
   }
 
   /**
    * Constructs an immutable list of items. Depreciated. Use List.of() instead.
+   *
    * @param items Items of a certain type
    * @param <T> Type to use in list
    * @return An immutable list of type T
@@ -39,6 +34,7 @@ public final class Utils {
 
   /**
    * Constructs a mutable ArrayList of items.
+   *
    * @param items Items of a certain type
    * @param <T> Type to use in list
    * @return A mutable ArrayList of type T
@@ -50,6 +46,7 @@ public final class Utils {
 
   /**
    * Constructs a HashMap from two arrays. The arrays must be of equal length.
+   *
    * @param keys The final map's key set
    * @param values The final map's value set
    * @param <X> Type of keys
@@ -74,6 +71,7 @@ public final class Utils {
 
   /**
    * Constructs a HashMap from two Lists. The Lists must be of equal length.
+   *
    * @param keys The final map's key set
    * @param values The final map's value set
    * @param <X> Type of keys
@@ -114,8 +112,8 @@ public final class Utils {
 
   /**
    * Gets lines of input from the user. Stops collecting lines when EOF is given (via CTRL+Z in
-   * Windows or CTRL+D in *nix), or when the number of collected lines exceeds some amount.
-   * Does not return early on IOException or null input if shouldEarlyReturn is false.
+   * Windows or CTRL+D in *nix), or when the number of collected lines exceeds some amount. Does not
+   * return early on IOException or null input if shouldEarlyReturn is false.
    */
   public static ArrayList<String> getUserLines(int amount, boolean shouldEarlyReturn) {
     final ArrayList<String> lines = new ArrayList<>();
@@ -152,8 +150,8 @@ public final class Utils {
   }
 
   /**
-   * Runs some code and prints the approximate average time taken to complete.
-   * This default version runs 100 times and prints the average.
+   * Runs some code and prints the approximate average time taken to complete. This default version
+   * runs 100 times and prints the average.
    */
   public static void benchmarkTime(Runnable r) {
     benchmarkTime(r, 100);
@@ -161,6 +159,7 @@ public final class Utils {
 
   /**
    * Runs some code and prints the approximate average time taken to complete.
+   *
    * @param r Runnable code
    * @param amount Amount of runs
    */
@@ -178,17 +177,10 @@ public final class Utils {
     final double average = difference / amount;
 
     System.out.printf(
-        "Time taken for %d runs: %s ns\n"
-            + "     Average time taken: %s ns\n",
-        amount,
-        difference,
-        average
-    );
+        "Time taken for %d runs: %s ns\n" + "     Average time taken: %s ns\n",
+        amount, difference, average);
   }
 
-  /**
-   * An empty method used as a sort of "do nothing" method.
-   */
+  /** An empty method used as a sort of "do nothing" method. */
   public static void pass() {}
-
 }

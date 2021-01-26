@@ -6,17 +6,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class Pe6fd implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "e6fd: Bit sets";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // Demo class is substituted by this method.
@@ -77,20 +73,15 @@ public class Pe6fd implements Solution {
      */
     void intersect(BitSet s);
 
-    /**
-     * Returns the maximum storable value in this bit set.
-     */
+    /** Returns the maximum storable value in this bit set. */
     int maxStorableValue();
 
-    /**
-     * Returns the bit representation of this bit set.
-     */
+    /** Returns the bit representation of this bit set. */
     Number getRepresentation();
 
     default boolean isValid(int x) {
       return 0 <= x && x <= maxStorableValue();
     }
-
   }
 
   public static class BitSet8 implements BitSet {
@@ -102,8 +93,9 @@ public class Pe6fd implements Solution {
       if (isValid(x)) {
         backingByte |= (1 << x);
       } else {
-        throw new IllegalArgumentException(String
-            .format("%d is is out of range! Accepted interval is [0, %d]", x, maxStorableValue()));
+        throw new IllegalArgumentException(
+            String.format(
+                "%d is is out of range! Accepted interval is [0, %d]", x, maxStorableValue()));
       }
     }
 
@@ -141,7 +133,6 @@ public class Pe6fd implements Solution {
     public Number getRepresentation() {
       return backingByte;
     }
-
   }
 
   public static class BitSet32 implements BitSet {
@@ -153,8 +144,9 @@ public class Pe6fd implements Solution {
       if (isValid(x)) {
         backingInt |= (1 << x);
       } else {
-        throw new IllegalArgumentException(String
-            .format("%d is is out of range! Accepted interval is [0, %d]", x, maxStorableValue()));
+        throw new IllegalArgumentException(
+            String.format(
+                "%d is is out of range! Accepted interval is [0, %d]", x, maxStorableValue()));
       }
     }
 
@@ -192,7 +184,6 @@ public class Pe6fd implements Solution {
     public Number getRepresentation() {
       return backingInt;
     }
-
   }
 
   public static class BitSet64 implements BitSet {
@@ -204,8 +195,9 @@ public class Pe6fd implements Solution {
       if (isValid(x)) {
         backingLong |= (1L << x);
       } else {
-        throw new IllegalArgumentException(String
-            .format("%d is is out of range! Accepted interval is [0, %d]", x, maxStorableValue()));
+        throw new IllegalArgumentException(
+            String.format(
+                "%d is is out of range! Accepted interval is [0, %d]", x, maxStorableValue()));
       }
     }
 
@@ -243,7 +235,6 @@ public class Pe6fd implements Solution {
     public Number getRepresentation() {
       return backingLong;
     }
-
   }
 
   public static class BitSetArray implements BitSet {
@@ -256,9 +247,7 @@ public class Pe6fd implements Solution {
       backingLongArray = new long[(int) (Math.log10(maxValue) / Math.log10(2)) + 1];
     }
 
-    /**
-     * Returns a two-item array that represents (x / 64, x % 64)
-     */
+    /** Returns a two-item array that represents (x / 64, x % 64) */
     private int[] quotRem(int x) {
       int[] places = new int[2];
       places[0] = x / 64;
@@ -273,8 +262,9 @@ public class Pe6fd implements Solution {
         int[] place = quotRem(x);
         backingLongArray[place[0]] |= (1L << place[1]);
       } else {
-        throw new IllegalArgumentException(String
-            .format("%d is is out of range! Accepted interval is [0, %d]", x, maxStorableValue()));
+        throw new IllegalArgumentException(
+            String.format(
+                "%d is is out of range! Accepted interval is [0, %d]", x, maxStorableValue()));
       }
     }
 
@@ -325,6 +315,5 @@ public class Pe6fd implements Solution {
 
       return bi;
     }
-
   }
 }

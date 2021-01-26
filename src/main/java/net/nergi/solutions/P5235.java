@@ -5,17 +5,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P5235 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return null;
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     final P0f05.Point p1 = new P0f05.Point(0, 0, 0);
@@ -40,5 +36,4 @@ public class P5235 implements Solution {
     System.out.println(cp2.equals(p1));
     System.out.println(cp3.equals(p1));
   }
-
 }

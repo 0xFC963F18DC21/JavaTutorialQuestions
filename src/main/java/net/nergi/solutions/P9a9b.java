@@ -37,6 +37,47 @@ public class P9a9b implements Solution {
     );
   }
 
+  public enum NoteName {
+
+    C, C_SHARP, D, D_SHARP, E, F, F_SHARP, G, G_SHARP, A, A_SHARP, B;
+
+    @Override
+    public String toString() {
+      return switch (this) {
+        case C -> "C";
+        case C_SHARP -> "C#";
+        case D -> "D";
+        case D_SHARP -> "D#";
+        case E -> "E";
+        case F -> "F";
+        case F_SHARP -> "F#";
+        case G -> "G";
+        case G_SHARP -> "G#";
+        case A -> "A";
+        case A_SHARP -> "A#";
+        case B -> "B";
+      };
+    }
+
+  }
+
+  public enum NoteValue {
+
+    WHOLE, HALF, QUARTER, EIGHTH, SIXTEENTH;
+
+    @Override
+    public String toString() {
+      return switch (this) {
+        case WHOLE -> "1/1";
+        case HALF -> "1/2";
+        case QUARTER -> "1/4";
+        case EIGHTH -> "1/8";
+        case SIXTEENTH -> "1/16";
+      };
+    }
+
+  }
+
   public interface Tune extends Iterable<TuneElement> {
 
     // Add an element to the tune
@@ -86,47 +127,6 @@ public class P9a9b implements Solution {
 
     public NoteValue getValue() {
       return value;
-    }
-
-  }
-
-  public enum NoteName {
-
-    C, C_SHARP, D, D_SHARP, E, F, F_SHARP, G, G_SHARP, A, A_SHARP, B;
-
-    @Override
-    public String toString() {
-      return switch (this) {
-        case C -> "C";
-        case C_SHARP -> "C#";
-        case D -> "D";
-        case D_SHARP -> "D#";
-        case E -> "E";
-        case F -> "F";
-        case F_SHARP -> "F#";
-        case G -> "G";
-        case G_SHARP -> "G#";
-        case A -> "A";
-        case A_SHARP -> "A#";
-        case B -> "B";
-      };
-    }
-
-  }
-
-  public enum NoteValue {
-
-    WHOLE, HALF, QUARTER, EIGHTH, SIXTEENTH;
-
-    @Override
-    public String toString() {
-      return switch (this) {
-        case WHOLE -> "1/1";
-        case HALF -> "1/2";
-        case QUARTER -> "1/4";
-        case EIGHTH -> "1/8";
-        case SIXTEENTH -> "1/16";
-      };
     }
 
   }

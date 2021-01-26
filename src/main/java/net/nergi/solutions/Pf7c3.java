@@ -13,50 +13,6 @@ public class Pf7c3 implements Solution {
 
   public static final List<Character> vowels = List.of('a', 'e', 'i', 'o', 'u');
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
-  @Override
-  public String getName() {
-    return "f7c3: Pig Latin";
-  }
-
-  /**
-   * Runs the solution to the problem.
-   */
-  @Override
-  public void exec() {
-    ArrayList<String> strings = new ArrayList<>();
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    String line;
-
-    // Get one line of input
-    System.out.println("Accepting input:");
-    do {
-      try {
-        line = br.readLine();
-
-        if (line != null) {
-          strings.add(line);
-        } else {
-          br.close();
-        }
-      } catch (IOException e) {
-        // Exit the program, something went wrong.
-        e.printStackTrace();
-        return;
-      }
-    } while (line != null);
-
-    // Processing
-    System.out.println("\nOutputs:");
-    for (String str : strings) {
-      var partitions = partitionString(str).stream().filter((s) -> s.length() > 0);
-      var results = partitions.map(Pf7c3::pigLatinise);
-      System.out.println(results.collect(Collectors.joining()));
-    }
-  }
-
   private static ArrayList<String> partitionString(String str) {
     final ArrayList<String> words = new ArrayList<>();
     final StringBuilder sb = new StringBuilder();
@@ -109,6 +65,46 @@ public class Pf7c3 implements Solution {
       return sb.substring(1);
     } else {
       return word + "way";
+    }
+  }
+
+  /** Returns the header for the solution, which is the problem's name. */
+  @Override
+  public String getName() {
+    return "f7c3: Pig Latin";
+  }
+
+  /** Runs the solution to the problem. */
+  @Override
+  public void exec() {
+    ArrayList<String> strings = new ArrayList<>();
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String line;
+
+    // Get one line of input
+    System.out.println("Accepting input:");
+    do {
+      try {
+        line = br.readLine();
+
+        if (line != null) {
+          strings.add(line);
+        } else {
+          br.close();
+        }
+      } catch (IOException e) {
+        // Exit the program, something went wrong.
+        e.printStackTrace();
+        return;
+      }
+    } while (line != null);
+
+    // Processing
+    System.out.println("\nOutputs:");
+    for (String str : strings) {
+      var partitions = partitionString(str).stream().filter((s) -> s.length() > 0);
+      var results = partitions.map(Pf7c3::pigLatinise);
+      System.out.println(results.collect(Collectors.joining()));
     }
   }
 }

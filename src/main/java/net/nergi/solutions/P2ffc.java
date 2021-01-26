@@ -10,17 +10,13 @@ import net.nergi.solutions.P735a.GenericIterator;
 @SuppressWarnings("unused")
 public class P2ffc implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "2ffc: Generic stacks";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // Test new generic stacks
@@ -45,6 +41,7 @@ public class P2ffc implements Solution {
 
   /**
    * Generic stack interface for holding any reference type.
+   *
    * @param <E> Type to store
    */
   // Modified for 735a
@@ -55,11 +52,11 @@ public class P2ffc implements Solution {
     E pop() throws EmptyStackException;
 
     boolean isEmpty();
-
   }
 
   /**
    * Abstract class which all generic stacks inherit from.
+   *
    * @param <E> Type to store
    */
   public abstract static class AbstractGenericStack<E> implements GenericStack<E> {
@@ -80,14 +77,13 @@ public class P2ffc implements Solution {
 
       return sb.toString();
     }
-
   }
 
   @SuppressWarnings("unchecked")
   public static class GenericStackArray<E> extends AbstractGenericStack<E> {
 
-    private int currentPointer = 0;
     private final Object[] backingArray;
+    private int currentPointer = 0;
 
     // Creates an empty stack of E
     public GenericStackArray() {
@@ -146,10 +142,8 @@ public class P2ffc implements Solution {
         public E next() {
           return (E) backingArray[--counter];
         }
-
       };
     }
-
   }
 
   public static class GenericStackList<E> extends AbstractGenericStack<E> {
@@ -202,10 +196,7 @@ public class P2ffc implements Solution {
         public E next() {
           return backingList.get(--counter);
         }
-
       };
     }
-
   }
-
 }

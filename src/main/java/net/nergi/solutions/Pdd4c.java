@@ -7,57 +7,32 @@ import net.nergi.Utils;
 @SuppressWarnings("unused")
 public class Pdd4c implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "dd4c: Clocks";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // Test for basic functionality.
-    Thread[] testClocks = new Thread[]{
-        new Thread(
-            new Ticker(
-                "Clock 1",
-                new Clock(0),
-                15
-            )
-        ),
-        new Thread(
-            new Ticker(
-                "Clock 2",
-                new Clock(0, 0, 0),
-                15
-            )
-        ),
-        new Thread(
-            new Ticker(
-                "Clock 3",
-                new AlarmClock(0, 0, 0, 0, 0, 10),
-                80
-            )
-        ),
-        new Thread(
-            new Ticker(
-                "Clock 4",
-                new RadioAlarmClock(0, 10, RadioAlarmClock.RadioStation.STATION_L),
-                80
-            )
-        ),
-        new Thread(
-            new Ticker(
-                "Clock 5",
-                new RadioAlarmClock(0, 0, 0, 0, 0, 10, RadioAlarmClock.RadioStation.RADIO_4),
-                80
-            )
-        )
-    };
+    Thread[] testClocks =
+        new Thread[] {
+          new Thread(new Ticker("Clock 1", new Clock(0), 15)),
+          new Thread(new Ticker("Clock 2", new Clock(0, 0, 0), 15)),
+          new Thread(new Ticker("Clock 3", new AlarmClock(0, 0, 0, 0, 0, 10), 80)),
+          new Thread(
+              new Ticker(
+                  "Clock 4",
+                  new RadioAlarmClock(0, 10, RadioAlarmClock.RadioStation.STATION_L),
+                  80)),
+          new Thread(
+              new Ticker(
+                  "Clock 5",
+                  new RadioAlarmClock(0, 0, 0, 0, 0, 10, RadioAlarmClock.RadioStation.RADIO_4),
+                  80))
+        };
 
     for (Thread t : testClocks) {
       t.start();
@@ -77,8 +52,8 @@ public class Pdd4c implements Solution {
   public static class Ticker implements Runnable {
 
     private final String name;
-    private int secondsToTick;
     private final Clock internalClock;
+    private int secondsToTick;
 
     private Ticker(String name, Clock clock, int duration) {
       this.name = name;
@@ -111,7 +86,6 @@ public class Pdd4c implements Solution {
         }
       }
     }
-
   }
 
   public static class Clock {
@@ -125,11 +99,6 @@ public class Pdd4c implements Solution {
     // Internally, the clock will always use seconds since midnight.
     protected int secondsSinceMidnight;
 
-    protected static int convertTime(int hr, int min, int sec) {
-      return (SECONDS_IN_HOUR * hr + SECONDS_IN_MINUTE * min + sec)
-          % (SECONDS_IN_HOUR * HOURS_IN_DAY);
-    }
-
     public Clock(int secondsSinceMidnight) {
       this.dispMode = Mode.SECONDS_SINCE_MIDNIGHT;
       this.secondsSinceMidnight = secondsSinceMidnight % (SECONDS_IN_HOUR * HOURS_IN_DAY);
@@ -138,6 +107,11 @@ public class Pdd4c implements Solution {
     public Clock(int hr, int min, int sec) {
       this.dispMode = Mode.TWENTY_FOUR;
       this.secondsSinceMidnight = convertTime(hr, min, sec);
+    }
+
+    protected static int convertTime(int hr, int min, int sec) {
+      return (SECONDS_IN_HOUR * hr + SECONDS_IN_MINUTE * min + sec)
+          % (SECONDS_IN_HOUR * HOURS_IN_DAY);
     }
 
     public void tick() {
@@ -160,17 +134,16 @@ public class Pdd4c implements Solution {
     }
 
     protected enum Mode {
-      TWENTY_FOUR, SECONDS_SINCE_MIDNIGHT
+      TWENTY_FOUR,
+      SECONDS_SINCE_MIDNIGHT
     }
-
   }
 
   public static class AlarmClock extends Clock {
 
     protected static final int ALARM_DURATION = 60;
-
-    protected int alarmTimer = 0;
     protected final int alarmStartTime;
+    protected int alarmTimer = 0;
 
     public AlarmClock(int secondsSinceMidnight, int alarmStartTime) {
       super(secondsSinceMidnight);
@@ -210,25 +183,24 @@ public class Pdd4c implements Solution {
     public String toString() {
       return super.toString() + (alarmIsOn() ? " BEEP!" : "");
     }
-
   }
 
   public static class RadioAlarmClock extends AlarmClock {
 
-    private static final HashMap<RadioStation, String> AIRWAVES = Utils.hashMapOf(
-        new RadioStation[]{
-            RadioStation.NONE,
-            RadioStation.RADIO_4,
-            RadioStation.LIVE_FIVE,
-            RadioStation.STATION_L
-        },
-        new String[]{
-            "BEEP!",
-            "Blah, blah, blah...",
-            "Tonight on breaking news...",
-            "... fallen into the river..."
-        }
-    );
+    private static final HashMap<RadioStation, String> AIRWAVES =
+        Utils.hashMapOf(
+            new RadioStation[] {
+              RadioStation.NONE,
+              RadioStation.RADIO_4,
+              RadioStation.LIVE_FIVE,
+              RadioStation.STATION_L
+            },
+            new String[] {
+              "BEEP!",
+              "Blah, blah, blah...",
+              "Tonight on breaking news...",
+              "... fallen into the river..."
+            });
 
     private final RadioStation tunedInto;
 
@@ -237,8 +209,8 @@ public class Pdd4c implements Solution {
       tunedInto = tuning;
     }
 
-    public RadioAlarmClock(int hr, int min, int sec, int alarmHr, int alarmMin, int alarmSec,
-        RadioStation tuning) {
+    public RadioAlarmClock(
+        int hr, int min, int sec, int alarmHr, int alarmMin, int alarmSec, RadioStation tuning) {
       super(hr, min, sec, alarmHr, alarmMin, alarmSec);
       tunedInto = tuning;
     }
@@ -247,23 +219,24 @@ public class Pdd4c implements Solution {
     public String toString() {
       if (dispMode == Mode.SECONDS_SINCE_MIDNIGHT) {
         // SSM
-        return (secondsSinceMidnight + " seconds since midnight.") + (alarmIsOn() ? " " + AIRWAVES
-            .get(tunedInto) : "");
+        return (secondsSinceMidnight + " seconds since midnight.")
+            + (alarmIsOn() ? " " + AIRWAVES.get(tunedInto) : "");
       } else {
         // 24
         int hr = secondsSinceMidnight / SECONDS_IN_HOUR;
         int min = (secondsSinceMidnight % SECONDS_IN_HOUR) / SECONDS_IN_MINUTE;
         int sec = secondsSinceMidnight % SECONDS_IN_MINUTE;
 
-        return String.format("%02d:%02d:%02d%s", hr, min, sec,
-            (alarmIsOn() ? " " + AIRWAVES.get(tunedInto) : ""));
+        return String.format(
+            "%02d:%02d:%02d%s", hr, min, sec, (alarmIsOn() ? " " + AIRWAVES.get(tunedInto) : ""));
       }
     }
 
     public enum RadioStation {
-      NONE, RADIO_4, LIVE_FIVE, STATION_L
+      NONE,
+      RADIO_4,
+      LIVE_FIVE,
+      STATION_L
     }
-
   }
-
 }

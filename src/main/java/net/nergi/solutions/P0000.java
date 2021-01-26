@@ -6,23 +6,19 @@ import net.nergi.Main;
 import net.nergi.Solution;
 
 /**
- * This class runs any class defined in net.nergi.misc.
- * All classes defined there must implement {@link Runnable}.
+ * This class runs any class defined in net.nergi.misc. All classes defined there must implement
+ * {@link Runnable} as they need to effectively act like main classes.
  */
 @SuppressWarnings("unused")
 public class P0000 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "0000: Arbitrary Class Executor";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // If no arguments for class name is given, then exit with message.
@@ -56,5 +52,4 @@ public class P0000 implements Solution {
       e.printStackTrace();
     }
   }
-
 }

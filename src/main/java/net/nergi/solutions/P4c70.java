@@ -11,17 +11,13 @@ public class P4c70 implements Solution {
 
   private final Random randomiser = new Random();
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "4c70: Lottery numbers";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     ArrayList<Integer> numbers = new ArrayList<>();

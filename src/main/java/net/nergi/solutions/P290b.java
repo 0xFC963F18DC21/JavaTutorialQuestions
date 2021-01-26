@@ -6,17 +6,13 @@ import net.nergi.solutions.P1ae9.Point;
 @SuppressWarnings("unused")
 public class P290b implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "290b: Memory leaks in Java";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     System.out.println("No more memory leaks!");
@@ -27,5 +23,4 @@ public class P290b implements Solution {
 
     System.out.println("See, no OOME!");
   }
-
 }

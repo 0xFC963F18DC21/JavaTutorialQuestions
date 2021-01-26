@@ -12,17 +12,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class Pdc38 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "dc38: Email management system";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // Initialise group addresses
@@ -60,7 +56,7 @@ public class Pdc38 implements Solution {
     higherups.getTargets().forEach(System.out::println);
   }
 
-  public static abstract class EmailAddress {
+  public abstract static class EmailAddress {
 
     private static final WeakHashMap<String, WeakReference<String>> used = new WeakHashMap<>();
     protected final String identifier;
@@ -98,7 +94,6 @@ public class Pdc38 implements Solution {
     }
 
     public abstract Set<IndividualAddress> getTargets();
-
   }
 
   public static class IndividualAddress extends EmailAddress {
@@ -111,7 +106,6 @@ public class Pdc38 implements Solution {
     public Set<IndividualAddress> getTargets() {
       return Set.of(this);
     }
-
   }
 
   public static class GroupAddress extends EmailAddress {
@@ -140,7 +134,6 @@ public class Pdc38 implements Solution {
             toVisit.addAll(((GroupAddress) current).targets);
           }
         }
-
       }
 
       targets.add(target);
@@ -160,9 +153,10 @@ public class Pdc38 implements Solution {
       final Set<IndividualAddress> result = new HashSet<>();
 
       // Addresses to visit
-      final ArrayDeque<EmailAddress> toVisit = targets.stream()
-          .filter((e) -> visited.get(e) == null)
-          .collect(Collectors.toCollection(ArrayDeque::new));
+      final ArrayDeque<EmailAddress> toVisit =
+          targets.stream()
+              .filter((e) -> visited.get(e) == null)
+              .collect(Collectors.toCollection(ArrayDeque::new));
 
       // Run BFS
       while (!toVisit.isEmpty()) {
@@ -175,11 +169,9 @@ public class Pdc38 implements Solution {
           final GroupAddress ga = (GroupAddress) currentAddress;
 
           toVisit.addAll(
-              ga.targets
-                  .stream()
+              ga.targets.stream()
                   .filter((e) -> visited.get(e) == null)
-                  .collect(Collectors.toSet())
-          );
+                  .collect(Collectors.toSet()));
         } else {
           throw new IllegalArgumentException("Where did this invalid type come from?");
         }
@@ -187,7 +179,5 @@ public class Pdc38 implements Solution {
 
       return result;
     }
-
   }
-
 }

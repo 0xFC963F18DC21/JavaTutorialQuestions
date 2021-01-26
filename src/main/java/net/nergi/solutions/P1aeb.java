@@ -8,17 +8,34 @@ import net.nergi.Utils;
 @SuppressWarnings("unused")
 public class P1aeb implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  public static <T extends Number> Set<T> readNumbers(int numbersToRead, NumberParser<T> parser) {
+    System.out.printf(
+        "Please enter %d %ss, one line at a time:\n", numbersToRead, parser.typeParsed());
+
+    return Utils.getUserLines(numbersToRead).stream()
+        .map(parser::parseNumber)
+        .collect(Collectors.toSet());
+  }
+
+  public static <T extends Number> T addNumbers(Set<T> numbers, NumberAdder<T> adder) {
+    return numbers.stream().reduce(adder.zero(), adder::add);
+  }
+
+  public static <T extends Number> void displayAsDoubles(Set<T> numbers) {
+    System.out.println(numbers.stream().map(Number::doubleValue).collect(Collectors.toSet()));
+  }
+
+  public static <T extends Number> void displayAsInts(Set<T> numbers) {
+    System.out.println(numbers.stream().map(Number::intValue).collect(Collectors.toSet()));
+  }
+
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "1aeb: Generic number manipulation";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // Get 5 integers
@@ -46,7 +63,6 @@ public class P1aeb implements Solution {
     // Return the name of the type to which E corresponds. E.g. if E is an Integer,
     // the method should return "int".
     String typeParsed();
-
   }
 
   public interface NumberAdder<T extends Number> {
@@ -56,39 +72,6 @@ public class P1aeb implements Solution {
 
     // Return the sum of x and y
     T add(T x, T y);
-
-  }
-
-  public static <T extends Number> Set<T> readNumbers(int numbersToRead, NumberParser<T> parser) {
-    System.out.printf(
-        "Please enter %d %ss, one line at a time:\n", numbersToRead, parser.typeParsed()
-    );
-
-    return Utils.getUserLines(numbersToRead)
-        .stream()
-        .map(parser::parseNumber)
-        .collect(Collectors.toSet());
-  }
-
-  public static <T extends Number> T addNumbers(Set<T> numbers, NumberAdder<T> adder) {
-    return numbers.stream()
-        .reduce(adder.zero(), adder::add);
-  }
-
-  public static <T extends Number> void displayAsDoubles(Set<T> numbers) {
-    System.out.println(
-        numbers.stream()
-            .map(Number::doubleValue)
-            .collect(Collectors.toSet())
-    );
-  }
-
-  public static <T extends Number> void displayAsInts(Set<T> numbers) {
-    System.out.println(
-        numbers.stream()
-            .map(Number::intValue)
-            .collect(Collectors.toSet())
-    );
   }
 
   public static class IntegerParser implements NumberParser<Integer> {
@@ -102,7 +85,6 @@ public class P1aeb implements Solution {
     public String typeParsed() {
       return "int";
     }
-
   }
 
   public static class DoubleParser implements NumberParser<Double> {
@@ -116,7 +98,6 @@ public class P1aeb implements Solution {
     public String typeParsed() {
       return "double";
     }
-
   }
 
   public static class IntegerAdder implements NumberAdder<Integer> {
@@ -130,7 +111,6 @@ public class P1aeb implements Solution {
     public Integer add(Integer x, Integer y) {
       return x + y;
     }
-
   }
 
   public static class DoubleAdder implements NumberAdder<Double> {
@@ -144,7 +124,5 @@ public class P1aeb implements Solution {
     public Double add(Double x, Double y) {
       return x + y;
     }
-
   }
-
 }

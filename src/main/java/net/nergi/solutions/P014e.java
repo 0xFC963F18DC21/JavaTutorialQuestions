@@ -10,17 +10,13 @@ public class P014e implements Solution {
   private final long seed = System.nanoTime();
   private final Random randomiser = new Random(seed);
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "014e: Random numbers";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     if (Main.otherArgs.isEmpty()) {
@@ -45,7 +41,10 @@ public class P014e implements Solution {
     }
 
     System.out.println(
-        "\nI had to generate " + amount + " random numbers between 0 and " + (upperBound - 1)
+        "\nI had to generate "
+            + amount
+            + " random numbers between 0 and "
+            + (upperBound - 1)
             + " to have produced all such numbers at least once.");
   }
 

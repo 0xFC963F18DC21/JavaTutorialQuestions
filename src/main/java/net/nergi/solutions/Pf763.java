@@ -9,17 +9,13 @@ import net.nergi.solutions.P1171.GraphNode;
 @SuppressWarnings("unused")
 public class Pf763 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "f763: Simulating garbage collection";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // Make nodes
@@ -44,13 +40,10 @@ public class Pf763 implements Solution {
     node8.addSuccessor(node9);
 
     // Make heap and active sets
-    final Set<GraphNode<Integer>> heapMemory = new HashSet<>(
-        Set.of(node0, node1, node2, node3, node4, node5, node6, node7, node8, node9)
-    );
+    final Set<GraphNode<Integer>> heapMemory =
+        new HashSet<>(Set.of(node0, node1, node2, node3, node4, node5, node6, node7, node8, node9));
 
-    final Set<GraphNode<Integer>> activeNodes = new HashSet<>(
-        Set.of(node0, node3, node5, node9)
-    );
+    final Set<GraphNode<Integer>> activeNodes = new HashSet<>(Set.of(node0, node3, node5, node9));
 
     // Make GC method
     final Runnable garbageCollector =
@@ -92,5 +85,4 @@ public class Pf763 implements Solution {
     System.out.println("----------\nAfter GC:");
     printAllNodes.run();
   }
-
 }

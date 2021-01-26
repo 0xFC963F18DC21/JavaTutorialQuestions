@@ -6,17 +6,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P7041 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "7041: Cloning tree nodes";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     final TreeNode<Integer> testNode = new TreeNode<>(2);
@@ -41,8 +37,8 @@ public class P7041 implements Solution {
 
   public static class TreeNode<E> implements Cloneable {
 
-    private E key;
     private final TreeNode<E>[] children;
+    private E key;
 
     @SuppressWarnings("unchecked")
     public TreeNode(int numberOfChildren) {
@@ -59,9 +55,8 @@ public class P7041 implements Solution {
 
     // We don't want cycles in our trees, as trees *must* be acyclic.
     public void setChild(int childIndex, TreeNode<E> child) throws IllegalArgumentException {
-      final IllegalArgumentException potentialException = new IllegalArgumentException(
-          "Trees must not contain cycles!"
-      );
+      final IllegalArgumentException potentialException =
+          new IllegalArgumentException("Trees must not contain cycles!");
 
       // Prevent direct and indirect cycles in a tree.
       final ArrayDeque<TreeNode<E>> toVisit = new ArrayDeque<>();
@@ -105,7 +100,5 @@ public class P7041 implements Solution {
 
       return clone;
     }
-
   }
-
 }

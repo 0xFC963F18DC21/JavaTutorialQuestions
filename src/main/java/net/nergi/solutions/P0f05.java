@@ -6,17 +6,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P0f05 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "0f05: Coloured points";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     Point noColour = new Point(0, 3, 4);
@@ -42,14 +38,14 @@ public class P0f05 implements Solution {
     public final double y;
     public final double z;
 
-    public static Point getOrigin() {
-      return origin;
-    }
-
     public Point(double x, double y, double z) {
       this.x = x;
       this.y = y;
       this.z = z;
+    }
+
+    public static Point getOrigin() {
+      return origin;
     }
 
     public double distance(Point other) {
@@ -131,5 +127,4 @@ public class P0f05 implements Solution {
       }
     }
   }
-
 }

@@ -13,17 +13,13 @@ import net.nergi.Utils;
 @SuppressWarnings("unused")
 public class P5d30 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "5d30: Unreliable buffered reader";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     /*
@@ -31,10 +27,8 @@ public class P5d30 implements Solution {
      * We're going to have to perform some JVM black magic in order to get this to work.
      *
      */
-    final UnreliableBufferedReader ubr = new UnreliableBufferedReader(
-        new InputStreamReader(System.in),
-        0.5
-    );
+    final UnreliableBufferedReader ubr =
+        new UnreliableBufferedReader(new InputStreamReader(System.in), 0.5);
 
     // Are you ready?
     // (Fixed for post Java 12)
@@ -78,13 +72,7 @@ public class P5d30 implements Solution {
     System.out.printf("Attempts: %d, Lines: 5\n", ubr.getReads());
   }
 
-  /**
-   * This has real
-   * --------------------------------
-   * #define true (rand() % 100 < 95)
-   * --------------------------------
-   * vibes.
-   */
+  /** This has real <code>#define true (rand() % 100 &lt; 95)</code> vibes. */
   public static class UnreliableBufferedReader extends BufferedReader {
 
     private final Random rnd = new Random();
@@ -112,5 +100,4 @@ public class P5d30 implements Solution {
       return reads;
     }
   }
-
 }

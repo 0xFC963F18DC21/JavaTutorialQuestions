@@ -5,17 +5,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class Pe93f implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "e93f: Apparent and actual types";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @SuppressWarnings("TextBlockMigration")
   @Override
   public void exec() {
@@ -25,8 +21,7 @@ public class Pe93f implements Solution {
             + " offers.\n"
             + "This means calling .accept() in C will use C's method, but using D's .accept()"
             + " causes Java to use the most specific type possible, in this case, it will use the"
-            + " overload that takes in a value of type B."
-    );
+            + " overload that takes in a value of type B.");
 
     // -----------------------------------------------------
 
@@ -50,7 +45,6 @@ public class Pe93f implements Solution {
     public void accept(A a) {
       System.out.println("Accepted object of type A.");
     }
-
   }
 
   public static class D extends C {
@@ -58,7 +52,5 @@ public class Pe93f implements Solution {
     public void accept(B b) {
       System.out.println("Accepted object of type B.");
     }
-
   }
-
 }

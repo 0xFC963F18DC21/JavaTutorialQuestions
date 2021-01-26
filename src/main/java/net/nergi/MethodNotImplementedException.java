@@ -14,5 +14,4 @@ public class MethodNotImplementedException extends Exception {
   public MethodNotImplementedException(String message, Throwable cause) {
     super(message, cause);
   }
-
 }

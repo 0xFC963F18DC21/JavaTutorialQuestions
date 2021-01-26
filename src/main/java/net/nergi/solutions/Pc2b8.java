@@ -7,17 +7,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class Pc2b8 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "c2b8: Irresponsible rectangle";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     DrawingEngineDemo.main(new String[0]);
@@ -47,8 +43,7 @@ public class Pc2b8 implements Solution {
     public boolean equals(Object obj) {
       if (obj instanceof Point) {
         Point other = (Point) obj;
-        return coordX == other.coordX
-            && coordY == other.coordY;
+        return coordX == other.coordX && coordY == other.coordY;
       } else {
         return false;
       }
@@ -58,7 +53,6 @@ public class Pc2b8 implements Solution {
     public String toString() {
       return String.format("(%d, %d)", coordX, coordY);
     }
-
   }
 
   public static class Rectangle {
@@ -97,9 +91,7 @@ public class Pc2b8 implements Solution {
     public boolean equals(Object obj) {
       if (obj instanceof Rectangle) {
         Rectangle other = (Rectangle) obj;
-        return topLeft.equals(other.topLeft)
-            && width == other.width
-            && height == other.height;
+        return topLeft.equals(other.topLeft) && width == other.width && height == other.height;
       } else {
         return false;
       }
@@ -109,7 +101,6 @@ public class Pc2b8 implements Solution {
     public String toString() {
       return String.format("(top-left = %s, width = %d, height = %d)", topLeft, width, height);
     }
-
   }
 
   public static class DrawingEngine {
@@ -136,16 +127,13 @@ public class Pc2b8 implements Solution {
 
     public String toString() {
 
-      final StringBuilder result = new StringBuilder(
-          "Drawing engine is looking after these rectangles:"
-      );
+      final StringBuilder result =
+          new StringBuilder("Drawing engine is looking after these rectangles:");
       for (Rectangle r : rectangles) {
         result.append("\n   ").append(r.toString());
       }
       return result.toString();
-
     }
-
   }
 
   public static class DrawingEngineDemo {
@@ -160,16 +148,13 @@ public class Pc2b8 implements Solution {
 
       System.out.println(engine);
 
-      System.out.println("Max area of these rectangles is "
-          + engine.maxArea());
+      System.out.println("Max area of these rectangles is " + engine.maxArea());
 
       Rectangle r1 = new Rectangle(new Point(5, 5), 10, 20);
       Rectangle r2 = new Rectangle(new Point(2, 2), 15, 25);
 
-      System.out.println("Rectangle " + r2.toString() + " contains "
-          + r1.toString() + ": " + r2.contains(r1));
-
+      System.out.println(
+          "Rectangle " + r2.toString() + " contains " + r1.toString() + ": " + r2.contains(r1));
     }
-
   }
 }

@@ -64,10 +64,8 @@ public class Pbec2 implements Solution {
   private static class Artist {
 
     public final String name;
-
-    private final ArrayList<Record> catalogue = new ArrayList<>();
-
     public final Genre mainGenre;
+    private final ArrayList<Record> catalogue = new ArrayList<>();
 
     public Artist(String name, Genre mainGenre) {
       this.name = name;

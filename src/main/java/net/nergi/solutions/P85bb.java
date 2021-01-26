@@ -8,17 +8,13 @@ import net.nergi.solutions.P1486.StringStackList;
 @SuppressWarnings("unused")
 public class P85bb implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "85bb: String stack iterators";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // Testing the iterator
@@ -39,15 +35,11 @@ public class P85bb implements Solution {
     System.out.println(sstkl);
   }
 
-  /**
-   * Gives a top-down iterator for a string stack. Does not empty the stack.
-   */
+  /** Gives a top-down iterator for a string stack. Does not empty the stack. */
   public interface StringStackIterator extends Iterator<String> {
 
     boolean hasNext();
 
     String next();
-
   }
-
 }

@@ -5,28 +5,19 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P6346 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "6346: Depth of arithmetic expressions";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
-    Expr testExpr = new FactExpr(
-        new AddExpr(
-            new LiteralExpr("3"),
-            new MulExpr(
-                new LiteralExpr("4"),
-                new LiteralExpr("5")
-            )
-        )
-    );
+    Expr testExpr =
+        new FactExpr(
+            new AddExpr(
+                new LiteralExpr("3"), new MulExpr(new LiteralExpr("4"), new LiteralExpr("5"))));
 
     System.out.println(testExpr + "\n" + testExpr.depth());
   }

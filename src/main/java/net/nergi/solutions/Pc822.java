@@ -6,17 +6,13 @@ import net.nergi.solutions.P7041.TreeNode;
 @SuppressWarnings("unused")
 public class Pc822 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "c822: Problems cloning tree nodes";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     try {

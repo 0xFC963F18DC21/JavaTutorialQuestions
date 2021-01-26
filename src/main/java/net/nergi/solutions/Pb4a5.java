@@ -5,17 +5,13 @@ import net.nergi.Solution;
 @SuppressWarnings({"unused", "deprecation"})
 public class Pb4a5 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "b4a5: Observing the garbage collector";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     for (int i = 0; i < 1000000; ++i) {
@@ -39,7 +35,5 @@ public class Pb4a5 implements Solution {
       System.out.printf("Instance of A with id %d has been GCed!\n", id);
       ++numCollected;
     }
-
   }
-
 }

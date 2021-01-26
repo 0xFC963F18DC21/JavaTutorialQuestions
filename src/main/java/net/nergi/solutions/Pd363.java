@@ -5,17 +5,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class Pd363 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "d363: Bloated person";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     System.out.println("There is no execution to be done here. Please see the source code.");
@@ -72,7 +68,6 @@ public class Pd363 implements Solution {
       }
 
       return true;
-
     }
 
     private boolean isLeapYear() {
@@ -80,7 +75,6 @@ public class Pd363 implements Solution {
       // leap year calculation
       return (year % 4) == 0;
     }
-
   }
 
   public static class Address {
@@ -99,8 +93,10 @@ public class Pd363 implements Solution {
 
     @Override
     public int hashCode() {
-      return houseNumber + (address1.hashCode() * 31) + (address2.hashCode() * 31 * 31) + (
-          postCode.hashCode() * 31 * 31 * 31);
+      return houseNumber
+          + (address1.hashCode() * 31)
+          + (address2.hashCode() * 31 * 31)
+          + (postCode.hashCode() * 31 * 31 * 31);
     }
 
     @Override
@@ -128,7 +124,9 @@ public class Pd363 implements Solution {
 
     private final String nationalInsuranceNumber;
 
-    public Person(String forenames, String surname,
+    public Person(
+        String forenames,
+        String surname,
         Date dateOfBirth,
         Address address,
         String nationalInsuranceNumber) {
@@ -140,9 +138,7 @@ public class Pd363 implements Solution {
     }
 
     public boolean isDateOfBirthValid() {
-      return dateOfBirth.isDateValid()
-          && dateOfBirth.year >= 2000
-          && dateOfBirth.year <= 2012;
+      return dateOfBirth.isDateValid() && dateOfBirth.year >= 2000 && dateOfBirth.year <= 2012;
     }
 
     public boolean sameAddress(Person other) {
@@ -159,12 +155,29 @@ public class Pd363 implements Solution {
     }
 
     public String toString() {
-      return "Name: " + forenames + " " + surname + "\n"
-          + "DOB: " + dateOfBirth.day + "/" + dateOfBirth.month + "/" + dateOfBirth.year + "\n"
-          + "Address: " + address.houseNumber + " " + address.address1 + ", " + address.address2
-          + ", " + address.postCode + "\n"
-          + "NI: " + nationalInsuranceNumber;
+      return "Name: "
+          + forenames
+          + " "
+          + surname
+          + "\n"
+          + "DOB: "
+          + dateOfBirth.day
+          + "/"
+          + dateOfBirth.month
+          + "/"
+          + dateOfBirth.year
+          + "\n"
+          + "Address: "
+          + address.houseNumber
+          + " "
+          + address.address1
+          + ", "
+          + address.address2
+          + ", "
+          + address.postCode
+          + "\n"
+          + "NI: "
+          + nationalInsuranceNumber;
     }
-
   }
 }

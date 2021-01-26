@@ -8,17 +8,13 @@ import net.nergi.solutions.P2ffc.GenericStackList;
 @SuppressWarnings("unused")
 public class P5566 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "5566: Exception-throwing stacks";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     try {
@@ -55,5 +51,4 @@ public class P5566 implements Solution {
       System.out.println("ES Exception caught!");
     }
   }
-
 }

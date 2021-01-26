@@ -5,17 +5,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P2862 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "2862: Exceptions and inheritance (ii)";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     final A myB = new B();
@@ -42,7 +38,6 @@ public class P2862 implements Solution {
     void foo() throws MyExceptionC {
       throw new MyExceptionC();
     }
-
   }
 
   public static class B extends A {
@@ -51,11 +46,9 @@ public class P2862 implements Solution {
     void foo() throws MyExceptionD {
       throw new MyExceptionD();
     }
-
   }
 
   public static class MyExceptionC extends Exception {}
 
   public static class MyExceptionD extends MyExceptionC {}
-
 }

@@ -1,6 +1,8 @@
 package net.nergi;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,10 +33,10 @@ public class UtilsTests {
 
   @Test
   public void hashMapOfTests() {
-    Integer[] arr1 = new Integer[]{1, 2, 3, 4, 5};
-    String[] arr2 = new String[]{"a", "b", "c", "d", "e"};
-    String[] arr3 = new String[]{"e", "d", "c", "b", "a"};
-    Integer[] arr4 = new Integer[]{1, 2, 3, 4};
+    Integer[] arr1 = new Integer[] {1, 2, 3, 4, 5};
+    String[] arr2 = new String[] {"a", "b", "c", "d", "e"};
+    String[] arr3 = new String[] {"e", "d", "c", "b", "a"};
+    Integer[] arr4 = new Integer[] {1, 2, 3, 4};
 
     HashMap<Integer, String> correctMap = new HashMap<>();
     for (int i = 0; i < arr1.length; ++i) {

@@ -8,17 +8,28 @@ import net.nergi.Utils;
 @SuppressWarnings("unused")
 public class Pe093 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  private static int safeParsePositiveInt(String s) {
+    try {
+      final int i = Integer.parseInt(s);
+
+      if (i < 0) {
+        throw new NumberFormatException("Negative number");
+      }
+
+      return i;
+    } catch (NumberFormatException | NullPointerException e) {
+      System.out.println("Input ignored. Please enter a positive integer.");
+      return -1;
+    }
+  }
+
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "e093: Average of numbers";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // Get ints from user
@@ -60,27 +71,6 @@ public class Pe093 implements Solution {
 
     System.out.printf("The average of those %d positive integers are:\n", amount);
     System.out.println(
-        ints.stream()
-            .map(Integer::doubleValue)
-            .reduce(Double::sum)
-            .orElse(0.0)
-            / amount
-    );
+        ints.stream().map(Integer::doubleValue).reduce(Double::sum).orElse(0.0) / amount);
   }
-
-  private static int safeParsePositiveInt(String s) {
-    try {
-      final int i = Integer.parseInt(s);
-
-      if (i < 0) {
-        throw new NumberFormatException("Negative number");
-      }
-
-      return i;
-    } catch (NumberFormatException | NullPointerException e) {
-      System.out.println("Input ignored. Please enter a positive integer.");
-      return -1;
-    }
-  }
-
 }

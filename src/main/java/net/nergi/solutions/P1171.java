@@ -9,17 +9,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P1171 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "1171: Cloning graphs";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     final GraphNode<Integer> rootNode = new GraphNode<>();
@@ -39,19 +35,17 @@ public class P1171 implements Solution {
 
     System.out.println(rootNode.getKey() + " and " + clonedNode.getKey());
     System.out.println(
-        rootNode.getSuccessor(0).getKey() + " and " + clonedNode.getSuccessor(0).getKey()
-    );
+        rootNode.getSuccessor(0).getKey() + " and " + clonedNode.getSuccessor(0).getKey());
     System.out.println(
         rootNode.getSuccessor(0).getSuccessor(0).getKey()
             + " and "
-            + clonedNode.getSuccessor(0).getSuccessor(0).getKey()
-    );
+            + clonedNode.getSuccessor(0).getSuccessor(0).getKey());
   }
 
   public static class GraphNode<E> implements Cloneable {
 
-    private E key;
     private final List<GraphNode<E>> successors;
+    private E key;
 
     public GraphNode() {
       successors = new ArrayList<>();
@@ -121,5 +115,4 @@ public class P1171 implements Solution {
       return sb.toString();
     }
   }
-
 }

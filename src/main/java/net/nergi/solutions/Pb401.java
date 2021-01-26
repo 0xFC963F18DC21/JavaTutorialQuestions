@@ -12,17 +12,13 @@ import net.nergi.solutions.P735a.GenericIterator;
 @SuppressWarnings("unused")
 public class Pb401 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "b401: Generic sets";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // Create sets
@@ -57,6 +53,7 @@ public class Pb401 implements Solution {
 
   /**
    * Generic set implementation for reference types.
+   *
    * @param <E> Type to store
    */
   // Modified for 735a
@@ -149,13 +146,10 @@ public class Pb401 implements Solution {
             public E next() {
               return backingIterator.next();
             }
-
           };
         }
-
       };
     }
-
   }
 
   public abstract static class AbstractGenericSet<E> implements GenericSet<E> {
@@ -176,7 +170,6 @@ public class Pb401 implements Solution {
 
       return sb.toString();
     }
-
   }
 
   public static class MemoryEfficientGenericSet<E> extends AbstractGenericSet<E> {
@@ -218,10 +211,8 @@ public class Pb401 implements Solution {
         public E next() {
           return internalIterator.next();
         }
-
       };
     }
-
   }
 
   public static class SpeedEfficientGenericSet<E> extends AbstractGenericSet<E> {
@@ -264,10 +255,7 @@ public class Pb401 implements Solution {
         public E next() {
           return backingIterator.next();
         }
-
       };
     }
-
   }
-
 }

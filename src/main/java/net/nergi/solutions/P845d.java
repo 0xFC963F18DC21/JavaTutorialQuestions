@@ -8,6 +8,24 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P845d implements Solution {
 
+  public static void sortBookshelf(Bookshelf shelf) {
+    final ArrayList<Book> books = new ArrayList<>();
+    final ArrayList<Book> dicts = new ArrayList<>();
+
+    while (shelf.size() > 0) {
+      final Book b = shelf.remove(0);
+
+      if (b instanceof Dictionary) {
+        dicts.add(b);
+      } else {
+        books.add(b);
+      }
+    }
+
+    dicts.forEach(shelf::addBookOnLeftSide);
+    books.forEach(shelf::addBookOnLeftSide);
+  }
+
   /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
@@ -135,23 +153,5 @@ public class P845d implements Solution {
         System.out.println(books.get(i));
       }
     }
-  }
-
-  public static void sortBookshelf(Bookshelf shelf) {
-    final ArrayList<Book> books = new ArrayList<>();
-    final ArrayList<Book> dicts = new ArrayList<>();
-
-    while (shelf.size() > 0) {
-      final Book b = shelf.remove(0);
-
-      if (b instanceof Dictionary) {
-        dicts.add(b);
-      } else {
-        books.add(b);
-      }
-    }
-
-    dicts.forEach(shelf::addBookOnLeftSide);
-    books.forEach(shelf::addBookOnLeftSide);
   }
 }

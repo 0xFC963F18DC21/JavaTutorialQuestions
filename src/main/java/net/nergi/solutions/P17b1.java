@@ -7,17 +7,13 @@ import net.nergi.Utils;
 @SuppressWarnings("unused")
 public class P17b1 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "17b1: Default methods";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     System.out.println("There is no output expected for this. Please see the source code.");
@@ -38,7 +34,6 @@ public class P17b1 implements Solution {
     default int foobar(int x) {
       return bar(foo(x));
     }
-
   }
 
   public interface J {
@@ -50,7 +45,6 @@ public class P17b1 implements Solution {
     default int foobar(int x) {
       return bar(foo(x));
     }
-
   }
 
   public interface K extends I, J {
@@ -60,7 +54,6 @@ public class P17b1 implements Solution {
     default int foobar(int x) {
       return I.super.foobar(x);
     }
-
   }
 
   public static class A implements I {
@@ -88,7 +81,6 @@ public class P17b1 implements Solution {
     public void foobarOriginal(int x) {
       System.out.println(x * x * x);
     }
-
   }
 
   public static class B implements I, J {
@@ -118,7 +110,6 @@ public class P17b1 implements Solution {
     public int foobar(int x) {
       return x * x * x + 1;
     }
-
   }
 
   public static class C implements K {
@@ -156,7 +147,5 @@ public class P17b1 implements Solution {
     protected int foobarOriginal(int x) {
       return x * x * x;
     }
-
   }
-
 }

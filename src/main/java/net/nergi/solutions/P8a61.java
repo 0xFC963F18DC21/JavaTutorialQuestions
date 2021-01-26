@@ -9,31 +9,35 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import net.nergi.Main;
-import net.nergi.solutions.Pa6e7.IntSetIterator;
 import net.nergi.Solution;
 import net.nergi.Utils;
+import net.nergi.solutions.Pa6e7.IntSetIterator;
 
 @SuppressWarnings("unused")
 public class P8a61 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  public static IntSet readIntegers(int n) throws NumberFormatException {
+    final List<Integer> ints =
+        Utils.getUserLines(n).stream().map(Integer::parseInt).collect(Collectors.toList());
+
+    final IntSet output = (n > 10) ? new MemoryEfficientSet() : new SpeedEfficientSet();
+    ints.forEach(output::add);
+
+    return output;
+  }
+
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "8a61: Int set";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // Demo class substituted for this class.
     if (Main.otherArgs.size() < 1) {
-      System.out.println(
-          "This solution needs an input to determine how many integers it accepts."
-      );
+      System.out.println("This solution needs an input to determine how many integers it accepts.");
       return;
     }
 
@@ -54,9 +58,7 @@ public class P8a61 implements Solution {
           if (line != null) {
             int res = Integer.parseInt(line);
 
-            System.out.printf(
-                "Set contains %d: %s\n", res, set.contains(res)
-            );
+            System.out.printf("Set contains %d: %s\n", res, set.contains(res));
           }
         } catch (IOException e) {
           // Stop taking in input, something went wrong.
@@ -72,20 +74,6 @@ public class P8a61 implements Solution {
     } catch (Exception e) {
       e.printStackTrace();
     }
-
-  }
-
-  public static IntSet readIntegers(int n) throws NumberFormatException {
-    final List<Integer> ints = Utils
-        .getUserLines(n)
-        .stream()
-        .map(Integer::parseInt)
-        .collect(Collectors.toList());
-
-    final IntSet output = (n > 10) ? new MemoryEfficientSet() : new SpeedEfficientSet();
-    ints.forEach(output::add);
-
-    return output;
   }
 
   public interface IntSet extends Iterable<Integer> {
@@ -134,7 +122,6 @@ public class P8a61 implements Solution {
 
       return conts;
     }
-
   }
 
   // Added for a6e7
@@ -156,7 +143,6 @@ public class P8a61 implements Solution {
 
       return sb.toString();
     }
-
   }
 
   public static class MemoryEfficientSet extends AbstractIntSet {
@@ -201,7 +187,6 @@ public class P8a61 implements Solution {
         }
       };
     }
-
   }
 
   public static class SpeedEfficientSet extends AbstractIntSet {
@@ -247,7 +232,5 @@ public class P8a61 implements Solution {
         }
       };
     }
-
   }
-
 }

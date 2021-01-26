@@ -6,17 +6,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P153d implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "153d: Exceptions and inheritance (iii)";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @SuppressWarnings("ThrowablePrintedToSystemOut")
   @Override
   public void exec() {
@@ -81,7 +77,6 @@ public class P153d implements Solution {
     public String toString() {
       return "exception A";
     }
-
   }
 
   public static class B extends A {
@@ -90,7 +85,6 @@ public class P153d implements Solution {
     public String toString() {
       return "exception B is an " + super.toString();
     }
-
   }
 
   public static class C extends B {
@@ -99,7 +93,5 @@ public class P153d implements Solution {
     public String toString() {
       return "exception C is an " + super.toString();
     }
-
   }
-
 }

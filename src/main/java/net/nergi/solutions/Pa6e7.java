@@ -9,17 +9,13 @@ import net.nergi.solutions.P8a61.SpeedEfficientSet;
 @SuppressWarnings("unused")
 public class Pa6e7 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "a6e7: Int set iterators";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // Test new functionality
@@ -48,7 +44,5 @@ public class Pa6e7 implements Solution {
     boolean hasNext();
 
     Integer next();
-
   }
-
 }

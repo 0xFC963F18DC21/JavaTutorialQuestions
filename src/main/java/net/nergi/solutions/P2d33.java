@@ -9,17 +9,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P2d33 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "2d33: Reversed order of input";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     ArrayDeque<String> lines = new ArrayDeque<>();

@@ -8,17 +8,19 @@ import net.nergi.solutions.P85bb.StringStackIterator;
 @SuppressWarnings("unused")
 public class P1486 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  public static void transferStacks(StringStack dst, StringStack src) {
+    while (!src.isEmpty()) {
+      dst.push(src.pop());
+    }
+  }
+
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "1486: String stack";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // Stacks
@@ -65,7 +67,6 @@ public class P1486 implements Solution {
     boolean isEmpty();
 
     StringStackIterator iterator();
-
   }
 
   public abstract static class AbstractStringStack implements StringStack {
@@ -86,19 +87,12 @@ public class P1486 implements Solution {
 
       return sb.toString();
     }
-
-  }
-
-  public static void transferStacks(StringStack dst, StringStack src) {
-    while (!src.isEmpty()) {
-      dst.push(src.pop());
-    }
   }
 
   public static class StringStackArray extends AbstractStringStack {
 
-    private int currentPointer = 0;
     private final String[] backingArray;
+    private int currentPointer = 0;
 
     // Creates an empty string stack
     public StringStackArray() {
@@ -157,10 +151,8 @@ public class P1486 implements Solution {
         public String next() {
           return backingArray[--counter];
         }
-
       };
     }
-
   }
 
   public static class StringStackList extends AbstractStringStack {
@@ -214,10 +206,7 @@ public class P1486 implements Solution {
         public String next() {
           return backingList.get(--counter);
         }
-
       };
     }
-
   }
-
 }

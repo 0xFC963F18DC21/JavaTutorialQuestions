@@ -11,17 +11,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P1ae9 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "1ae9: Reusing immutable value objects";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     final ArrayList<Point> points1 = new ArrayList<>();
@@ -34,9 +30,8 @@ public class P1ae9 implements Solution {
 
     // Make points with old constructor:
     try {
-      final Constructor<Point> ctor = Point.class.getDeclaredConstructor(
-          int.class, int.class, int.class
-      );
+      final Constructor<Point> ctor =
+          Point.class.getDeclaredConstructor(int.class, int.class, int.class);
 
       for (int i = 0; i < 10; ++i) {
         points2.add(ctor.newInstance(1, 2, 3));
@@ -46,17 +41,9 @@ public class P1ae9 implements Solution {
     }
 
     // Print points
-    System.out.println(
-        points1.stream()
-            .map(Point::toSuperString)
-            .collect(Collectors.toList())
-    );
+    System.out.println(points1.stream().map(Point::toSuperString).collect(Collectors.toList()));
 
-    System.out.println(
-        points2.stream()
-            .map(Point::toSuperString)
-            .collect(Collectors.toList())
-    );
+    System.out.println(points2.stream().map(Point::toSuperString).collect(Collectors.toList()));
   }
 
   public static class Point {
@@ -68,11 +55,17 @@ public class P1ae9 implements Solution {
     private final int coordY;
     private final int coordZ;
 
+    private Point(int coordX, int coordY, int coordZ) {
+      this.coordX = coordX;
+      this.coordY = coordY;
+      this.coordZ = coordZ;
+    }
+
     /**
-     * Factory method for Point that reuses refrences for identical points with the
-     * same coordinates.
+     * Factory method for Point that reuses refrences for identical points with the same
+     * coordinates.
      *
-     * Also changed for 290b.
+     * <p>Also changed for 290b.
      */
     public static Point makePoint(int x, int y, int z) {
       final Point p = new Point(x, y, z);
@@ -84,12 +77,6 @@ public class P1ae9 implements Solution {
       } else {
         return inPool.get();
       }
-    }
-
-    private Point(int coordX, int coordY, int coordZ) {
-      this.coordX = coordX;
-      this.coordY = coordY;
-      this.coordZ = coordZ;
     }
 
     public String toSuperString() {
@@ -115,7 +102,5 @@ public class P1ae9 implements Solution {
           ^ Integer.valueOf(coordY).hashCode()
           ^ Integer.valueOf(coordZ).hashCode();
     }
-
   }
-
 }

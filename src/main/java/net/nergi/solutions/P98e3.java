@@ -6,17 +6,21 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P98e3 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  public static int next(int x) {
+    if ((x & 1) == 0) {
+      return x / 2;
+    } else {
+      return 3 * x + 1;
+    }
+  }
+
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "98e3: ... 1 4 2 1 4 2 1 ...";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     if (Main.otherArgs.isEmpty()) {
@@ -31,13 +35,5 @@ public class P98e3 implements Solution {
     }
 
     System.out.println(x);
-  }
-
-  public static int next(int x) {
-    if ((x & 1) == 0) {
-      return x / 2;
-    } else {
-      return 3 * x + 1;
-    }
   }
 }

@@ -5,22 +5,17 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class Pbdb4 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "bdb4: Flawed house";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     System.out.println(
-        "There is no output expected from this solution. See the source code for details."
-    );
+        "There is no output expected from this solution. See the source code for details.");
   }
 
   public static class Rectangle {
@@ -39,26 +34,25 @@ public class Pbdb4 implements Solution {
       this.height = height;
     }
 
+    public int getWidth() {
+      return width;
+    }
+
     // Remove this code...
     @Deprecated
     public void setWidth(int width) {
       this.width = width;
+    }
+    // ... to here
+
+    public int getHeight() {
+      return height;
     }
 
     @Deprecated
     public void setHeight(int height) {
       this.height = height;
     }
-    // ... to here
-
-    public int getWidth() {
-      return width;
-    }
-
-    public int getHeight() {
-      return height;
-    }
-
   }
 
   public static class House {
@@ -95,6 +89,5 @@ public class Pbdb4 implements Solution {
     public int getFloorArea() {
       return floorArea;
     }
-
   }
 }

@@ -1,7 +1,10 @@
 package net.nergi.solutions;
 
 import static net.nergi.Utils.arrayListOf;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Collections;
 import java.util.List;
@@ -13,9 +16,7 @@ import net.nergi.solutions.Pe6fd.BitSet8;
 import net.nergi.solutions.Pe6fd.BitSetArray;
 import org.junit.jupiter.api.Test;
 
-/**
- * This class contains testing for all solution classes.
- */
+/** This class contains testing for all solution classes. */
 public class SolutionTests {
 
   @Test
@@ -52,38 +53,25 @@ public class SolutionTests {
     assertEquals(arrayListOf("21", "12", "2012"), P67dd.getWords("21/12/2012"));
     assertEquals(
         arrayListOf("supercalifragilisticexpieleedotious"),
-        P67dd.getWords("supercalifragilisticexpieleedotious")
-    );
+        P67dd.getWords("supercalifragilisticexpieleedotious"));
     assertEquals(arrayListOf("Area", "51"), P67dd.getWords("Area 51"));
   }
 
   @Test
   public void rectangleC2B8() {
-    Pc2b8.Rectangle rectangle1 = new Pc2b8.Rectangle(
-        new Pc2b8.Point(0, 0), 4, 4
-    );
+    Pc2b8.Rectangle rectangle1 = new Pc2b8.Rectangle(new Pc2b8.Point(0, 0), 4, 4);
 
-    Pc2b8.Rectangle rectangle2 = new Pc2b8.Rectangle(
-        new Pc2b8.Point(1, 1), 2, 2
-    );
+    Pc2b8.Rectangle rectangle2 = new Pc2b8.Rectangle(new Pc2b8.Point(1, 1), 2, 2);
 
-    Pc2b8.Rectangle rectangle3 = new Pc2b8.Rectangle(
-        new Pc2b8.Point(1, 0), 1, 1
-    );
+    Pc2b8.Rectangle rectangle3 = new Pc2b8.Rectangle(new Pc2b8.Point(1, 0), 1, 1);
 
     assertEquals(16, rectangle1.area());
     assertEquals(4, rectangle2.area());
     assertEquals(1, rectangle3.area());
 
-    assertEquals(
-        new Pc2b8.Point(4, 4), rectangle1.getBottomRight()
-    );
-    assertEquals(
-        new Pc2b8.Point(3, 3), rectangle2.getBottomRight()
-    );
-    assertEquals(
-        new Pc2b8.Point(2, 1), rectangle3.getBottomRight()
-    );
+    assertEquals(new Pc2b8.Point(4, 4), rectangle1.getBottomRight());
+    assertEquals(new Pc2b8.Point(3, 3), rectangle2.getBottomRight());
+    assertEquals(new Pc2b8.Point(2, 1), rectangle3.getBottomRight());
 
     assertTrue(rectangle1.contains(rectangle2));
     assertFalse(rectangle2.contains(rectangle1));
@@ -97,13 +85,14 @@ public class SolutionTests {
 
   @Test
   public void bitSet36FD() {
-    final Supplier<BitSet> intersectionTestSetSupplier = () -> {
-      BitSet8 set = new BitSet8();
-      set.add(1);
-      set.add(2);
+    final Supplier<BitSet> intersectionTestSetSupplier =
+        () -> {
+          BitSet8 set = new BitSet8();
+          set.add(1);
+          set.add(2);
 
-      return set;
-    };
+          return set;
+        };
 
     // Initialise bit sets
     final BitSet8 bs8 = new BitSet8();
@@ -196,8 +185,7 @@ public class SolutionTests {
     assertEquals(expectedDoubles, Pfe94.sqrtsOfFirstDigitsMonolithic(anotherTestList));
     assertEquals(
         Pfe94.sqrtsOfFirstDigits(anotherTestList),
-        Pfe94.sqrtsOfFirstDigitsMonolithic(anotherTestList)
-    );
+        Pfe94.sqrtsOfFirstDigitsMonolithic(anotherTestList));
   }
 
   @Test
@@ -216,8 +204,8 @@ public class SolutionTests {
     final int minOrZeroEmpty = P68e6.findMaxOrZero(Collections.emptyList());
     final int minOfMaxes = P68e6.findMinOfMaxes(listOfLists);
     final int minOfMaxesEmpty = P68e6.findMinOfMaxes(Collections.emptyList());
-    final int minOfMaxesListOfEmptyLists = P68e6.findMinOfMaxes(
-        List.of(Collections.emptyList(), Collections.emptyList()));
+    final int minOfMaxesListOfEmptyLists =
+        P68e6.findMinOfMaxes(List.of(Collections.emptyList(), Collections.emptyList()));
 
     assertEquals(List.of(1, 2, 3, 4, 5, 9, 1, 10, 100, 1000, 10000, 6, 7, 8), allIntegers);
     assertEquals(9, maxList1);
@@ -230,5 +218,4 @@ public class SolutionTests {
     assertEquals(Integer.MAX_VALUE, minOfMaxesEmpty);
     assertEquals(Integer.MIN_VALUE, minOfMaxesListOfEmptyLists);
   }
-
 }

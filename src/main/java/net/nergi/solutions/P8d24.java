@@ -11,17 +11,13 @@ import net.nergi.solutions.P7ec8.GameEngine;
 @SuppressWarnings("unused")
 public class P8d24 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "8d24: Lucky battling fighters";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     final Random usedRandom = new Random();
@@ -29,27 +25,41 @@ public class P8d24 implements Solution {
     ArrayList<String> possibleNames = arrayListOf("Alice", "Bob", "Charlie");
     ArrayList<String> possibleTypes = arrayListOf("Barbarian", "Mage", "Archer");
 
-    final LuckyFighter fighter1 = new LuckyFighter(
-        possibleNames.remove(usedRandom.nextInt(possibleNames.size())),
-        possibleTypes.get(usedRandom.nextInt(possibleTypes.size())),
-        usedRandom
-    );
+    final LuckyFighter fighter1 =
+        new LuckyFighter(
+            possibleNames.remove(usedRandom.nextInt(possibleNames.size())),
+            possibleTypes.get(usedRandom.nextInt(possibleTypes.size())),
+            usedRandom);
 
-    final LuckyFighter fighter2 = new LuckyFighter(
-        possibleNames.remove(usedRandom.nextInt(possibleNames.size())),
-        possibleTypes.get(usedRandom.nextInt(possibleTypes.size())),
-        usedRandom
-    );
+    final LuckyFighter fighter2 =
+        new LuckyFighter(
+            possibleNames.remove(usedRandom.nextInt(possibleNames.size())),
+            possibleTypes.get(usedRandom.nextInt(possibleTypes.size())),
+            usedRandom);
 
     GameEngine.simulateBattle(fighter1, fighter2);
+  }
+
+  public enum FighterStyle {
+    NORMAL(0.25, 0.25),
+    AGGRESSIVE(0.1, 0.4),
+    DEFENSIVE(0.4, 0.1);
+
+    public double useLuckDefendChance;
+    public double useLuckAttackChance;
+
+    FighterStyle(double uldc, double ulac) {
+      useLuckDefendChance = uldc;
+      useLuckAttackChance = ulac;
+    }
   }
 
   public static class LuckyFighter extends P7ec8.Fighter {
 
     private static final int LUCK_UPPER_BOUND = 18;
 
-    private static final List<FighterStyle> STYLES = List.of(FighterStyle.NORMAL,
-        FighterStyle.AGGRESSIVE, FighterStyle.DEFENSIVE);
+    private static final List<FighterStyle> STYLES =
+        List.of(FighterStyle.NORMAL, FighterStyle.AGGRESSIVE, FighterStyle.DEFENSIVE);
 
     private final FighterStyle style;
 
@@ -59,33 +69,32 @@ public class P8d24 implements Solution {
       this("Unnamed", "Untyped", 1, 1, 1, new Random(), FighterStyle.NORMAL);
     }
 
-    public LuckyFighter(String name, String type, int skill, int stamina, int luck, Random rnd,
-        FighterStyle style) throws IllegalArgumentException {
+    public LuckyFighter(
+        String name, String type, int skill, int stamina, int luck, Random rnd, FighterStyle style)
+        throws IllegalArgumentException {
       this.name = name;
       this.type = type;
       this.style = style;
 
       if (skill < 1 || skill > SKILL_UPPER_BOUND) {
         throw new IllegalArgumentException(
-            "Skill initialiser out of bounds. Must be 1 <= skill <= " + SKILL_UPPER_BOUND + "."
-        );
+            "Skill initialiser out of bounds. Must be 1 <= skill <= " + SKILL_UPPER_BOUND + ".");
       } else {
         this.skill = skill;
       }
 
       if (stamina < 1 || stamina > STAMINA_UPPER_BOUND) {
         throw new IllegalArgumentException(
-            "Stamina initialiser out of bounds. Must be 1 <= stamina <= " + STAMINA_UPPER_BOUND
-                + "."
-        );
+            "Stamina initialiser out of bounds. Must be 1 <= stamina <= "
+                + STAMINA_UPPER_BOUND
+                + ".");
       } else {
         this.stamina = stamina;
       }
 
       if (luck < 1 || luck > LUCK_UPPER_BOUND) {
         throw new IllegalArgumentException(
-            "Luck initialiser out of bounds. Must be 1 <= luck <= " + LUCK_UPPER_BOUND + "."
-        );
+            "Luck initialiser out of bounds. Must be 1 <= luck <= " + LUCK_UPPER_BOUND + ".");
       } else {
         this.luck = luck;
       }
@@ -94,9 +103,13 @@ public class P8d24 implements Solution {
     }
 
     public LuckyFighter(String name, String type, Random generator) {
-      this(name, type, generator.nextInt(SKILL_UPPER_BOUND) + 1,
+      this(
+          name,
+          type,
+          generator.nextInt(SKILL_UPPER_BOUND) + 1,
           generator.nextInt(STAMINA_UPPER_BOUND) + 1,
-          generator.nextInt(LUCK_UPPER_BOUND) + 1, generator,
+          generator.nextInt(LUCK_UPPER_BOUND) + 1,
+          generator,
           STYLES.get(generator.nextInt(STYLES.size())));
     }
 
@@ -127,9 +140,7 @@ public class P8d24 implements Solution {
       stamina = Math.max(0, stamina - damage);
     }
 
-    /**
-     * Calculates the max amount of damage to send to the opponent.
-     */
+    /** Calculates the max amount of damage to send to the opponent. */
     @Override
     public int calculateDamage() {
       if (luck >= 2 && actionRnd.nextDouble() <= style.useLuckAttackChance) {
@@ -149,9 +160,7 @@ public class P8d24 implements Solution {
       return 2;
     }
 
-    /**
-     * Calculates the attack score for the fighter's current turn.
-     */
+    /** Calculates the attack score for the fighter's current turn. */
     @Override
     public int calculateAttackScore() {
       // Assuming 2d6
@@ -165,20 +174,15 @@ public class P8d24 implements Solution {
 
     @Override
     public String toString() {
-      return name + " - " + type + " - skill: " + skill + "; stamina: " + stamina + "; luck: "
+      return name
+          + " - "
+          + type
+          + " - skill: "
+          + skill
+          + "; stamina: "
+          + stamina
+          + "; luck: "
           + luck;
-    }
-  }
-
-  public enum FighterStyle {
-    NORMAL(0.25, 0.25), AGGRESSIVE(0.1, 0.4), DEFENSIVE(0.4, 0.1);
-
-    public double useLuckDefendChance;
-    public double useLuckAttackChance;
-
-    FighterStyle(double uldc, double ulac) {
-      useLuckDefendChance = uldc;
-      useLuckAttackChance = ulac;
     }
   }
 }

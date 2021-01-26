@@ -7,17 +7,22 @@ public class Pf79b implements Solution {
 
   private static final int ITERATIONS = 1500;
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  public static boolean isPalindromic(String str) {
+    boolean palindromic = true;
+    for (int i = 0; palindromic && i < str.length() / 2; ++i) {
+      palindromic = str.charAt(i) == str.charAt(str.length() - 1 - i);
+    }
+
+    return palindromic;
+  }
+
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "f79b: Perfect palindromic cubes";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     for (int i = 0; i < ITERATIONS; ++i) {
@@ -27,14 +32,5 @@ public class Pf79b implements Solution {
         System.out.println(i + " cubed is " + cubed);
       }
     }
-  }
-
-  public static boolean isPalindromic(String str) {
-    boolean palindromic = true;
-    for (int i = 0; palindromic && i < str.length() / 2; ++i) {
-      palindromic = str.charAt(i) == str.charAt(str.length() - 1 - i);
-    }
-
-    return palindromic;
   }
 }

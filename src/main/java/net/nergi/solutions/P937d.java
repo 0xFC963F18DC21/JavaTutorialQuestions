@@ -5,22 +5,17 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P937d implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "937d: Flawed rectangle";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     System.out.println(
-        "There is no output expected from this solution. See the source code for details."
-    );
+        "There is no output expected from this solution. See the source code for details.");
 
     Rectangle rect = new Rectangle(3, 4);
 

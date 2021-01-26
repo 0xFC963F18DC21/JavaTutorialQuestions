@@ -9,17 +9,22 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class Pd3f5 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  public static Stream<Integer> restrictToPositiveIntegers(Stream<Number> numbers) {
+    return numbers.filter((n) -> n instanceof Integer && n.intValue() >= 0).map(Number::intValue);
+  }
+
+  public static Stream<Integer> restrictToPositiveIntegersWildcard(
+      Stream<? extends Number> numbers) {
+    return numbers.filter((n) -> n instanceof Integer && n.intValue() >= 0).map(Number::intValue);
+  }
+
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "d3f5: Streams and downcasting";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     final ArrayList<Integer> listInts = arrayListOf(0, -1, 2, -3);
@@ -46,17 +51,4 @@ public class Pd3f5 implements Solution {
     // This works again:
     restrictToPositiveIntegersWildcard(listInts.stream()).forEach(System.out::println);
   }
-
-  public static Stream<Integer> restrictToPositiveIntegers(Stream<Number> numbers) {
-    return numbers
-        .filter((n) -> n instanceof Integer && n.intValue() >= 0)
-        .map(Number::intValue);
-  }
-
-  public static Stream<Integer> restrictToPositiveIntegersWildcard(Stream<? extends Number> numbers) {
-    return numbers
-        .filter((n) -> n instanceof Integer && n.intValue() >= 0)
-        .map(Number::intValue);
-  }
-
 }

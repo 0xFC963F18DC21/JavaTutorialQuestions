@@ -10,17 +10,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P30cd implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "30cd: Heap exhaustion";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @SuppressWarnings({"MismatchedQueryAndUpdateOfCollection", "InfiniteLoopStatement"})
   @Override
   public void exec() {
@@ -38,5 +34,4 @@ public class P30cd implements Solution {
       System.out.println(amount);
     }
   }
-
 }

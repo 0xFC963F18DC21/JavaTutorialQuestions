@@ -7,17 +7,13 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P876b implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "876b: Generics and subclasses";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @SuppressWarnings("UnnecessaryLocalVariable")
   @Override
   public void exec() {
@@ -30,5 +26,4 @@ public class P876b implements Solution {
   public static class A {}
 
   public static class B extends A {}
-
 }

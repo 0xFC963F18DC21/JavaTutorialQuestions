@@ -8,17 +8,13 @@ import net.nergi.solutions.Pdc38.IndividualAddress;
 @SuppressWarnings("unused")
 public class Pa22c implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "a22c: No duplicate email addresses";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // Try preventing duplicate email addresses.
@@ -40,5 +36,4 @@ public class Pa22c implements Solution {
       System.out.println("Cyclic addition error caught!");
     }
   }
-
 }

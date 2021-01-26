@@ -7,17 +7,28 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P0378 implements Solution {
 
-  /**
-   * Returns the header for the solution, which is the problem's name.
-   */
+  public static Person findMin(Set<Person> people, PersonComparator comparator) {
+    Person min = null;
+    for (Person p : people) {
+      if (min == null) {
+        min = p;
+      } else {
+        if (comparator.compareTo(p, min) == -1) {
+          min = p;
+        }
+      }
+    }
+
+    return min;
+  }
+
+  /** Returns the header for the solution, which is the problem's name. */
   @Override
   public String getName() {
     return "0378: Comparing people";
   }
 
-  /**
-   * Runs the solution to the problem.
-   */
+  /** Runs the solution to the problem. */
   @Override
   public void exec() {
     // Demo class is substituted with this method.
@@ -48,8 +59,13 @@ public class P0378 implements Solution {
 
     System.out.println(people.stream().sorted(surComp::compareTo).collect(Collectors.toList()));
     System.out.println(people.stream().sorted(surForComp::compareTo).collect(Collectors.toList()));
-    System.out
-        .println(people.stream().sorted(surForTelComp::compareTo).collect(Collectors.toList()));
+    System.out.println(
+        people.stream().sorted(surForTelComp::compareTo).collect(Collectors.toList()));
+  }
+
+  public interface PersonComparator {
+
+    int compareTo(Person a, Person b);
   }
 
   public static class Person {
@@ -94,11 +110,6 @@ public class P0378 implements Solution {
     }
   }
 
-  public interface PersonComparator {
-
-    int compareTo(Person a, Person b);
-  }
-
   // Strings already implement Comparable which compares by lexicographic order.
   public static class SurnameComparator implements PersonComparator {
 
@@ -122,21 +133,6 @@ public class P0378 implements Solution {
     public int compareTo(Person a, Person b) {
       return a.getTelephone().compareTo(b.getTelephone());
     }
-  }
-
-  public static Person findMin(Set<Person> people, PersonComparator comparator) {
-    Person min = null;
-    for (Person p : people) {
-      if (min == null) {
-        min = p;
-      } else {
-        if (comparator.compareTo(p, min) == -1) {
-          min = p;
-        }
-      }
-    }
-
-    return min;
   }
 
   public static class TwoTieredComparator implements PersonComparator {
@@ -165,8 +161,8 @@ public class P0378 implements Solution {
 
     private final TwoTieredComparator cmp;
 
-    public ThreeTieredComparator(PersonComparator first, PersonComparator second,
-        PersonComparator third) {
+    public ThreeTieredComparator(
+        PersonComparator first, PersonComparator second, PersonComparator third) {
       cmp = new TwoTieredComparator(new TwoTieredComparator(first, second), third);
     }
 
