@@ -15,6 +15,9 @@ public final class Utils {
   @SuppressWarnings("FieldMayBeFinal")
   private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+  // Private constructor as there is no need to instantiate this class.
+  private Utils() {}
+
   /** Gets the current BufferedReader instance in this class. Required due to 5d30. */
   public static BufferedReader getBr() {
     return br;

@@ -5,13 +5,17 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/** Main entry point into this program. */
 public final class Main {
 
   /**
    * Any other command-line arguments given to the program. Solutions may need these in order to
    * test them outside of the unit tests.
    */
-  public static ArrayList<String> otherArgs = new ArrayList<>();
+  public static final ArrayList<String> otherArgs = new ArrayList<>();
+
+  // Private constructor. No need to make an instance of this class.
+  private Main() {}
 
   public static void main(String[] args) {
     // The first argument expected is the hex string of the problem the user wants the solution to.
