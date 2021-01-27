@@ -4,6 +4,13 @@ import java.lang.reflect.Constructor;
 import net.nergi.Utils;
 import net.nergi.misc.objects.GameItem;
 
+/**
+ * Object public methods are exposed so that they can be used.
+ * One should normally ignore the private methods exposed by some API as they are only supposed
+ * to be used by the developers.
+ *
+ * This is an example class that shows what happens if you decide to violate that encapsulation.
+ */
 @SuppressWarnings("unused")
 public class SafeAndUnsafeObjectCreation implements Runnable {
 

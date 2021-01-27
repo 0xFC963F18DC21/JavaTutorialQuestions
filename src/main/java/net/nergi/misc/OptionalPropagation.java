@@ -4,7 +4,7 @@ import java.util.Optional;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-/** A demo class to demonstrate the functional interfaces exposed by {@link Optional} */
+/** A demo class to demonstrate the functional interfaces exposed by {@link Optional}. */
 @SuppressWarnings({"unused", "OptionalUsedAsFieldOrParameterType"})
 public class OptionalPropagation implements Runnable {
 
