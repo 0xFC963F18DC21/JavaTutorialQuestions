@@ -23,11 +23,8 @@ public class P5d30 implements Solution {
   /** Runs the solution to the problem. */
   @Override
   public void exec() {
-    /*
-     * So uh, I already have a BufferedReader inside the utility class I've written.
-     * We're going to have to perform some JVM black magic in order to get this to work.
-     *
-     */
+    // So uh, I already have a BufferedReader inside the utility class I've written.
+    // We're going to have to perform some JVM black magic in order to get this to work.
     final UnreliableBufferedReader ubr =
         new UnreliableBufferedReader(new InputStreamReader(System.in), 0.5);
 
