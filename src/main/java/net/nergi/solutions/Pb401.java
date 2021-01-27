@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import net.nergi.Solution;
+import net.nergi.Utils;
 import net.nergi.solutions.P735a.GenericCollection;
 import net.nergi.solutions.P735a.GenericIterator;
 
@@ -37,13 +38,13 @@ public class Pb401 implements Solution {
       System.out.println(s);
     }
 
-    System.out.println("-------------------------------------------------------------");
+    Utils.printSeparator();
 
     for (String s : memoryStrings) {
       System.out.println(s);
     }
 
-    System.out.println("-------------------------------------------------------------");
+    Utils.printSeparator();
 
     speedStrings.addAll(memoryStrings);
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import net.nergi.Solution;
+import net.nergi.Utils;
 
 /** Solution for 845d. */
 @SuppressWarnings("unused")
@@ -55,13 +56,13 @@ public class P845d implements Solution {
     // First print
     shelf.printLeftToRight();
 
-    System.out.println("-------------------------------------------------------------");
+    Utils.printSeparator();
 
     // Sort
     sortBookshelf(shelf);
     shelf.printLeftToRight();
 
-    System.out.println("-------------------------------------------------------------");
+    Utils.printSeparator();
   }
 
   public static class Book {

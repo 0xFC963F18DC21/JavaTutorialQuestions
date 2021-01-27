@@ -6,8 +6,8 @@ import net.nergi.Main;
 import net.nergi.Solution;
 
 /**
- * This class runs any class defined in net.nergi.misc. All classes defined there must implement
- * {@link Runnable} as they need to effectively act like main classes.
+ * This class runs any class defined in {@link net.nergi.misc} All classes defined there must
+ * implement {@link Runnable} as they need to effectively act like main classes.
  */
 @SuppressWarnings("unused")
 public class P0000 implements Solution {
@@ -39,6 +39,7 @@ public class P0000 implements Solution {
     } catch (ClassNotFoundException e) {
       // This error catches any typing errors or erroneous class names.
       System.out.println("Invalid class name! [" + Main.otherArgs.get(0) + "]");
+      System.out.println("Define or put classes in the package net.nergi.misc to use them here!");
     } catch (NoSuchMethodException
         | IllegalAccessException
         | InstantiationException

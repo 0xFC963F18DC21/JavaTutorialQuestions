@@ -187,4 +187,9 @@ public final class Utils {
 
   /** An empty method used as a sort of "do nothing" method. */
   public static void pass() {}
+
+  /** Prints a separator line in the console. */
+  public static void printSeparator() {
+    System.out.println("-------------------------------------------------------------");
+  }
 }

@@ -34,6 +34,8 @@ public class P1ae9 implements Solution {
       final Constructor<Point> ctor =
           Point.class.getDeclaredConstructor(int.class, int.class, int.class);
 
+      ctor.setAccessible(true);
+
       for (int i = 0; i < 10; ++i) {
         points2.add(ctor.newInstance(1, 2, 3));
       }

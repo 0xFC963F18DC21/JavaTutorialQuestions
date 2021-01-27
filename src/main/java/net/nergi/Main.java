@@ -46,9 +46,9 @@ public final class Main {
 
       final Object solClass = ctor.newInstance();
       if (solClass instanceof Solution) {
-        System.out.println("-------------------------------------------------------------");
+        Utils.printSeparator();
         System.out.println(((Solution) solClass).getName());
-        System.out.println("-------------------------------------------------------------");
+        Utils.printSeparator();
 
         ((Solution) solClass).exec();
 
