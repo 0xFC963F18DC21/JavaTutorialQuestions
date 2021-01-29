@@ -39,26 +39,48 @@ public class P7ec8 implements Solution {
     GameEngine.simulateBattle(fighter1, fighter2);
   }
 
+  /**
+   * A class that simulates an RPG-style character. The character has various statistics and
+   * provides methods for battle interactions with other characters.
+   */
   public static class Fighter {
 
+    /** Maximum starting skill. */
     protected static final int SKILL_UPPER_BOUND = 18;
 
+    /** Maximum starting stamina. */
     protected static final int STAMINA_UPPER_BOUND = 24;
 
-    public String name;
+    /** Fighter's name. */
+    protected String name;
 
-    public String type;
+    /** Fighter's type / RPG class. */
+    protected String type;
 
-    public int skill;
+    /** Fighter's (fixed) skill level. */
+    protected int skill;
 
+    /** {@link Random} instance used for deciding battle rolls. */
     protected Random actionRnd;
 
+    /** Fighter's current stamina. */
     protected int stamina;
 
+    /** Creates a default-value fighter with no unique name or type. */
     public Fighter() {
       this("Unnamed", "Untyped", 1, 1, new Random());
     }
 
+    /**
+     * Creates a fighter with the given parameters.
+     *
+     * @param name Name of fighter
+     * @param type Type of fighter
+     * @param skill Skill level of fighter
+     * @param stamina Starting stamila of fighter
+     * @param rnd {@link Random} instance used for deciding battle rolls
+     * @throws IllegalArgumentException Throws if skill or stamina out of range.
+     */
     public Fighter(String name, String type, int skill, int stamina, Random rnd)
         throws IllegalArgumentException {
       this.name = name;
@@ -83,6 +105,14 @@ public class P7ec8 implements Solution {
       this.actionRnd = rnd;
     }
 
+    /**
+     * Create a fighter with a given name and type, but with random skill and stamina values.
+     *
+     * @param name Name of fighter
+     * @param type Type of fighter
+     * @param generator {@link Random} instance used to generate stats and further used for battle
+     *     rolls.
+     */
     public Fighter(String name, String type, Random generator) {
       this(
           name,
@@ -113,17 +143,20 @@ public class P7ec8 implements Solution {
       return skill + (actionRnd.nextInt(6) + 1) + (actionRnd.nextInt(6) + 1);
     }
 
+    /** Returns true iff the current fighter's stamina is zero. */
     //              Heavy
     public boolean isDead() {
       return stamina == 0;
     }
 
+    /** Returns the name and statistics of the current fighter as a string. */
     @Override
     public String toString() {
       return name + " - " + type + " - skill: " + skill + "; stamina: " + stamina;
     }
   }
 
+  /** Class that simulates battles between two fighters. */
   public static class GameEngine {
 
     /**

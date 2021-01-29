@@ -39,8 +39,10 @@ public class P85bb implements Solution {
   /** Gives a top-down iterator for a string stack. Does not empty the stack. */
   public interface StringStackIterator extends Iterator<String> {
 
+    /** Returns <code>true</code> iff there is an available next {@link String} in the iterator. */
     boolean hasNext();
 
+    /** Returns the next {@link String} in the iterator. */
     String next();
   }
 }

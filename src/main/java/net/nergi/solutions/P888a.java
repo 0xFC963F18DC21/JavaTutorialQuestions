@@ -10,6 +10,7 @@ import net.nergi.Solution;
 @SuppressWarnings("unused")
 public class P888a implements Solution {
 
+  /** Flattens a list of lists of a certain type. */
   public static <T> List<T> concatenate(List<List<T>> lists) {
     final ArrayList<T> accumulator = new ArrayList<>();
 
@@ -20,6 +21,10 @@ public class P888a implements Solution {
     return accumulator;
   }
 
+  /**
+   * Zips together two lists fully, wherein missing objects in a pair are represented with an empty
+   * {@link Optional}.
+   */
   public static <S, T> List<ImmutablePair<Optional<S>, Optional<T>>> zip(
       List<S> first, List<T> second) {
     final ArrayList<ImmutablePair<Optional<S>, Optional<T>>> result = new ArrayList<>();
@@ -34,6 +39,10 @@ public class P888a implements Solution {
     return result;
   }
 
+  /**
+   * Flattens a zipped list into pairs of non-optional-wrapped values in which empty optionals are
+   * substituted for the given default values.
+   */
   public static <S, T> List<ImmutablePair<S, T>> flatten(
       List<ImmutablePair<Optional<S>, Optional<T>>> maybePairs, S defaultS, T defaultT) {
     return maybePairs.stream()
@@ -67,24 +76,34 @@ public class P888a implements Solution {
     System.out.println(flattened);
   }
 
+  /**
+   * A fully encapsulated immutable object that stores two potentially unrelated items.
+   *
+   * @param <S> Type of first object
+   * @param <T> Type of second object
+   */
   public static class ImmutablePair<S, T> {
 
     private final S first;
     private final T second;
 
+    /** Create a pair with the two given objects. */
     public ImmutablePair(S first, T second) {
       this.first = first;
       this.second = second;
     }
 
+    /** Gets the first object in the pair. */
     public S getFirst() {
       return first;
     }
 
+    /** Gets the second object in the pair. */
     public T getSecond() {
       return second;
     }
 
+    /** Returns a basic string representation of the pair as <code>"(first, second)"</code>. */
     @Override
     public String toString() {
       return "(" + first + ", " + second + ")";

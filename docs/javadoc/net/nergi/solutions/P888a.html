@@ -109,7 +109,9 @@ implements <a href="../Solution.html" title="interface in net.nergi">Solution</a
 <tr class="alt-color">
 <td class="col-first"><code>static class&nbsp;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="P888a.ImmutablePair.html" title="class in net.nergi.solutions">P888a.ImmutablePair</a>&lt;<a href="P888a.ImmutablePair.html" title="type parameter in P888a.ImmutablePair">S</a>,&#8203;<a href="P888a.ImmutablePair.html" title="type parameter in P888a.ImmutablePair">T</a>&gt;</span></code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">A fully encapsulated immutable object that stores two potentially unrelated items.</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -158,7 +160,9 @@ implements <a href="../Solution.html" title="interface in net.nergi">Solution</a
 <tr class="alt-color" id="i0">
 <td class="col-first"><code>static &lt;T&gt;&nbsp;List&lt;T&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#concatenate(java.util.List)">concatenate</a></span>&#8203;(List&lt;List&lt;T&gt;&gt;&nbsp;lists)</code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Flattens a list of lists of a certain type.</div>
+</td>
 </tr>
 <tr class="row-color" id="i1">
 <td class="col-first"><code>void</code></td>
@@ -173,7 +177,10 @@ T&gt;&nbsp;List&lt;<a href="P888a.ImmutablePair.html" title="class in net.nergi.
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#flatten(java.util.List,S,T)">flatten</a></span>&#8203;(List&lt;<a href="P888a.ImmutablePair.html" title="class in net.nergi.solutions">P888a.ImmutablePair</a>&lt;Optional&lt;S&gt;,&#8203;Optional&lt;T&gt;&gt;&gt;&nbsp;maybePairs,
 S&nbsp;defaultS,
 T&nbsp;defaultT)</code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Flattens a zipped list into pairs of non-optional-wrapped values in which empty optionals are
+ substituted for the given default values.</div>
+</td>
 </tr>
 <tr class="row-color" id="i3">
 <td class="col-first"><code>String</code></td>
@@ -187,7 +194,10 @@ T&nbsp;defaultT)</code></th>
 T&gt;&nbsp;List&lt;<a href="P888a.ImmutablePair.html" title="class in net.nergi.solutions">P888a.ImmutablePair</a>&lt;Optional&lt;S&gt;,&#8203;Optional&lt;T&gt;&gt;&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#zip(java.util.List,java.util.List)">zip</a></span>&#8203;(List&lt;S&gt;&nbsp;first,
 List&lt;T&gt;&nbsp;second)</code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Zips together two lists fully, wherein missing objects in a pair are represented with an empty
+ <code>Optional</code>.</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -225,6 +235,7 @@ List&lt;T&gt;&nbsp;second)</code></th>
 <section class="detail" id="concatenate(java.util.List)">
 <h3>concatenate</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">List&lt;T&gt;</span>&nbsp;<span class="member-name">concatenate</span>&#8203;(<span class="parameters">List&lt;List&lt;T&gt;&gt;&nbsp;lists)</span></div>
+<div class="block">Flattens a list of lists of a certain type.</div>
 </section>
 </li>
 <li>
@@ -234,6 +245,8 @@ List&lt;T&gt;&nbsp;second)</code></th>
 T&gt;</span>
 <span class="return-type">List&lt;<a href="P888a.ImmutablePair.html" title="class in net.nergi.solutions">P888a.ImmutablePair</a>&lt;Optional&lt;S&gt;,&#8203;Optional&lt;T&gt;&gt;&gt;</span>&nbsp;<span class="member-name">zip</span>&#8203;(<span class="parameters">List&lt;S&gt;&nbsp;first,
 List&lt;T&gt;&nbsp;second)</span></div>
+<div class="block">Zips together two lists fully, wherein missing objects in a pair are represented with an empty
+ <code>Optional</code>.</div>
 </section>
 </li>
 <li>
@@ -243,6 +256,8 @@ List&lt;T&gt;&nbsp;second)</span></div>
 T&gt;</span>&nbsp;<span class="return-type">List&lt;<a href="P888a.ImmutablePair.html" title="class in net.nergi.solutions">P888a.ImmutablePair</a>&lt;S,&#8203;T&gt;&gt;</span>&nbsp;<span class="member-name">flatten</span>&#8203;(<span class="parameters">List&lt;<a href="P888a.ImmutablePair.html" title="class in net.nergi.solutions">P888a.ImmutablePair</a>&lt;Optional&lt;S&gt;,&#8203;Optional&lt;T&gt;&gt;&gt;&nbsp;maybePairs,
 S&nbsp;defaultS,
 T&nbsp;defaultT)</span></div>
+<div class="block">Flattens a zipped list into pairs of non-optional-wrapped values in which empty optionals are
+ substituted for the given default values.</div>
 </section>
 </li>
 <li>

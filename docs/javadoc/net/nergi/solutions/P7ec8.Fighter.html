@@ -90,6 +90,8 @@ loadScripts(document, 'script');</script>
 <hr>
 <pre>public static class <span class="type-name-label">P7ec8.Fighter</span>
 extends Object</pre>
+<div class="block">A class that simulates an RPG-style character. The character has various statistics and
+ provides methods for battle interactions with other characters.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -111,37 +113,51 @@ extends Object</pre>
 <tr class="alt-color">
 <td class="col-first"><code>protected Random</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#actionRnd">actionRnd</a></span></code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block"><code>Random</code> instance used for deciding battle rolls.</div>
+</td>
 </tr>
 <tr class="row-color">
-<td class="col-first"><code>String</code></td>
+<td class="col-first"><code>protected String</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#name">name</a></span></code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Fighter's name.</div>
+</td>
 </tr>
 <tr class="alt-color">
-<td class="col-first"><code>int</code></td>
+<td class="col-first"><code>protected int</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#skill">skill</a></span></code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Fighter's (fixed) skill level.</div>
+</td>
 </tr>
 <tr class="row-color">
 <td class="col-first"><code>protected static int</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#SKILL_UPPER_BOUND">SKILL_UPPER_BOUND</a></span></code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Maximum starting skill.</div>
+</td>
 </tr>
 <tr class="alt-color">
 <td class="col-first"><code>protected int</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#stamina">stamina</a></span></code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Fighter's current stamina.</div>
+</td>
 </tr>
 <tr class="row-color">
 <td class="col-first"><code>protected static int</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#STAMINA_UPPER_BOUND">STAMINA_UPPER_BOUND</a></span></code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Maximum starting stamina.</div>
+</td>
 </tr>
 <tr class="alt-color">
-<td class="col-first"><code>String</code></td>
+<td class="col-first"><code>protected String</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#type">type</a></span></code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Fighter's type / RPG class.</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -164,7 +180,9 @@ extends Object</pre>
 <tbody>
 <tr class="alt-color">
 <th class="col-constructor-name" scope="row"><code><span class="member-name-link"><a href="#%3Cinit%3E()">Fighter</a></span>()</code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Creates a default-value fighter with no unique name or type.</div>
+</td>
 </tr>
 <tr class="row-color">
 <th class="col-constructor-name" scope="row"><code><span class="member-name-link"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,int,int,java.util.Random)">Fighter</a></span>&#8203;(String&nbsp;name,
@@ -172,13 +190,17 @@ String&nbsp;type,
 int&nbsp;skill,
 int&nbsp;stamina,
 Random&nbsp;rnd)</code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Creates a fighter with the given parameters.</div>
+</td>
 </tr>
 <tr class="alt-color">
 <th class="col-constructor-name" scope="row"><code><span class="member-name-link"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.util.Random)">Fighter</a></span>&#8203;(String&nbsp;name,
 String&nbsp;type,
 Random&nbsp;generator)</code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Create a fighter with a given name and type, but with random skill and stamina values.</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -218,7 +240,9 @@ Random&nbsp;generator)</code></th>
 <tr class="alt-color" id="i2">
 <td class="col-first"><code>boolean</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#isDead()">isDead</a></span>()</code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Returns true iff the current fighter's stamina is zero.</div>
+</td>
 </tr>
 <tr class="row-color" id="i3">
 <td class="col-first"><code>void</code></td>
@@ -230,7 +254,9 @@ Random&nbsp;generator)</code></th>
 <tr class="alt-color" id="i4">
 <td class="col-first"><code>String</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#toString()">toString</a></span>()</code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Returns the name and statistics of the current fighter as a string.</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -254,6 +280,7 @@ Random&nbsp;generator)</code></th>
 <section class="detail" id="SKILL_UPPER_BOUND">
 <h3>SKILL_UPPER_BOUND</h3>
 <div class="member-signature"><span class="modifiers">protected static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="member-name">SKILL_UPPER_BOUND</span></div>
+<div class="block">Maximum starting skill.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd><a href="../../../constant-values.html#net.nergi.solutions.P7ec8.Fighter.SKILL_UPPER_BOUND">Constant Field Values</a></dd>
@@ -264,6 +291,7 @@ Random&nbsp;generator)</code></th>
 <section class="detail" id="STAMINA_UPPER_BOUND">
 <h3>STAMINA_UPPER_BOUND</h3>
 <div class="member-signature"><span class="modifiers">protected static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="member-name">STAMINA_UPPER_BOUND</span></div>
+<div class="block">Maximum starting stamina.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd><a href="../../../constant-values.html#net.nergi.solutions.P7ec8.Fighter.STAMINA_UPPER_BOUND">Constant Field Values</a></dd>
@@ -273,31 +301,36 @@ Random&nbsp;generator)</code></th>
 <li>
 <section class="detail" id="name">
 <h3>name</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">String</span>&nbsp;<span class="member-name">name</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">String</span>&nbsp;<span class="member-name">name</span></div>
+<div class="block">Fighter's name.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="type">
 <h3>type</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">String</span>&nbsp;<span class="member-name">type</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">String</span>&nbsp;<span class="member-name">type</span></div>
+<div class="block">Fighter's type / RPG class.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="skill">
 <h3>skill</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="member-name">skill</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="member-name">skill</span></div>
+<div class="block">Fighter's (fixed) skill level.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="actionRnd">
 <h3>actionRnd</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">Random</span>&nbsp;<span class="member-name">actionRnd</span></div>
+<div class="block"><code>Random</code> instance used for deciding battle rolls.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="stamina">
 <h3>stamina</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="member-name">stamina</span></div>
+<div class="block">Fighter's current stamina.</div>
 </section>
 </li>
 </ul>
@@ -312,6 +345,7 @@ Random&nbsp;generator)</code></th>
 <section class="detail" id="&lt;init&gt;()">
 <h3>Fighter</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="member-name">Fighter</span>()</div>
+<div class="block">Creates a default-value fighter with no unique name or type.</div>
 </section>
 </li>
 <li>
@@ -323,9 +357,16 @@ int&nbsp;skill,
 int&nbsp;stamina,
 Random&nbsp;rnd)</span>
         throws <span class="exceptions">IllegalArgumentException</span></div>
+<div class="block">Creates a fighter with the given parameters.</div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>name</code> - Name of fighter</dd>
+<dd><code>type</code> - Type of fighter</dd>
+<dd><code>skill</code> - Skill level of fighter</dd>
+<dd><code>stamina</code> - Starting stamila of fighter</dd>
+<dd><code>rnd</code> - <code>Random</code> instance used for deciding battle rolls</dd>
 <dt>Throws:</dt>
-<dd><code>IllegalArgumentException</code></dd>
+<dd><code>IllegalArgumentException</code> - Throws if skill or stamina out of range.</dd>
 </dl>
 </section>
 </li>
@@ -335,6 +376,14 @@ Random&nbsp;rnd)</span>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="member-name">Fighter</span>&#8203;(<span class="parameters">String&nbsp;name,
 String&nbsp;type,
 Random&nbsp;generator)</span></div>
+<div class="block">Create a fighter with a given name and type, but with random skill and stamina values.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>name</code> - Name of fighter</dd>
+<dd><code>type</code> - Type of fighter</dd>
+<dd><code>generator</code> - <code>Random</code> instance used to generate stats and further used for battle
+     rolls.</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -375,12 +424,14 @@ Random&nbsp;generator)</span></div>
 <section class="detail" id="isDead()">
 <h3>isDead</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="member-name">isDead</span>()</div>
+<div class="block">Returns true iff the current fighter's stamina is zero.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="toString()">
 <h3>toString</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">String</span>&nbsp;<span class="member-name">toString</span>()</div>
+<div class="block">Returns the name and statistics of the current fighter as a string.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>Object</code></dd>
