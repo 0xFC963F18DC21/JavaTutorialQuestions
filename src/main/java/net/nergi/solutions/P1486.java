@@ -2,6 +2,7 @@ package net.nergi.solutions;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import net.nergi.Solution;
 import net.nergi.solutions.P85bb.StringStackIterator;
 
@@ -150,6 +151,10 @@ public class P1486 implements Solution {
 
         @Override
         public String next() {
+          if (counter == 0) {
+            throw new NoSuchElementException("Empty stack.");
+          }
+
           return backingArray[--counter];
         }
       };

@@ -3,6 +3,7 @@ package net.nergi.solutions;
 import java.util.EmptyStackException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import net.nergi.Solution;
 import net.nergi.solutions.P735a.GenericCollection;
 import net.nergi.solutions.P735a.GenericIterator;
@@ -141,6 +142,10 @@ public class P2ffc implements Solution {
 
         @Override
         public E next() {
+          if (counter == 0) {
+            throw new NoSuchElementException("Empty stack");
+          }
+
           return (E) backingArray[--counter];
         }
       };

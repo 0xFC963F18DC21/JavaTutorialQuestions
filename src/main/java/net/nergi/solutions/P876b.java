@@ -22,6 +22,7 @@ public class P876b implements Solution {
     Set<? extends A> setOfA = setOfB;
 
     System.out.println("Please see the source code.");
+    System.out.println(setOfA);
   }
 
   public static class A {}

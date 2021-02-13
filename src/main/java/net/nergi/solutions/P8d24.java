@@ -46,8 +46,8 @@ public class P8d24 implements Solution {
     AGGRESSIVE(0.1, 0.4),
     DEFENSIVE(0.4, 0.1);
 
-    public double useLuckDefendChance;
-    public double useLuckAttackChance;
+    public final double useLuckDefendChance;
+    public final double useLuckAttackChance;
 
     FighterStyle(double uldc, double ulac) {
       useLuckDefendChance = uldc;

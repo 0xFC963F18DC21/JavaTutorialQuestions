@@ -29,7 +29,7 @@ public class P7041 implements Solution {
     testNode.setChild(1, rn);
 
     try {
-      final var clonedNode = testNode.clone();
+      testNode.clone();
       System.out.println("Clone successful :D");
     } catch (CloneNotSupportedException e) {
       System.out.println("Clone failed :(");

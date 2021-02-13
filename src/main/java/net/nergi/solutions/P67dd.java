@@ -51,7 +51,7 @@ public class P67dd implements Solution {
   @Override
   public void exec() {
     System.out.println("Getting input:");
-    ArrayList<String> lines = getUserLines();
+    final ArrayList<String> lines = getUserLines();
     if (lines == null) {
       System.out.println("Error in getting lines. Program closing.");
       return;

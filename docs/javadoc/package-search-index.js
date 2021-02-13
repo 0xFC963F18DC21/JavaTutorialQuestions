@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"net.nergi"},{"l":"net.nergi.misc"},{"l":"net.nergi.misc.objects"},{"l":"net.nergi.solutions"}];updateSearchResults();
