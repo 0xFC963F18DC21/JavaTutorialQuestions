@@ -1,6 +1,6 @@
 package net.nergi.solutions;
 
-import static net.nergi.Utils.arrayListOf;
+import static net.nergi.Utils.mutableListOf;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -49,12 +49,12 @@ public class SolutionTests {
 
   @Test
   public void getWords67DD() {
-    assertEquals(arrayListOf("a", "new", "day"), P67dd.getWords("a new day"));
-    assertEquals(arrayListOf("21", "12", "2012"), P67dd.getWords("21/12/2012"));
+    assertEquals(mutableListOf("a", "new", "day"), P67dd.getWords("a new day"));
+    assertEquals(mutableListOf("21", "12", "2012"), P67dd.getWords("21/12/2012"));
     assertEquals(
-        arrayListOf("supercalifragilisticexpieleedotious"),
+        mutableListOf("supercalifragilisticexpieleedotious"),
         P67dd.getWords("supercalifragilisticexpieleedotious"));
-    assertEquals(arrayListOf("Area", "51"), P67dd.getWords("Area 51"));
+    assertEquals(mutableListOf("Area", "51"), P67dd.getWords("Area 51"));
   }
 
   @Test

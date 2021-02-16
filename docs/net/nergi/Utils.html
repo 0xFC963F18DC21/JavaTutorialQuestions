@@ -15,7 +15,7 @@
 <script type="text/javascript" src="../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
-<script type="text/javascript">var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":41,"i10":9,"i11":9};
+<script type="text/javascript">var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":41,"i9":9,"i10":9,"i11":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "alt-color";
 var rowColor = "row-color";
@@ -103,20 +103,13 @@ extends Object</pre>
 </thead>
 <tbody>
 <tr class="alt-color" id="i0">
-<td class="col-first"><code>static &lt;T&gt;&nbsp;ArrayList&lt;T&gt;</code></td>
-<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#arrayListOf(T...)">arrayListOf</a></span>&#8203;(T...&nbsp;items)</code></th>
-<td class="col-last">
-<div class="block">Constructs a mutable ArrayList of items.</div>
-</td>
-</tr>
-<tr class="row-color" id="i1">
 <td class="col-first"><code>static void</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#benchmarkTime(java.lang.Runnable)">benchmarkTime</a></span>&#8203;(Runnable&nbsp;r)</code></th>
 <td class="col-last">
 <div class="block">Runs some code and prints the approximate average time taken to complete.</div>
 </td>
 </tr>
-<tr class="alt-color" id="i2">
+<tr class="row-color" id="i1">
 <td class="col-first"><code>static void</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#benchmarkTime(java.lang.Runnable,int)">benchmarkTime</a></span>&#8203;(Runnable&nbsp;r,
 int&nbsp;amount)</code></th>
@@ -124,28 +117,28 @@ int&nbsp;amount)</code></th>
 <div class="block">Runs some code and prints the approximate average time taken to complete.</div>
 </td>
 </tr>
-<tr class="row-color" id="i3">
+<tr class="alt-color" id="i2">
 <td class="col-first"><code>static BufferedReader</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#getBr()">getBr</a></span>()</code></th>
 <td class="col-last">
 <div class="block">Gets the current BufferedReader instance in this class.</div>
 </td>
 </tr>
-<tr class="alt-color" id="i4">
+<tr class="row-color" id="i3">
 <td class="col-first"><code>static ArrayList&lt;String&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#getUserLines()">getUserLines</a></span>()</code></th>
 <td class="col-last">
 <div class="block">Gets lines of input from the user.</div>
 </td>
 </tr>
-<tr class="row-color" id="i5">
+<tr class="alt-color" id="i4">
 <td class="col-first"><code>static ArrayList&lt;String&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#getUserLines(int)">getUserLines</a></span>&#8203;(int&nbsp;amount)</code></th>
 <td class="col-last">
 <div class="block">Gets lines of input from the user.</div>
 </td>
 </tr>
-<tr class="alt-color" id="i6">
+<tr class="row-color" id="i5">
 <td class="col-first"><code>static ArrayList&lt;String&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#getUserLines(int,boolean)">getUserLines</a></span>&#8203;(int&nbsp;amount,
 boolean&nbsp;shouldEarlyReturn)</code></th>
@@ -153,7 +146,7 @@ boolean&nbsp;shouldEarlyReturn)</code></th>
 <div class="block">Gets lines of input from the user.</div>
 </td>
 </tr>
-<tr class="row-color" id="i7">
+<tr class="alt-color" id="i6">
 <td class="col-first"><code>static &lt;X,&#8203;
 Y&gt;&nbsp;HashMap&lt;X,&#8203;Y&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#hashMapOf(java.util.List,java.util.List)">hashMapOf</a></span>&#8203;(List&lt;X&gt;&nbsp;keys,
@@ -162,7 +155,7 @@ List&lt;Y&gt;&nbsp;values)</code></th>
 <div class="block">Constructs a HashMap from two Lists.</div>
 </td>
 </tr>
-<tr class="alt-color" id="i8">
+<tr class="row-color" id="i7">
 <td class="col-first"><code>static &lt;X,&#8203;
 Y&gt;&nbsp;HashMap&lt;X,&#8203;Y&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#hashMapOf(X%5B%5D,Y%5B%5D)">hashMapOf</a></span>&#8203;(X[]&nbsp;keys,
@@ -171,11 +164,18 @@ Y[]&nbsp;values)</code></th>
 <div class="block">Constructs a HashMap from two arrays.</div>
 </td>
 </tr>
-<tr class="row-color" id="i9">
+<tr class="alt-color" id="i8">
 <td class="col-first"><code>static &lt;T&gt;&nbsp;List&lt;T&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#listOf(T...)">listOf</a></span>&#8203;(T...&nbsp;items)</code></th>
 <td class="col-last">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="row-color" id="i9">
+<td class="col-first"><code>static &lt;T&gt;&nbsp;List&lt;T&gt;</code></td>
+<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#mutableListOf(T...)">mutableListOf</a></span>&#8203;(T...&nbsp;items)</code></th>
+<td class="col-last">
+<div class="block">Constructs a mutable list of items.</div>
 </td>
 </tr>
 <tr class="alt-color" id="i10">
@@ -236,11 +236,11 @@ Y[]&nbsp;values)</code></th>
 </section>
 </li>
 <li>
-<section class="detail" id="arrayListOf(T...)">
-<h3 id="arrayListOf(java.lang.Object[])">arrayListOf</h3>
+<section class="detail" id="mutableListOf(T...)">
+<h3 id="mutableListOf(java.lang.Object[])">mutableListOf</h3>
 <div class="member-signature"><span class="annotations">@SafeVarargs
-</span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">ArrayList&lt;T&gt;</span>&nbsp;<span class="member-name">arrayListOf</span>&#8203;(<span class="parameters">T...&nbsp;items)</span></div>
-<div class="block">Constructs a mutable ArrayList of items.</div>
+</span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">List&lt;T&gt;</span>&nbsp;<span class="member-name">mutableListOf</span>&#8203;(<span class="parameters">T...&nbsp;items)</span></div>
+<div class="block">Constructs a mutable list of items.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
 <dd><code>T</code> - Type to use in list</dd>

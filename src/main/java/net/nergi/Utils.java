@@ -37,14 +37,14 @@ public final class Utils {
   }
 
   /**
-   * Constructs a mutable ArrayList of items.
+   * Constructs a mutable list of items.
    *
-   * @param items Items of a certain type
    * @param <T> Type to use in list
+   * @param items Items of a certain type
    * @return A mutable ArrayList of type T
    */
   @SafeVarargs
-  public static <T> ArrayList<T> arrayListOf(T... items) {
+  public static <T> List<T> mutableListOf(T... items) {
     return new ArrayList<>(List.of(items));
   }
 
@@ -186,7 +186,9 @@ public final class Utils {
   }
 
   /** An empty method used as a sort of "do nothing" method. */
-  public static void pass() {}
+  public static void pass() {
+    // This is empty intentionally.
+  }
 
   /** Prints a separator line in the console. */
   public static void printSeparator() {

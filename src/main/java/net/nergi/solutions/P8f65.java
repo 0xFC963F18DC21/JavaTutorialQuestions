@@ -1,8 +1,8 @@
 package net.nergi.solutions;
 
-import static net.nergi.Utils.arrayListOf;
+import static net.nergi.Utils.mutableListOf;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import net.nergi.Solution;
 
@@ -23,8 +23,8 @@ public class P8f65 implements Solution {
     // Enjoy this battle on me:
     final Random usedRandom = new Random();
 
-    ArrayList<String> possibleNames = arrayListOf("Alice", "Bob", "Charlie");
-    ArrayList<String> possibleTypes = arrayListOf("Barbarian", "Mage", "Archer");
+    final List<String> possibleNames = mutableListOf("Alice", "Bob", "Charlie");
+    final List<String> possibleTypes = mutableListOf("Barbarian", "Mage", "Archer");
 
     final P7ec8.Fighter fighter1 =
         new P7ec8.Fighter(

@@ -1,9 +1,10 @@
 package net.nergi.solutions;
 
-import static net.nergi.Utils.arrayListOf;
+import static net.nergi.Utils.mutableListOf;
 import static net.nergi.Utils.getUserLines;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 import net.nergi.Solution;
@@ -19,9 +20,9 @@ public class P67dd implements Solution {
    * @param str String to split into words
    * @return A list of words in the string
    */
-  public static ArrayList<String> getWords(String str) {
-    StringBuilder sb = new StringBuilder();
-    ArrayList<String> words = arrayListOf();
+  public static List<String> getWords(String str) {
+    final StringBuilder sb = new StringBuilder();
+    final List<String> words = mutableListOf();
 
     for (char c : str.toCharArray()) {
       if (Character.isLetterOrDigit(c)) {
@@ -57,11 +58,11 @@ public class P67dd implements Solution {
       return;
     }
 
-    Supplier<Stream<ArrayList<String>>> wordsInLines = () -> lines.stream().map(P67dd::getWords);
+    Supplier<Stream<List<String>>> wordsInLines = () -> lines.stream().map(P67dd::getWords);
 
     // Print statistics
     System.out.println("Lines: " + lines.size());
-    System.out.println("Words: " + wordsInLines.get().mapToInt(ArrayList::size).sum());
+    System.out.println("Words: " + wordsInLines.get().mapToInt(List::size).sum());
     System.out.println(
         "Characters: "
             + wordsInLines.get().mapToInt((a) -> a.stream().mapToInt(String::length).sum()).sum());

@@ -27,8 +27,8 @@ public class UtilsTests {
     var tArray = Arrays.asList(1, 2, 3, 4, 5);
     var diffTArray = Arrays.asList(5, 4, 3, 2, 1);
 
-    assertEquals(new ArrayList<>(tArray), Utils.arrayListOf(1, 2, 3, 4, 5));
-    assertNotEquals(new ArrayList<>(diffTArray), Utils.arrayListOf(1, 2, 3, 4, 5));
+    assertEquals(new ArrayList<>(tArray), Utils.mutableListOf(1, 2, 3, 4, 5));
+    assertNotEquals(new ArrayList<>(diffTArray), Utils.mutableListOf(1, 2, 3, 4, 5));
   }
 
   @Test
