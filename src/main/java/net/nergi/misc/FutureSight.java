@@ -1,6 +1,7 @@
 package net.nergi.misc;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -21,12 +22,44 @@ public class FutureSight implements Runnable {
         .boxed()
         .collect(Collectors.toList());
 
-    final var result = numberOfOdds(stupidlyLargeList);
-    System.out.printf("There are %d odd numbers in the large list.%n",
-        FunctionalModifiers.exceptionCoalesce(result::get, -1L));
+    final var fut1 = getService()
+        .submit(
+            () -> {
+              final var result = numberOfOdds(stupidlyLargeList);
+              final String toPrint = String.format(
+                  "There are %d odd numbers in the large list.%n",
+                  FunctionalModifiers.exceptionCoalesce(result::get, -1L));
+
+              synchronized (System.out) {
+                System.out.print(toPrint);
+              }
+
+              return "Odds";
+            });
+
+    final var fut2 = getService()
+        .submit(
+            () -> {
+              final var result = numberOfSquares(stupidlyLargeList);
+              final String toPrint = String.format(
+                  "There are %d square numbers in the large list.%n",
+                  FunctionalModifiers.exceptionCoalesce(result::get, -1L));
+
+              synchronized (System.out) {
+                System.out.print(toPrint);
+              }
+
+              return "Squares";
+            });
 
     // We can see that the get blocks until the task finishes.
     // We can use this with multiple futures to wait for multiple tasks to finish.
+    try {
+      System.out.printf("Results:%n%s%n%s%n", fut1.get(), fut2.get());
+    } catch (InterruptedException | ExecutionException e) {
+      e.printStackTrace();
+    }
+
     System.out.println("The end of the main class.");
 
     // Finish using the executor
@@ -43,7 +76,14 @@ public class FutureSight implements Runnable {
 
   private Future<Long> numberOfOdds(List<Integer> ints) {
     return getService().submit(
-        () -> ints.stream().filter(i -> i % 2 == 1).count()
-    );
+        () -> ints.stream().filter(i -> i % 2 == 1).count());
+  }
+
+  private Future<Long> numberOfSquares(List<Integer> ints) {
+    return getService().submit(
+        () -> ints.stream().filter(i -> {
+          final int root = (int) Math.sqrt((double) i);
+          return root * root == i;
+        }).count());
   }
 }
