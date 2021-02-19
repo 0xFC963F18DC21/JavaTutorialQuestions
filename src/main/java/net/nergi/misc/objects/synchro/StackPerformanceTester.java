@@ -15,6 +15,7 @@ public class StackPerformanceTester {
 
   /**
    * Make a new tester for a given stack class.
+   * TODO: make it not complain about types.
    *
    * @param stackClass Class of stack to generate
    * @param <E>        Type of element inside stack
