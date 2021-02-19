@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"net.nergi"},{"l":"net.nergi.misc"},{"l":"net.nergi.misc.objects"},{"l":"net.nergi.solutions"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"net.nergi"},{"l":"net.nergi.misc"},{"l":"net.nergi.misc.objects"},{"l":"net.nergi.misc.objects.synchro"},{"l":"net.nergi.misc.objects.synchro.coarselinkedstack"},{"l":"net.nergi.misc.objects.synchro.linkedstack"},{"l":"net.nergi.solutions"}];updateSearchResults();
