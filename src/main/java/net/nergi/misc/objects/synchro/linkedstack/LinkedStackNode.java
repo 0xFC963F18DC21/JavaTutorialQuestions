@@ -1,13 +1,13 @@
 package net.nergi.misc.objects.synchro.linkedstack;
 
-import net.nergi.misc.objects.synchro.StackNode;
+import net.nergi.misc.objects.synchro.S0000StackNode;
 
 /**
  * Simple linked stack node. Unsynchronised.
  *
  * @param <E> Type of item in stack.
  */
-public class LinkedStackNode<E> extends StackNode<E, LinkedStackNode<E>> {
+public class LinkedStackNode<E> extends S0000StackNode<E, LinkedStackNode<E>> {
 
   /**
    * Create a new node with the given item.

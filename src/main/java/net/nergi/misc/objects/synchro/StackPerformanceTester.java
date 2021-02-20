@@ -15,7 +15,6 @@ public class StackPerformanceTester {
 
   /**
    * Make a new tester for a given stack class.
-   * TODO: make it not complain about types.
    *
    * @param stackClass Class of stack to generate
    * @param <E>        Type of element inside stack
@@ -28,7 +27,7 @@ public class StackPerformanceTester {
           () -> {
             try {
               final Constructor<S> ctor = stackClass.getDeclaredConstructor();
-              return ctor.newInstance();
+              return (S) ctor.newInstance();
             } catch (NoSuchMethodException
                 | InstantiationException
                 | IllegalAccessException

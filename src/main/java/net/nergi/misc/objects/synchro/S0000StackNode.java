@@ -6,16 +6,16 @@ package net.nergi.misc.objects.synchro;
  * @param <E> Type of item held in node.
  * @param <T> Extending subclass.
  */
-public abstract class StackNode<E, T extends StackNode<E, T>> {
+public abstract class S0000StackNode<E, T extends S0000StackNode<E, T>> {
 
   private final E item;
   protected T successor;
 
-  protected StackNode(E item) {
+  protected S0000StackNode(E item) {
     this(item, null);
   }
 
-  protected StackNode(E item, T successor) {
+  protected S0000StackNode(E item, T successor) {
     this.item = item;
     this.successor = successor;
   }

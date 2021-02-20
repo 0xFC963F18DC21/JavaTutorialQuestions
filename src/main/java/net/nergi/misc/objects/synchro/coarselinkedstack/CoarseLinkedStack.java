@@ -30,12 +30,14 @@ public class CoarseLinkedStack<E> implements S0000Stack<E> {
 
   @Override
   public void push(E item) {
-    stkLock.lock();
+    try {
+      stkLock.lock();
 
-    ++size;
-    top = new LinkedStackNode<>(item, top);
-
-    stkLock.unlock();
+      ++size;
+      top = new LinkedStackNode<>(item, top);
+    } finally {
+      stkLock.unlock();
+    }
   }
 
   @Override
