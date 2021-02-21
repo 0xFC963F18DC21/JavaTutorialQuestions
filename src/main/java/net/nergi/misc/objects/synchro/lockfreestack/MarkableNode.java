@@ -10,6 +10,7 @@ import net.nergi.misc.objects.synchro.S0000StackNode;
  */
 public class MarkableNode<E> extends S0000StackNode<E, MarkableNode<E>> {
 
+  private boolean valid = true;
   private AtomicMarkableReference<MarkableNode<E>> successor;
 
   /**
@@ -33,26 +34,51 @@ public class MarkableNode<E> extends S0000StackNode<E, MarkableNode<E>> {
 
   @Override
   public void putSucc(MarkableNode<E> successor) {
-    this.successor.compareAndSet(
-        this.successor.getReference(), successor, true, true);
+    throw new UnsupportedOperationException("Use putSuccIfValid instead!");
+  }
+
+  public boolean putSuccIfValid(MarkableNode<E> expected, MarkableNode<E> newSuccessor) {
+    return successor.compareAndSet(expected, newSuccessor, true, true);
   }
 
   @Override
   public MarkableNode<E> succ() {
-    if (successor.isMarked()) {
-      return successor.getReference();
-    } else {
+    if (successor == null) {
       return null;
     }
+
+    return successor.getReference();
   }
 
-  public void setTrue() {
-    this.successor.compareAndSet(
-        this.successor.getReference(), this.successor.getReference(), false, true);
+  /**
+   * Gets the validity mark of this node.
+   *
+   * @return Validity mark
+   */
+  public boolean getMark() {
+    if (successor == null) {
+      return true;
+    }
+
+    return successor.isMarked();
   }
 
-  public void setFalse() {
-    this.successor.compareAndSet(
-        this.successor.getReference(), this.successor.getReference(), true, false);
+  /** Set the mark to true. */
+  public boolean setTrue() {
+    if (successor == null) {
+      return false;
+    }
+
+    return successor.attemptMark(succ(), true);
+  }
+
+  /** Set the mark to false. */
+  public boolean setFalse() {
+    if (successor == null) {
+      return false;
+    }
+
+    final MarkableNode<E> scc = succ();
+    return successor.compareAndSet(scc, scc, true, false);
   }
 }

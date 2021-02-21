@@ -3,6 +3,7 @@ package net.nergi.misc;
 import net.nergi.misc.objects.synchro.StackPerformanceTester;
 import net.nergi.misc.objects.synchro.coarselinkedstack.CoarseLinkedStack;
 import net.nergi.misc.objects.synchro.linkedstack.LinkedStack;
+import net.nergi.misc.objects.synchro.lockfreestack.LockfreeStack;
 
 /**
  * Compares the performance of different locking mechanisms when using stacks in a concurrent
@@ -19,6 +20,9 @@ public class StackPerformanceComparison implements Runnable {
     final var coarseTester =
         StackPerformanceTester.generateTesterUnit(CoarseLinkedStack.class, Object::new);
 
+    final var lockfreeTester =
+        StackPerformanceTester.generateTesterUnit(LockfreeStack.class, Object::new);
+
     System.out.println("Non-synchronised stack");
 
     unsyncTester.test6400Pops();
@@ -34,5 +38,13 @@ public class StackPerformanceComparison implements Runnable {
     coarseTester.test3200Each();
     coarseTester.test6000Pops400Pushes();
     coarseTester.test400Pops6000Pushes();
+
+    System.out.println("\nLock-free stack");
+
+    lockfreeTester.test6400Pops();
+    lockfreeTester.test6400Pushes();
+    lockfreeTester.test3200Each();
+    lockfreeTester.test6000Pops400Pushes();
+    lockfreeTester.test400Pops6000Pushes();
   }
 }

@@ -1,7 +1,8 @@
 package net.nergi.misc.objects.synchro.lockfreestack;
 
 import java.util.NoSuchElementException;
-import java.util.concurrent.atomic.AtomicMarkableReference;
+import java.util.concurrent.atomic.AtomicInteger;
+import net.nergi.MethodNotImplementedException;
 import net.nergi.misc.objects.synchro.S0000Stack;
 
 /**
@@ -11,19 +12,19 @@ import net.nergi.misc.objects.synchro.S0000Stack;
  */
 public class LockfreeStack<E> implements S0000Stack<E> {
 
-  private final AtomicMarkableReference<MarkableNode<E>> BOTTOM =
-      new AtomicMarkableReference<>(new MarkableNode<>(null), true);
+  private final MarkableNode<E> BOTTOM = new MarkableNode<>(null);
 
-  private AtomicMarkableReference<MarkableNode<E>> top = BOTTOM;
+  private final AtomicInteger size = new AtomicInteger(0);
+  private MarkableNode<E> top = BOTTOM;
 
   @Override
   public E peek() throws NoSuchElementException {
     do {
-      if (top.isMarked()) {
+      if (top.getMark()) {
         if (top == BOTTOM) {
           throw new NoSuchElementException("Empty stack");
         } else {
-          return top.getReference().getItem();
+          return top.getItem();
         }
       }
     } while (true);
@@ -32,8 +33,9 @@ public class LockfreeStack<E> implements S0000Stack<E> {
   @Override
   public void push(E item) {
     do {
-      if (top.isMarked()) {
-        top = new AtomicMarkableReference<>(new MarkableNode<>(item), true);
+      if (top.getMark()) {
+        top = new MarkableNode<>(item, top);
+        size.incrementAndGet();
         break;
       }
     } while (true);
@@ -42,34 +44,38 @@ public class LockfreeStack<E> implements S0000Stack<E> {
   @Override
   public E pop() throws NoSuchElementException {
     do {
-      if (top.isMarked()) {
+      if (top.getMark()) {
         if (top == BOTTOM) {
           throw new NoSuchElementException("Empty stack");
-        } else {
-          final var oldTop = top;
-
-          oldTop.set(oldTop.getReference(), false);
-          oldTop.getReference().setFalse();
-
-          top = new AtomicMarkableReference<>(oldTop.getReference(), true);
-          return oldTop.getReference().getItem();
         }
+
+        final MarkableNode<E> oldTop = top;
+        final E item = top.getItem();
+
+        top = top.succ();
+        oldTop.setFalse();
+
+        size.decrementAndGet();
+
+        return item;
       }
     } while (true);
   }
 
   @Override
   public boolean contains(E item) {
-    return false;
+    // TODO: this
+    throw new MethodNotImplementedException();
   }
 
   @Override
   public int size() {
-    return 0;
+    return size.get();
   }
 
   @Override
   public void clear() {
-
+    top = BOTTOM;
+    size.set(0);
   }
 }

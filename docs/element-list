@@ -4,4 +4,5 @@ net.nergi.misc.objects
 net.nergi.misc.objects.synchro
 net.nergi.misc.objects.synchro.coarselinkedstack
 net.nergi.misc.objects.synchro.linkedstack
+net.nergi.misc.objects.synchro.lockfreestack
 net.nergi.solutions
