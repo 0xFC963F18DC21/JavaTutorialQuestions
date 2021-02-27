@@ -15,7 +15,7 @@
 <script type="text/javascript" src="../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
-<script type="text/javascript">var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":41,"i9":9,"i10":9,"i11":9};
+<script type="text/javascript">var data = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":41,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "alt-color";
 var rowColor = "row-color";
@@ -125,21 +125,21 @@ int&nbsp;amount)</code></th>
 </td>
 </tr>
 <tr class="row-color" id="i3">
-<td class="col-first"><code>static ArrayList&lt;String&gt;</code></td>
+<td class="col-first"><code>static List&lt;String&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#getUserLines()">getUserLines</a></span>()</code></th>
 <td class="col-last">
 <div class="block">Gets lines of input from the user.</div>
 </td>
 </tr>
 <tr class="alt-color" id="i4">
-<td class="col-first"><code>static ArrayList&lt;String&gt;</code></td>
+<td class="col-first"><code>static List&lt;String&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#getUserLines(int)">getUserLines</a></span>&#8203;(int&nbsp;amount)</code></th>
 <td class="col-last">
 <div class="block">Gets lines of input from the user.</div>
 </td>
 </tr>
 <tr class="row-color" id="i5">
-<td class="col-first"><code>static ArrayList&lt;String&gt;</code></td>
+<td class="col-first"><code>static List&lt;String&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#getUserLines(int,boolean)">getUserLines</a></span>&#8203;(int&nbsp;amount,
 boolean&nbsp;shouldEarlyReturn)</code></th>
 <td class="col-last">
@@ -147,28 +147,28 @@ boolean&nbsp;shouldEarlyReturn)</code></th>
 </td>
 </tr>
 <tr class="alt-color" id="i6">
+<td class="col-first"><code>static &lt;T&gt;&nbsp;List&lt;T&gt;</code></td>
+<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#listOf(T...)">listOf</a></span>&#8203;(T...&nbsp;items)</code></th>
+<td class="col-last">
+<div class="block"><span class="deprecated-label">Deprecated.</span></div>
+</td>
+</tr>
+<tr class="row-color" id="i7">
 <td class="col-first"><code>static &lt;X,&#8203;
-Y&gt;&nbsp;HashMap&lt;X,&#8203;Y&gt;</code></td>
-<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#hashMapOf(java.util.List,java.util.List)">hashMapOf</a></span>&#8203;(List&lt;X&gt;&nbsp;keys,
+Y&gt;&nbsp;Map&lt;X,&#8203;Y&gt;</code></td>
+<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#mapOf(java.util.List,java.util.List)">mapOf</a></span>&#8203;(List&lt;X&gt;&nbsp;keys,
 List&lt;Y&gt;&nbsp;values)</code></th>
 <td class="col-last">
 <div class="block">Constructs a HashMap from two Lists.</div>
 </td>
 </tr>
-<tr class="row-color" id="i7">
+<tr class="alt-color" id="i8">
 <td class="col-first"><code>static &lt;X,&#8203;
-Y&gt;&nbsp;HashMap&lt;X,&#8203;Y&gt;</code></td>
-<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#hashMapOf(X%5B%5D,Y%5B%5D)">hashMapOf</a></span>&#8203;(X[]&nbsp;keys,
+Y&gt;&nbsp;Map&lt;X,&#8203;Y&gt;</code></td>
+<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#mapOf(X%5B%5D,Y%5B%5D)">mapOf</a></span>&#8203;(X[]&nbsp;keys,
 Y[]&nbsp;values)</code></th>
 <td class="col-last">
 <div class="block">Constructs a HashMap from two arrays.</div>
-</td>
-</tr>
-<tr class="alt-color" id="i8">
-<td class="col-first"><code>static &lt;T&gt;&nbsp;List&lt;T&gt;</code></td>
-<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#listOf(T...)">listOf</a></span>&#8203;(T...&nbsp;items)</code></th>
-<td class="col-last">
-<div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </td>
 </tr>
 <tr class="row-color" id="i9">
@@ -252,12 +252,12 @@ Y[]&nbsp;values)</code></th>
 </section>
 </li>
 <li>
-<section class="detail" id="hashMapOf(X[],Y[])">
-<h3 id="hashMapOf(java.lang.Object[],java.lang.Object[])">hashMapOf</h3>
+<section class="detail" id="mapOf(X[],Y[])">
+<h3 id="mapOf(java.lang.Object[],java.lang.Object[])">mapOf</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;X,&#8203;
-Y&gt;</span>&nbsp;<span class="return-type">HashMap&lt;X,&#8203;Y&gt;</span>&nbsp;<span class="member-name">hashMapOf</span>&#8203;(<span class="parameters">X[]&nbsp;keys,
+Y&gt;</span>&nbsp;<span class="return-type">Map&lt;X,&#8203;Y&gt;</span>&nbsp;<span class="member-name">mapOf</span>&#8203;(<span class="parameters">X[]&nbsp;keys,
 Y[]&nbsp;values)</span>
-                                    throws <span class="exceptions">IllegalArgumentException</span></div>
+                            throws <span class="exceptions">IllegalArgumentException</span></div>
 <div class="block">Constructs a HashMap from two arrays. The arrays must be of equal length.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
@@ -274,12 +274,12 @@ Y[]&nbsp;values)</span>
 </section>
 </li>
 <li>
-<section class="detail" id="hashMapOf(java.util.List,java.util.List)">
-<h3>hashMapOf</h3>
+<section class="detail" id="mapOf(java.util.List,java.util.List)">
+<h3>mapOf</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;X,&#8203;
-Y&gt;</span>&nbsp;<span class="return-type">HashMap&lt;X,&#8203;Y&gt;</span>&nbsp;<span class="member-name">hashMapOf</span>&#8203;(<span class="parameters">List&lt;X&gt;&nbsp;keys,
+Y&gt;</span>&nbsp;<span class="return-type">Map&lt;X,&#8203;Y&gt;</span>&nbsp;<span class="member-name">mapOf</span>&#8203;(<span class="parameters">List&lt;X&gt;&nbsp;keys,
 List&lt;Y&gt;&nbsp;values)</span>
-                                    throws <span class="exceptions">IllegalArgumentException</span></div>
+                            throws <span class="exceptions">IllegalArgumentException</span></div>
 <div class="block">Constructs a HashMap from two Lists. The Lists must be of equal length.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
@@ -298,7 +298,7 @@ List&lt;Y&gt;&nbsp;values)</span>
 <li>
 <section class="detail" id="getUserLines()">
 <h3>getUserLines</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">ArrayList&lt;String&gt;</span>&nbsp;<span class="member-name">getUserLines</span>()</div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">List&lt;String&gt;</span>&nbsp;<span class="member-name">getUserLines</span>()</div>
 <div class="block">Gets lines of input from the user. Stops collecting lines when EOF is given (via CTRL+Z in
  Windows or CTRL+D in *nix).</div>
 </section>
@@ -306,7 +306,7 @@ List&lt;Y&gt;&nbsp;values)</span>
 <li>
 <section class="detail" id="getUserLines(int)">
 <h3>getUserLines</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">ArrayList&lt;String&gt;</span>&nbsp;<span class="member-name">getUserLines</span>&#8203;(<span class="parameters">int&nbsp;amount)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">List&lt;String&gt;</span>&nbsp;<span class="member-name">getUserLines</span>&#8203;(<span class="parameters">int&nbsp;amount)</span></div>
 <div class="block">Gets lines of input from the user. Stops collecting lines when EOF is given (via CTRL+Z in
  Windows or CTRL+D in *nix), or when the number of collected lines exceeds some amount.</div>
 </section>
@@ -314,7 +314,7 @@ List&lt;Y&gt;&nbsp;values)</span>
 <li>
 <section class="detail" id="getUserLines(int,boolean)">
 <h3>getUserLines</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">ArrayList&lt;String&gt;</span>&nbsp;<span class="member-name">getUserLines</span>&#8203;(<span class="parameters">int&nbsp;amount,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">List&lt;String&gt;</span>&nbsp;<span class="member-name">getUserLines</span>&#8203;(<span class="parameters">int&nbsp;amount,
 boolean&nbsp;shouldEarlyReturn)</span></div>
 <div class="block">Gets lines of input from the user. Stops collecting lines when EOF is given (via CTRL+Z in
  Windows or CTRL+D in *nix), or when the number of collected lines exceeds some amount. Does not

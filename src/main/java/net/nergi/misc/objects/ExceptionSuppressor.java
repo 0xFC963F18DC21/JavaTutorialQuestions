@@ -8,7 +8,7 @@ import java.util.concurrent.Callable;
 public class ExceptionSuppressor {
 
   /** All collected exceptions. */
-  private Set<Throwable> suppressed = new HashSet<>();
+  private final Set<Throwable> suppressed = new HashSet<>();
 
   /**
    * Run an action with this expression suppressor.

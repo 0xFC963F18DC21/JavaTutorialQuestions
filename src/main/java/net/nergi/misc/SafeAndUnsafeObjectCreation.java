@@ -48,18 +48,18 @@ public class SafeAndUnsafeObjectCreation implements Runnable {
 
     Utils.printSeparator();
 
-    System.out.printf("Item1: %s\n", System.identityHashCode(item1));
-    System.out.printf("Item2: %s\n", System.identityHashCode(item2));
-    System.out.printf("Item3: %s\n", System.identityHashCode(item3));
+    System.out.printf("Item1: %s%n", System.identityHashCode(item1));
+    System.out.printf("Item2: %s%n", System.identityHashCode(item2));
+    System.out.printf("Item3: %s%n", System.identityHashCode(item3));
 
     Utils.printSeparator();
 
-    System.out.printf("Item1.equals(Item2): %s\n", item1.equals(item2));
-    System.out.printf("     Item1 == Item2: %s\n", item1 == item2);
+    System.out.printf("Item1.equals(Item2): %s%n", item1.equals(item2));
+    System.out.printf("     Item1 == Item2: %s%n", item1 == item2);
 
     Utils.printSeparator();
 
-    System.out.printf("Item1.equals(Item3): %s\n", item1.equals(item3));
-    System.out.printf("     Item1 == Item3: %s\n", item1 == item3);
+    System.out.printf("Item1.equals(Item3): %s%n", item1.equals(item3));
+    System.out.printf("     Item1 == Item3: %s%n", item1 == item3);
   }
 }

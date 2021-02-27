@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /** Main entry point into this program. */
 public final class Main {
@@ -12,10 +13,22 @@ public final class Main {
    * Any other command-line arguments given to the program. Solutions may need these in order to
    * test them outside of the unit tests.
    */
-  public static final ArrayList<String> otherArgs = new ArrayList<>();
+  public static final List<String> otherArgs = new ArrayList<>();
 
   // Private constructor. No need to make an instance of this class.
   private Main() {}
+
+  /** Check if a number is valid hexadecimal. */
+  private static boolean validHex(String str) {
+    // Now, I could do it the right way, or the short way.
+    // I'm lazy, so here's the short (but terrible) way.
+    try {
+      Integer.parseInt(str.replaceFirst("^0x", ""), 16);
+      return true;
+    } catch (NumberFormatException e) {
+      return false;
+    }
+  }
 
   public static void main(String[] args) {
     // The first argument expected is the hex string of the problem the user wants the solution to.
@@ -25,7 +38,7 @@ public final class Main {
       args[0] = args[0].toLowerCase();
       System.out.println("Received problem input: " + args[0]);
 
-      if (args.length >= 2) {
+      if (args.length >= 2 && validHex(args[0])) {
         otherArgs.addAll(Arrays.asList(args));
         otherArgs.remove(0);
 

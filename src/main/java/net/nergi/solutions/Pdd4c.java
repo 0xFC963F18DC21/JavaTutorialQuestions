@@ -1,6 +1,6 @@
 package net.nergi.solutions;
 
-import java.util.HashMap;
+import java.util.Map;
 import net.nergi.Solution;
 import net.nergi.Utils;
 
@@ -20,19 +20,19 @@ public class Pdd4c implements Solution {
     // Test for basic functionality.
     Thread[] testClocks =
         new Thread[] {
-          new Thread(new Ticker("Clock 1", new Clock(0), 15)),
-          new Thread(new Ticker("Clock 2", new Clock(0, 0, 0), 15)),
-          new Thread(new Ticker("Clock 3", new AlarmClock(0, 0, 0, 0, 0, 10), 80)),
-          new Thread(
-              new Ticker(
-                  "Clock 4",
-                  new RadioAlarmClock(0, 10, RadioAlarmClock.RadioStation.STATION_L),
-                  80)),
-          new Thread(
-              new Ticker(
-                  "Clock 5",
-                  new RadioAlarmClock(0, 0, 0, 0, 0, 10, RadioAlarmClock.RadioStation.RADIO_4),
-                  80))
+            new Thread(new Ticker("Clock 1", new Clock(0), 15)),
+            new Thread(new Ticker("Clock 2", new Clock(0, 0, 0), 15)),
+            new Thread(new Ticker("Clock 3", new AlarmClock(0, 0, 0, 0, 0, 10), 80)),
+            new Thread(
+                new Ticker(
+                    "Clock 4",
+                    new RadioAlarmClock(0, 10, RadioAlarmClock.RadioStation.STATION_L),
+                    80)),
+            new Thread(
+                new Ticker(
+                    "Clock 5",
+                    new RadioAlarmClock(0, 0, 0, 0, 0, 10, RadioAlarmClock.RadioStation.RADIO_4),
+                    80))
         };
 
     for (Thread t : testClocks) {
@@ -188,19 +188,19 @@ public class Pdd4c implements Solution {
 
   public static class RadioAlarmClock extends AlarmClock {
 
-    private static final HashMap<RadioStation, String> AIRWAVES =
-        Utils.hashMapOf(
+    private static final Map<RadioStation, String> AIRWAVES =
+        Utils.mapOf(
             new RadioStation[] {
-              RadioStation.NONE,
-              RadioStation.RADIO_4,
-              RadioStation.LIVE_FIVE,
-              RadioStation.STATION_L
+                RadioStation.NONE,
+                RadioStation.RADIO_4,
+                RadioStation.LIVE_FIVE,
+                RadioStation.STATION_L
             },
             new String[] {
-              "BEEP!",
-              "Blah, blah, blah...",
-              "Tonight on breaking news...",
-              "... fallen into the river..."
+                "BEEP!",
+                "Blah, blah, blah...",
+                "Tonight on breaking news...",
+                "... fallen into the river..."
             });
 
     private final RadioStation tunedInto;

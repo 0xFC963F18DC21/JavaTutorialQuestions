@@ -7,19 +7,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /** Utility class that holds method shortcuts. */
 public final class Utils {
 
-  /** BufferedReader for all methods and for use elsewhere. Final warning suppressed due to 5d30. */
-  @SuppressWarnings("FieldMayBeFinal")
-  private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+  /** BufferedReader for all methods and for use elsewhere. */
+  private static BufferedReader br;
 
   // Private constructor as there is no need to instantiate this class.
   private Utils() {}
 
   /** Gets the current BufferedReader instance in this class. Required due to 5d30. */
   public static BufferedReader getBr() {
+    if (br == null) {
+      br = new BufferedReader(new InputStreamReader(System.in));
+    }
+
     return br;
   }
 
@@ -58,7 +62,7 @@ public final class Utils {
    * @return An instance of HashMap with the desired keys and values.
    * @throws IllegalArgumentException If the arrays are not of equal length.
    */
-  public static <X, Y> HashMap<X, Y> hashMapOf(X[] keys, Y[] values)
+  public static <X, Y> Map<X, Y> mapOf(X[] keys, Y[] values)
       throws IllegalArgumentException {
     if (keys.length != values.length) {
       throw new IllegalArgumentException("The arrays of keys and values are not of equal length.");
@@ -83,7 +87,7 @@ public final class Utils {
    * @return An instance of HashMap with the desired keys and values.
    * @throws IllegalArgumentException If the Lists are not of equal length.
    */
-  public static <X, Y> HashMap<X, Y> hashMapOf(List<X> keys, List<Y> values)
+  public static <X, Y> Map<X, Y> mapOf(List<X> keys, List<Y> values)
       throws IllegalArgumentException {
     if (keys.size() != values.size()) {
       throw new IllegalArgumentException("The arrays of keys and values are not of equal length.");
@@ -102,7 +106,7 @@ public final class Utils {
    * Gets lines of input from the user. Stops collecting lines when EOF is given (via CTRL+Z in
    * Windows or CTRL+D in *nix).
    */
-  public static ArrayList<String> getUserLines() {
+  public static List<String> getUserLines() {
     return getUserLines(-1);
   }
 
@@ -110,7 +114,7 @@ public final class Utils {
    * Gets lines of input from the user. Stops collecting lines when EOF is given (via CTRL+Z in
    * Windows or CTRL+D in *nix), or when the number of collected lines exceeds some amount.
    */
-  public static ArrayList<String> getUserLines(int amount) {
+  public static List<String> getUserLines(int amount) {
     return getUserLines(amount, true);
   }
 
@@ -119,7 +123,7 @@ public final class Utils {
    * Windows or CTRL+D in *nix), or when the number of collected lines exceeds some amount. Does not
    * return early on IOException or null input if shouldEarlyReturn is false.
    */
-  public static ArrayList<String> getUserLines(int amount, boolean shouldEarlyReturn) {
+  public static List<String> getUserLines(int amount, boolean shouldEarlyReturn) {
     final ArrayList<String> lines = new ArrayList<>();
     String line;
 
