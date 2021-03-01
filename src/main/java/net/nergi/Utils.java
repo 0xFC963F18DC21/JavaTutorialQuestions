@@ -87,7 +87,7 @@ public final class Utils {
    * @return An instance of HashMap with the desired keys and values.
    * @throws IllegalArgumentException If the Lists are not of equal length.
    */
-  public static <X, Y> Map<X, Y> mapOf(List<X> keys, List<Y> values)
+  public static <X, Y> Map<X, Y> mapOf(List<? extends X> keys, List<? extends Y> values)
       throws IllegalArgumentException {
     if (keys.size() != values.size()) {
       throw new IllegalArgumentException("The arrays of keys and values are not of equal length.");
