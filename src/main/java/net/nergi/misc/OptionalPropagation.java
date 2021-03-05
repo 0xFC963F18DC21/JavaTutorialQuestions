@@ -26,7 +26,7 @@ public class OptionalPropagation implements Runnable {
   }
 
   /** Maps the function to the item inside the Optional if it exists. */
-  public static <T, R> Optional<? extends R> fmap(
+  public static <T, R> Optional<R> fmap(
       Function<? super T, ? extends R> func, Optional<T> optional) {
     return optional.map(func);
   }
@@ -37,7 +37,7 @@ public class OptionalPropagation implements Runnable {
   }
 
   /** Applies a function onto two optionals. */
-  public static <T, U, R> Optional<? extends R> liftA2(
+  public static <T, U, R> Optional<R> liftA2(
       BiFunction<? super T, ? super U, ? extends R> func, Optional<T> ot, Optional<U> ou) {
     if (ot.isPresent() && ou.isPresent()) {
       return pure(func.apply(ot.get(), ou.get()));
@@ -47,7 +47,7 @@ public class OptionalPropagation implements Runnable {
   }
 
   /** Allows chaining of Optional functions. */
-  public static <T, R> Optional<? extends R> bind(
+  public static <T, R> Optional<R> bind(
       Optional<T> ot, Function<? super T, Optional<? extends R>> func) {
     return ot.flatMap(func);
   }

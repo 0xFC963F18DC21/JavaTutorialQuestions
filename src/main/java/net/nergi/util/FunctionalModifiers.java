@@ -21,7 +21,7 @@ public final class FunctionalModifiers {
    * @param callable     Code block to execute
    * @param defaultValue Default value if an exception occurs
    * @param <T>          Return type
-   * @return             Returned value from block or default value if an exception occurs
+   * @return Returned value from block or default value if an exception occurs
    */
   @Deprecated(since = "2021/03/03")
   public static <T> T exceptionCoalesce(Callable<T> callable, T defaultValue) {
@@ -77,6 +77,20 @@ public final class FunctionalModifiers {
   public static <T, U, R> Function<T, Function<U, R>> curry(
       BiFunction<? super T, ? super U, ? extends R> function) {
     return t -> partialApply(function, t);
+  }
+
+  /**
+   * Uncurries a function to form a {@link BiFunction}.
+   *
+   * @param function Curried function to uncurry
+   * @param <T>      Type of first argument
+   * @param <U>      Type of second argument
+   * @param <R>      Return type
+   * @return Uncurried BiFunction.
+   */
+  public static <T, U, R> BiFunction<T, U, R> uncurry(
+      Function<? super T, Function<? super U, ? extends R>> function) {
+    return (t, u) -> function.apply(t).apply(u);
   }
 
   /**

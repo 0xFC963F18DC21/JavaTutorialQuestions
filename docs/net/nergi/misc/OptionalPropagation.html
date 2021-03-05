@@ -132,7 +132,7 @@ implements Runnable</pre>
 <tbody>
 <tr class="alt-color" id="i0">
 <td class="col-first"><code>static &lt;T,&#8203;
-R&gt;&nbsp;Optional&lt;? extends R&gt;</code></td>
+R&gt;&nbsp;Optional&lt;R&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#bind(java.util.Optional,java.util.function.Function)">bind</a></span>&#8203;(Optional&lt;T&gt;&nbsp;ot,
 Function&lt;? super T,&#8203;Optional&lt;? extends R&gt;&gt;&nbsp;func)</code></th>
 <td class="col-last">
@@ -141,7 +141,7 @@ Function&lt;? super T,&#8203;Optional&lt;? extends R&gt;&gt;&nbsp;func)</code></
 </tr>
 <tr class="row-color" id="i1">
 <td class="col-first"><code>static &lt;T,&#8203;
-R&gt;&nbsp;Optional&lt;? extends R&gt;</code></td>
+R&gt;&nbsp;Optional&lt;R&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#fmap(java.util.function.Function,java.util.Optional)">fmap</a></span>&#8203;(Function&lt;? super T,&#8203;? extends R&gt;&nbsp;func,
 Optional&lt;T&gt;&nbsp;optional)</code></th>
 <td class="col-last">
@@ -151,7 +151,7 @@ Optional&lt;T&gt;&nbsp;optional)</code></th>
 <tr class="alt-color" id="i2">
 <td class="col-first"><code>static &lt;T,&#8203;
 U,&#8203;
-R&gt;&nbsp;Optional&lt;? extends R&gt;</code></td>
+R&gt;&nbsp;Optional&lt;R&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#liftA2(java.util.function.BiFunction,java.util.Optional,java.util.Optional)">liftA2</a></span>&#8203;(BiFunction&lt;? super T,&#8203;? super U,&#8203;? extends R&gt;&nbsp;func,
 Optional&lt;T&gt;&nbsp;ot,
 Optional&lt;U&gt;&nbsp;ou)</code></th>
@@ -233,7 +233,7 @@ Optional&lt;U&gt;&nbsp;ou)</code></th>
 <section class="detail" id="fmap(java.util.function.Function,java.util.Optional)">
 <h3>fmap</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T,&#8203;
-R&gt;</span>&nbsp;<span class="return-type">Optional&lt;? extends R&gt;</span>&nbsp;<span class="member-name">fmap</span>&#8203;(<span class="parameters">Function&lt;? super T,&#8203;? extends R&gt;&nbsp;func,
+R&gt;</span>&nbsp;<span class="return-type">Optional&lt;R&gt;</span>&nbsp;<span class="member-name">fmap</span>&#8203;(<span class="parameters">Function&lt;? super T,&#8203;? extends R&gt;&nbsp;func,
 Optional&lt;T&gt;&nbsp;optional)</span></div>
 <div class="block">Maps the function to the item inside the Optional if it exists.</div>
 </section>
@@ -250,7 +250,7 @@ Optional&lt;T&gt;&nbsp;optional)</span></div>
 <h3>liftA2</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T,&#8203;
 U,&#8203;
-R&gt;</span>&nbsp;<span class="return-type">Optional&lt;? extends R&gt;</span>&nbsp;<span class="member-name">liftA2</span>&#8203;(<span class="parameters">BiFunction&lt;? super T,&#8203;? super U,&#8203;? extends R&gt;&nbsp;func,
+R&gt;</span>&nbsp;<span class="return-type">Optional&lt;R&gt;</span>&nbsp;<span class="member-name">liftA2</span>&#8203;(<span class="parameters">BiFunction&lt;? super T,&#8203;? super U,&#8203;? extends R&gt;&nbsp;func,
 Optional&lt;T&gt;&nbsp;ot,
 Optional&lt;U&gt;&nbsp;ou)</span></div>
 <div class="block">Applies a function onto two optionals.</div>
@@ -260,7 +260,7 @@ Optional&lt;U&gt;&nbsp;ou)</span></div>
 <section class="detail" id="bind(java.util.Optional,java.util.function.Function)">
 <h3>bind</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T,&#8203;
-R&gt;</span>&nbsp;<span class="return-type">Optional&lt;? extends R&gt;</span>&nbsp;<span class="member-name">bind</span>&#8203;(<span class="parameters">Optional&lt;T&gt;&nbsp;ot,
+R&gt;</span>&nbsp;<span class="return-type">Optional&lt;R&gt;</span>&nbsp;<span class="member-name">bind</span>&#8203;(<span class="parameters">Optional&lt;T&gt;&nbsp;ot,
 Function&lt;? super T,&#8203;Optional&lt;? extends R&gt;&gt;&nbsp;func)</span></div>
 <div class="block">Allows chaining of Optional functions.</div>
 </section>

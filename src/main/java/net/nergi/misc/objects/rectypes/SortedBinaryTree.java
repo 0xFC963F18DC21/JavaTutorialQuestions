@@ -35,7 +35,24 @@ public class SortedBinaryTree<T extends Comparable<T>> extends BinaryTree<T> {
     }
   }
 
-  // TODO: override contains for this type
+  @Override
+  public boolean contains(T item) {
+    if (item.compareTo(getItem()) <= 0) {
+      if (getLeft() == null) {
+        return false;
+      } else {
+        return getLeft().contains(item);
+      }
+    } else if (item.compareTo(getItem()) > 0) {
+      if (getRight() == null) {
+        return false;
+      } else {
+        return getRight().contains(item);
+      }
+    } else {
+      return true;
+    }
+  }
 
   /** DO NOT USE. THIS CONSTRUCTOR IS INVALID. */
   public SortedBinaryTree(T item, BinaryTree<T> left, BinaryTree<T> right) {
