@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import net.nergi.util.Utils;
 
 /** Main entry point into this program. */
 public final class Main {
@@ -13,7 +14,7 @@ public final class Main {
    * Any other command-line arguments given to the program. Solutions may need these in order to
    * test them outside of the unit tests.
    */
-  public static final List<String> otherArgs = new ArrayList<>();
+  public static final List<String> OTHER_ARGS = new ArrayList<>();
 
   // Private constructor. No need to make an instance of this class.
   private Main() {}
@@ -30,6 +31,9 @@ public final class Main {
     }
   }
 
+  /**
+   * Entry point into this program. Expects at least one argument, a hex string for an exercise.
+   */
   public static void main(String[] args) {
     // The first argument expected is the hex string of the problem the user wants the solution to.
     // All other arguments are coalesced into the list otherArgs so that the solution classes can
@@ -39,10 +43,10 @@ public final class Main {
       System.out.println("Received problem input: " + args[0]);
 
       if (args.length >= 2 && validHex(args[0])) {
-        otherArgs.addAll(Arrays.asList(args));
-        otherArgs.remove(0);
+        OTHER_ARGS.addAll(Arrays.asList(args));
+        OTHER_ARGS.remove(0);
 
-        System.out.println("Received more args: " + otherArgs);
+        System.out.println("Received more args: " + OTHER_ARGS);
       }
     } else {
       System.out.println("Please give the problem hex string as an argument.");

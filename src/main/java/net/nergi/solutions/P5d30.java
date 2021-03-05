@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Random;
 import net.nergi.Solution;
-import net.nergi.Utils;
+import net.nergi.util.Utils;
 
 /** Solution for 5d30. */
 @SuppressWarnings("unused")

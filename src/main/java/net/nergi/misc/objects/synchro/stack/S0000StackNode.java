@@ -1,4 +1,4 @@
-package net.nergi.misc.objects.synchro;
+package net.nergi.misc.objects.synchro.stack;
 
 /**
  * Representation of a linked node in a stack.

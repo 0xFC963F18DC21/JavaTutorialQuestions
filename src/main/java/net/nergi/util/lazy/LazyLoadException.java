@@ -1,4 +1,4 @@
-package net.nergi.misc.objects.lazy;
+package net.nergi.util.lazy;
 
 /** Signifies that an exception has occurred while lazy-loading a value. */
 public class LazyLoadException extends RuntimeException {

@@ -1,8 +1,12 @@
 net.nergi
 net.nergi.misc
 net.nergi.misc.objects
-net.nergi.misc.objects.synchro
-net.nergi.misc.objects.synchro.coarselinkedstack
-net.nergi.misc.objects.synchro.linkedstack
-net.nergi.misc.objects.synchro.lockfreestack
+net.nergi.misc.objects.rectypes
+net.nergi.misc.objects.synchro.queue.coarselinkedqueue
+net.nergi.misc.objects.synchro.stack
+net.nergi.misc.objects.synchro.stack.coarselinkedstack
+net.nergi.misc.objects.synchro.stack.linkedstack
+net.nergi.misc.objects.synchro.stack.lockfreestack
 net.nergi.solutions
+net.nergi.util
+net.nergi.util.lazy

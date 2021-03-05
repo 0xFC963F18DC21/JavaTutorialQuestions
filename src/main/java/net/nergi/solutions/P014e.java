@@ -20,12 +20,12 @@ public class P014e implements Solution {
   /** Runs the solution to the problem. */
   @Override
   public void exec() {
-    if (Main.otherArgs.isEmpty()) {
+    if (Main.OTHER_ARGS.isEmpty()) {
       System.out.println("This solution requires an integer input.");
       return;
     }
 
-    int upperBound = Integer.parseInt(Main.otherArgs.get(0));
+    int upperBound = Integer.parseInt(Main.OTHER_ARGS.get(0));
     int amount = 0;
 
     // We are relying on the fact that the default value of primitive booleans is false.

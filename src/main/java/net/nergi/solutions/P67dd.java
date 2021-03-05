@@ -1,9 +1,8 @@
 package net.nergi.solutions;
 
-import static net.nergi.Utils.mutableListOf;
-import static net.nergi.Utils.getUserLines;
+import static net.nergi.util.Utils.mutableListOf;
+import static net.nergi.util.Utils.getUserLines;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Stream;

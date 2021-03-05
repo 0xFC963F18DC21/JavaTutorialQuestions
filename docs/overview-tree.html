@@ -56,11 +56,15 @@ loadScripts(document, 'script');</script>
 <li><a href="net/nergi/package-tree.html">net.nergi</a>, </li>
 <li><a href="net/nergi/misc/package-tree.html">net.nergi.misc</a>, </li>
 <li><a href="net/nergi/misc/objects/package-tree.html">net.nergi.misc.objects</a>, </li>
-<li><a href="net/nergi/misc/objects/synchro/package-tree.html">net.nergi.misc.objects.synchro</a>, </li>
-<li><a href="net/nergi/misc/objects/synchro/coarselinkedstack/package-tree.html">net.nergi.misc.objects.synchro.coarselinkedstack</a>, </li>
-<li><a href="net/nergi/misc/objects/synchro/linkedstack/package-tree.html">net.nergi.misc.objects.synchro.linkedstack</a>, </li>
-<li><a href="net/nergi/misc/objects/synchro/lockfreestack/package-tree.html">net.nergi.misc.objects.synchro.lockfreestack</a>, </li>
-<li><a href="net/nergi/solutions/package-tree.html">net.nergi.solutions</a></li>
+<li><a href="net/nergi/misc/objects/rectypes/package-tree.html">net.nergi.misc.objects.rectypes</a>, </li>
+<li><a href="net/nergi/misc/objects/synchro/queue/coarselinkedqueue/package-tree.html">net.nergi.misc.objects.synchro.queue.coarselinkedqueue</a>, </li>
+<li><a href="net/nergi/misc/objects/synchro/stack/package-tree.html">net.nergi.misc.objects.synchro.stack</a>, </li>
+<li><a href="net/nergi/misc/objects/synchro/stack/coarselinkedstack/package-tree.html">net.nergi.misc.objects.synchro.stack.coarselinkedstack</a>, </li>
+<li><a href="net/nergi/misc/objects/synchro/stack/linkedstack/package-tree.html">net.nergi.misc.objects.synchro.stack.linkedstack</a>, </li>
+<li><a href="net/nergi/misc/objects/synchro/stack/lockfreestack/package-tree.html">net.nergi.misc.objects.synchro.stack.lockfreestack</a>, </li>
+<li><a href="net/nergi/solutions/package-tree.html">net.nergi.solutions</a>, </li>
+<li><a href="net/nergi/util/package-tree.html">net.nergi.util</a>, </li>
+<li><a href="net/nergi/util/lazy/package-tree.html">net.nergi.util.lazy</a></li>
 </ul>
 </div>
 <section class="hierarchy">
@@ -68,17 +72,29 @@ loadScripts(document, 'script');</script>
 <ul>
 <li class="circle">Object
 <ul>
-<li class="circle"><a href="net/nergi/misc/objects/synchro/coarselinkedstack/CoarseLinkedStack.html" title="class in net.nergi.misc.objects.synchro.coarselinkedstack"><span class="type-name-link">CoarseLinkedStack</span></a>&lt;E&gt; (implements <a href="net/nergi/misc/objects/synchro/S0000Stack.html" title="interface in net.nergi.misc.objects.synchro">S0000Stack</a>&lt;E&gt;)</li>
+<li class="circle"><a href="net/nergi/misc/objects/synchro/queue/coarselinkedqueue/BasicNode.html" title="class in net.nergi.misc.objects.synchro.queue.coarselinkedqueue"><span class="type-name-link">BasicNode</span></a>&lt;T&gt;</li>
+<li class="circle"><a href="net/nergi/misc/objects/rectypes/BinaryTree.html" title="class in net.nergi.misc.objects.rectypes"><span class="type-name-link">BinaryTree</span></a>&lt;T&gt;
+<ul>
+<li class="circle"><a href="net/nergi/misc/objects/rectypes/BalancedBinaryTree.html" title="class in net.nergi.misc.objects.rectypes"><span class="type-name-link">BalancedBinaryTree</span></a>&lt;T&gt;</li>
+<li class="circle"><a href="net/nergi/misc/objects/rectypes/SortedBinaryTree.html" title="class in net.nergi.misc.objects.rectypes"><span class="type-name-link">SortedBinaryTree</span></a>&lt;T&gt;</li>
+</ul>
+</li>
+<li class="circle"><a href="net/nergi/misc/objects/synchro/queue/coarselinkedqueue/CoarseLinkedQueue.html" title="class in net.nergi.misc.objects.synchro.queue.coarselinkedqueue"><span class="type-name-link">CoarseLinkedQueue</span></a>&lt;T&gt; (implements Queue&lt;E&gt;)</li>
+<li class="circle"><a href="net/nergi/misc/objects/synchro/stack/coarselinkedstack/CoarseLinkedStack.html" title="class in net.nergi.misc.objects.synchro.stack.coarselinkedstack"><span class="type-name-link">CoarseLinkedStack</span></a>&lt;E&gt; (implements <a href="net/nergi/misc/objects/synchro/stack/S0000Stack.html" title="interface in net.nergi.misc.objects.synchro.stack">S0000Stack</a>&lt;E&gt;)</li>
 <li class="circle"><a href="net/nergi/misc/objects/DequeRandom.html" title="class in net.nergi.misc.objects"><span class="type-name-link">DequeRandom</span></a></li>
 <li class="circle"><a href="net/nergi/misc/DequeRandomDemo.html" title="class in net.nergi.misc"><span class="type-name-link">DequeRandomDemo</span></a> (implements Runnable)</li>
-<li class="circle"><a href="net/nergi/misc/objects/ExceptionSuppressor.html" title="class in net.nergi.misc.objects"><span class="type-name-link">ExceptionSuppressor</span></a></li>
-<li class="circle"><a href="net/nergi/FunctionalModifiers.html" title="class in net.nergi"><span class="type-name-link">FunctionalModifiers</span></a></li>
+<li class="circle"><a href="net/nergi/util/ExceptionSuppressor.html" title="class in net.nergi.util"><span class="type-name-link">ExceptionSuppressor</span></a></li>
+<li class="circle"><a href="net/nergi/util/FunctionalModifiers.html" title="class in net.nergi.util"><span class="type-name-link">FunctionalModifiers</span></a></li>
 <li class="circle"><a href="net/nergi/misc/FunctionalPerformance.html" title="class in net.nergi.misc"><span class="type-name-link">FunctionalPerformance</span></a> (implements Runnable)</li>
 <li class="circle"><a href="net/nergi/misc/FutureSight.html" title="class in net.nergi.misc"><span class="type-name-link">FutureSight</span></a> (implements Runnable)</li>
 <li class="circle"><a href="net/nergi/misc/objects/GameItem.html" title="class in net.nergi.misc.objects"><span class="type-name-link">GameItem</span></a></li>
-<li class="circle"><a href="net/nergi/misc/objects/synchro/linkedstack/LinkedStack.html" title="class in net.nergi.misc.objects.synchro.linkedstack"><span class="type-name-link">LinkedStack</span></a>&lt;E&gt; (implements <a href="net/nergi/misc/objects/synchro/S0000Stack.html" title="interface in net.nergi.misc.objects.synchro">S0000Stack</a>&lt;E&gt;)</li>
-<li class="circle"><a href="net/nergi/misc/objects/synchro/lockfreestack/LockfreeStack.html" title="class in net.nergi.misc.objects.synchro.lockfreestack"><span class="type-name-link">LockfreeStack</span></a>&lt;E&gt; (implements <a href="net/nergi/misc/objects/synchro/S0000Stack.html" title="interface in net.nergi.misc.objects.synchro">S0000Stack</a>&lt;E&gt;)</li>
+<li class="circle"><a href="net/nergi/util/ImmutablePair.html" title="class in net.nergi.util"><span class="type-name-link">ImmutablePair</span></a>&lt;F,&#8203;S&gt;</li>
+<li class="circle"><a href="net/nergi/misc/objects/LargeWholeNumber.html" title="class in net.nergi.misc.objects"><span class="type-name-link">LargeWholeNumber</span></a></li>
+<li class="circle"><a href="net/nergi/util/lazy/LazyReference.html" title="class in net.nergi.util.lazy"><span class="type-name-link">LazyReference</span></a>&lt;T&gt;</li>
+<li class="circle"><a href="net/nergi/misc/objects/synchro/stack/linkedstack/LinkedStack.html" title="class in net.nergi.misc.objects.synchro.stack.linkedstack"><span class="type-name-link">LinkedStack</span></a>&lt;E&gt; (implements <a href="net/nergi/misc/objects/synchro/stack/S0000Stack.html" title="interface in net.nergi.misc.objects.synchro.stack">S0000Stack</a>&lt;E&gt;)</li>
+<li class="circle"><a href="net/nergi/misc/objects/synchro/stack/lockfreestack/LockfreeStack.html" title="class in net.nergi.misc.objects.synchro.stack.lockfreestack"><span class="type-name-link">LockfreeStack</span></a>&lt;E&gt; (implements <a href="net/nergi/misc/objects/synchro/stack/S0000Stack.html" title="interface in net.nergi.misc.objects.synchro.stack">S0000Stack</a>&lt;E&gt;)</li>
 <li class="circle"><a href="net/nergi/Main.html" title="class in net.nergi"><span class="type-name-link">Main</span></a></li>
+<li class="circle"><a href="net/nergi/util/MutablePair.html" title="class in net.nergi.util"><span class="type-name-link">MutablePair</span></a>&lt;F,&#8203;S&gt;</li>
 <li class="circle"><a href="net/nergi/misc/OptionalPropagation.html" title="class in net.nergi.misc"><span class="type-name-link">OptionalPropagation</span></a> (implements Runnable)</li>
 <li class="circle"><a href="net/nergi/solutions/P0000.html" title="class in net.nergi.solutions"><span class="type-name-link">P0000</span></a> (implements <a href="net/nergi/Solution.html" title="interface in net.nergi">Solution</a>)</li>
 <li class="circle"><a href="net/nergi/solutions/P014e.html" title="class in net.nergi.solutions"><span class="type-name-link">P014e</span></a> (implements <a href="net/nergi/Solution.html" title="interface in net.nergi">Solution</a>)</li>
@@ -250,6 +266,7 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="circle"><a href="net/nergi/solutions/Pa22c.html" title="class in net.nergi.solutions"><span class="type-name-link">Pa22c</span></a> (implements <a href="net/nergi/Solution.html" title="interface in net.nergi">Solution</a>)</li>
 <li class="circle"><a href="net/nergi/solutions/Pa6e7.html" title="class in net.nergi.solutions"><span class="type-name-link">Pa6e7</span></a> (implements <a href="net/nergi/Solution.html" title="interface in net.nergi">Solution</a>)</li>
+<li class="circle"><a href="net/nergi/util/Pair.html" title="class in net.nergi.util"><span class="type-name-link">Pair</span></a>&lt;F,&#8203;S&gt;</li>
 <li class="circle"><a href="net/nergi/solutions/Pb33f.html" title="class in net.nergi.solutions"><span class="type-name-link">Pb33f</span></a> (implements <a href="net/nergi/Solution.html" title="interface in net.nergi">Solution</a>)</li>
 <li class="circle"><a href="net/nergi/solutions/Pb33f.FileInspector.html" title="class in net.nergi.solutions"><span class="type-name-link">Pb33f.FileInspector</span></a></li>
 <li class="circle"><a href="net/nergi/solutions/Pb33f.FileLogger.html" title="class in net.nergi.solutions"><span class="type-name-link">Pb33f.FileLogger</span></a> (implements <a href="net/nergi/solutions/Pb33f.Logger.html" title="interface in net.nergi.solutions">Pb33f.Logger</a>)</li>
@@ -316,7 +333,7 @@ loadScripts(document, 'script');</script>
 <li class="circle"><a href="net/nergi/solutions/Pf79b.html" title="class in net.nergi.solutions"><span class="type-name-link">Pf79b</span></a> (implements <a href="net/nergi/Solution.html" title="interface in net.nergi">Solution</a>)</li>
 <li class="circle"><a href="net/nergi/solutions/Pf7c3.html" title="class in net.nergi.solutions"><span class="type-name-link">Pf7c3</span></a> (implements <a href="net/nergi/Solution.html" title="interface in net.nergi">Solution</a>)</li>
 <li class="circle"><a href="net/nergi/solutions/Pfe94.html" title="class in net.nergi.solutions"><span class="type-name-link">Pfe94</span></a> (implements <a href="net/nergi/Solution.html" title="interface in net.nergi">Solution</a>)</li>
-<li class="circle"><a href="net/nergi/misc/objects/synchro/Position.html" title="class in net.nergi.misc.objects.synchro"><span class="type-name-link">Position</span></a>&lt;E,&#8203;T&gt;</li>
+<li class="circle"><a href="net/nergi/misc/objects/synchro/stack/Position.html" title="class in net.nergi.misc.objects.synchro.stack"><span class="type-name-link">Position</span></a>&lt;E,&#8203;T&gt;</li>
 <li class="circle">Reader (implements Closeable, Readable)
 <ul>
 <li class="circle">BufferedReader
@@ -326,15 +343,17 @@ loadScripts(document, 'script');</script>
 </li>
 </ul>
 </li>
-<li class="circle"><a href="net/nergi/misc/objects/synchro/S0000StackNode.html" title="class in net.nergi.misc.objects.synchro"><span class="type-name-link">S0000StackNode</span></a>&lt;E,&#8203;T&gt;
+<li class="circle"><a href="net/nergi/misc/ReflectionDemo.html" title="class in net.nergi.misc"><span class="type-name-link">ReflectionDemo</span></a> (implements Runnable)</li>
+<li class="circle"><a href="net/nergi/misc/objects/synchro/stack/S0000StackNode.html" title="class in net.nergi.misc.objects.synchro.stack"><span class="type-name-link">S0000StackNode</span></a>&lt;E,&#8203;T&gt;
 <ul>
-<li class="circle"><a href="net/nergi/misc/objects/synchro/linkedstack/LinkedStackNode.html" title="class in net.nergi.misc.objects.synchro.linkedstack"><span class="type-name-link">LinkedStackNode</span></a>&lt;E&gt;</li>
-<li class="circle"><a href="net/nergi/misc/objects/synchro/lockfreestack/MarkableNode.html" title="class in net.nergi.misc.objects.synchro.lockfreestack"><span class="type-name-link">MarkableNode</span></a>&lt;E&gt;</li>
+<li class="circle"><a href="net/nergi/misc/objects/synchro/stack/linkedstack/LinkedStackNode.html" title="class in net.nergi.misc.objects.synchro.stack.linkedstack"><span class="type-name-link">LinkedStackNode</span></a>&lt;E&gt;</li>
+<li class="circle"><a href="net/nergi/misc/objects/synchro/stack/lockfreestack/MarkableNode.html" title="class in net.nergi.misc.objects.synchro.stack.lockfreestack"><span class="type-name-link">MarkableNode</span></a>&lt;E&gt;</li>
 </ul>
 </li>
 <li class="circle"><a href="net/nergi/misc/SafeAndUnsafeObjectCreation.html" title="class in net.nergi.misc"><span class="type-name-link">SafeAndUnsafeObjectCreation</span></a> (implements Runnable)</li>
+<li class="circle"><a href="net/nergi/misc/Sorted.html" title="class in net.nergi.misc"><span class="type-name-link">Sorted</span></a> (implements Runnable)</li>
 <li class="circle"><a href="net/nergi/misc/StackPerformanceComparison.html" title="class in net.nergi.misc"><span class="type-name-link">StackPerformanceComparison</span></a> (implements Runnable)</li>
-<li class="circle"><a href="net/nergi/misc/objects/synchro/StackPerformanceTester.html" title="class in net.nergi.misc.objects.synchro"><span class="type-name-link">StackPerformanceTester</span></a></li>
+<li class="circle"><a href="net/nergi/misc/objects/synchro/stack/StackPerformanceTester.html" title="class in net.nergi.misc.objects.synchro.stack"><span class="type-name-link">StackPerformanceTester</span></a></li>
 <li class="circle">Throwable (implements Serializable)
 <ul>
 <li class="circle">Exception
@@ -355,9 +374,10 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="circle">RuntimeException
 <ul>
+<li class="circle"><a href="net/nergi/util/lazy/LazyLoadException.html" title="class in net.nergi.util.lazy"><span class="type-name-link">LazyLoadException</span></a></li>
 <li class="circle">UnsupportedOperationException
 <ul>
-<li class="circle"><a href="net/nergi/MethodNotImplementedException.html" title="class in net.nergi"><span class="type-name-link">MethodNotImplementedException</span></a></li>
+<li class="circle"><a href="net/nergi/util/MethodNotImplementedException.html" title="class in net.nergi.util"><span class="type-name-link">MethodNotImplementedException</span></a></li>
 </ul>
 </li>
 </ul>
@@ -366,7 +386,8 @@ loadScripts(document, 'script');</script>
 </li>
 </ul>
 </li>
-<li class="circle"><a href="net/nergi/Utils.html" title="class in net.nergi"><span class="type-name-link">Utils</span></a></li>
+<li class="circle"><a href="net/nergi/util/Utils.html" title="class in net.nergi.util"><span class="type-name-link">Utils</span></a></li>
+<li class="circle"><a href="net/nergi/misc/WaitNotifyDemo.html" title="class in net.nergi.misc"><span class="type-name-link">WaitNotifyDemo</span></a> (implements Runnable)</li>
 </ul>
 </li>
 </ul>
@@ -419,9 +440,10 @@ loadScripts(document, 'script');</script>
 <li class="circle"><a href="net/nergi/solutions/Pb33f.Logger.html" title="interface in net.nergi.solutions"><span class="type-name-link">Pb33f.Logger</span></a></li>
 <li class="circle"><a href="net/nergi/solutions/Pb33f.StringInspector.html" title="interface in net.nergi.solutions"><span class="type-name-link">Pb33f.StringInspector</span></a></li>
 <li class="circle"><a href="net/nergi/solutions/Pe6fd.BitSet.html" title="interface in net.nergi.solutions"><span class="type-name-link">Pe6fd.BitSet</span></a></li>
-<li class="circle"><a href="net/nergi/misc/objects/synchro/S0000Stack.html" title="interface in net.nergi.misc.objects.synchro"><span class="type-name-link">S0000Stack</span></a>&lt;E&gt;</li>
+<li class="circle"><a href="net/nergi/misc/objects/synchro/stack/S0000Stack.html" title="interface in net.nergi.misc.objects.synchro.stack"><span class="type-name-link">S0000Stack</span></a>&lt;E&gt;</li>
 <li class="circle"><a href="net/nergi/Solution.html" title="interface in net.nergi"><span class="type-name-link">Solution</span></a></li>
-<li class="circle"><a href="net/nergi/misc/objects/synchro/StackPerformanceTester.Tester.html" title="interface in net.nergi.misc.objects.synchro"><span class="type-name-link">StackPerformanceTester.Tester</span></a></li>
+<li class="circle"><a href="net/nergi/misc/objects/synchro/stack/StackPerformanceTester.Tester.html" title="interface in net.nergi.misc.objects.synchro.stack"><span class="type-name-link">StackPerformanceTester.Tester</span></a></li>
+<li class="circle"><a href="net/nergi/util/StringProcessor.html" title="interface in net.nergi.util"><span class="type-name-link">StringProcessor</span></a>&lt;T&gt;</li>
 </ul>
 </section>
 <section class="hierarchy">
@@ -431,6 +453,7 @@ loadScripts(document, 'script');</script>
 <ul>
 <li class="circle">Enum&lt;E&gt; (implements Comparable&lt;T&gt;, Constable, Serializable)
 <ul>
+<li class="circle"><a href="net/nergi/misc/objects/rectypes/BinaryTree.TraversalOrder.html" title="enum in net.nergi.misc.objects.rectypes"><span class="type-name-link">BinaryTree.TraversalOrder</span></a></li>
 <li class="circle"><a href="net/nergi/solutions/P8d24.FighterStyle.html" title="enum in net.nergi.solutions"><span class="type-name-link">P8d24.FighterStyle</span></a></li>
 <li class="circle"><a href="net/nergi/solutions/P9a9b.NoteName.html" title="enum in net.nergi.solutions"><span class="type-name-link">P9a9b.NoteName</span></a></li>
 <li class="circle"><a href="net/nergi/solutions/P9a9b.NoteValue.html" title="enum in net.nergi.solutions"><span class="type-name-link">P9a9b.NoteValue</span></a></li>

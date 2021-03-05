@@ -1,4 +1,4 @@
-package net.nergi.misc.objects.synchro;
+package net.nergi.misc.objects.synchro.stack;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -6,8 +6,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
-import net.nergi.Utils;
-import net.nergi.misc.objects.ExceptionSuppressor;
+import net.nergi.util.Utils;
+import net.nergi.util.ExceptionSuppressor;
 
 /** Creates rough performance tests for stack classes implementing {@link S0000Stack}. */
 public class StackPerformanceTester {
@@ -65,7 +65,7 @@ public class StackPerformanceTester {
                   System.out.println("Final size: " + stack.size() + " / 6400");
                 } else {
                   System.out.printf(
-                      "\nFailed to terminate / %d exceptions were caught.%n",
+                      "%nFailed to terminate / %d exceptions were caught.%n",
                       suppressor.getSuppressedCount()
                   );
                 }
@@ -104,7 +104,7 @@ public class StackPerformanceTester {
                   System.out.println("Final size: " + stack.size() + " / 0");
                 } else {
                   System.out.printf(
-                      "\nFailed to terminate / %d exceptions were caught.%n",
+                      "%nFailed to terminate / %d exceptions were caught.%n",
                       suppressor.getSuppressedCount()
                   );
                 }
@@ -148,7 +148,7 @@ public class StackPerformanceTester {
                   System.out.println("Final size: " + stack.size() + " / 3200");
                 } else {
                   System.out.printf(
-                      "\nFailed to terminate / %d exceptions were caught.%n",
+                      "%nFailed to terminate / %d exceptions were caught.%n",
                       suppressor.getSuppressedCount()
                   );
                 }
@@ -192,7 +192,7 @@ public class StackPerformanceTester {
                   System.out.println("Final size: " + stack.size() + " / 400");
                 } else {
                   System.out.printf(
-                      "\nFailed to terminate / %d exceptions were caught.%n",
+                      "%nFailed to terminate / %d exceptions were caught.%n",
                       suppressor.getSuppressedCount()
                   );
                 }
@@ -236,7 +236,7 @@ public class StackPerformanceTester {
                   System.out.println("Final size: " + stack.size() + " / 6000");
                 } else {
                   System.out.printf(
-                      "\nFailed to terminate / %d exceptions were caught.%n",
+                      "%nFailed to terminate / %d exceptions were caught.%n",
                       suppressor.getSuppressedCount()
                   );
                 }

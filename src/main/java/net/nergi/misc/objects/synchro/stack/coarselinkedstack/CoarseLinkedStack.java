@@ -1,10 +1,10 @@
-package net.nergi.misc.objects.synchro.coarselinkedstack;
+package net.nergi.misc.objects.synchro.stack.coarselinkedstack;
 
 import java.util.NoSuchElementException;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import net.nergi.misc.objects.synchro.S0000Stack;
-import net.nergi.misc.objects.synchro.linkedstack.LinkedStackNode;
+import net.nergi.misc.objects.synchro.stack.S0000Stack;
+import net.nergi.misc.objects.synchro.stack.linkedstack.LinkedStackNode;
 
 /**
  * A simple coarsely synchronized linked stack.

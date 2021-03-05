@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import net.nergi.Solution;
-import net.nergi.Utils;
+import net.nergi.util.Utils;
 import net.nergi.solutions.P735a.GenericCollection;
 import net.nergi.solutions.P735a.GenericIterator;
 

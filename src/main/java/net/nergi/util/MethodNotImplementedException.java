@@ -1,11 +1,11 @@
-package net.nergi;
+package net.nergi.util;
 
 /**
  * Class that represents the fact that something has not been implemented inside a method. Extends
  * {@link UnsupportedOperationException} due to its similarity.
  */
 @SuppressWarnings("unused")
-public class MethodNotImplementedException extends UnsupportedOperationException {
+public final class MethodNotImplementedException extends UnsupportedOperationException {
 
   /** Creates a new <code>MethodNotImplementedException</code> */
   public MethodNotImplementedException() {

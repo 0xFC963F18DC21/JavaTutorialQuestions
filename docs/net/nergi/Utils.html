@@ -156,8 +156,8 @@ boolean&nbsp;shouldEarlyReturn)</code></th>
 <tr class="row-color" id="i7">
 <td class="col-first"><code>static &lt;X,&#8203;
 Y&gt;&nbsp;Map&lt;X,&#8203;Y&gt;</code></td>
-<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#mapOf(java.util.List,java.util.List)">mapOf</a></span>&#8203;(List&lt;X&gt;&nbsp;keys,
-List&lt;Y&gt;&nbsp;values)</code></th>
+<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#mapOf(java.util.List,java.util.List)">mapOf</a></span>&#8203;(List&lt;? extends X&gt;&nbsp;keys,
+List&lt;? extends Y&gt;&nbsp;values)</code></th>
 <td class="col-last">
 <div class="block">Constructs a HashMap from two Lists.</div>
 </td>
@@ -277,8 +277,8 @@ Y[]&nbsp;values)</span>
 <section class="detail" id="mapOf(java.util.List,java.util.List)">
 <h3>mapOf</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;X,&#8203;
-Y&gt;</span>&nbsp;<span class="return-type">Map&lt;X,&#8203;Y&gt;</span>&nbsp;<span class="member-name">mapOf</span>&#8203;(<span class="parameters">List&lt;X&gt;&nbsp;keys,
-List&lt;Y&gt;&nbsp;values)</span>
+Y&gt;</span>&nbsp;<span class="return-type">Map&lt;X,&#8203;Y&gt;</span>&nbsp;<span class="member-name">mapOf</span>&#8203;(<span class="parameters">List&lt;? extends X&gt;&nbsp;keys,
+List&lt;? extends Y&gt;&nbsp;values)</span>
                             throws <span class="exceptions">IllegalArgumentException</span></div>
 <div class="block">Constructs a HashMap from two Lists. The Lists must be of equal length.</div>
 <dl class="notes">

@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import net.nergi.Main;
 import net.nergi.Solution;
-import net.nergi.Utils;
+import net.nergi.util.Utils;
 import net.nergi.solutions.Pa6e7.IntSetIterator;
 
 /** Solution for 8a61. */
@@ -37,13 +37,13 @@ public class P8a61 implements Solution {
   @Override
   public void exec() {
     // Demo class substituted for this class.
-    if (Main.otherArgs.size() < 1) {
+    if (Main.OTHER_ARGS.size() < 1) {
       System.out.println("This solution needs an input to determine how many integers it accepts.");
       return;
     }
 
     try {
-      final int integers = Integer.parseInt(Main.otherArgs.get(0));
+      final int integers = Integer.parseInt(Main.OTHER_ARGS.get(0));
       System.out.printf("Please enter %d integers:\n", integers);
 
       final IntSet set = readIntegers(integers);

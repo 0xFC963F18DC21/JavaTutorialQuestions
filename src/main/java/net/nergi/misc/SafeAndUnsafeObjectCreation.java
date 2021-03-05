@@ -1,7 +1,7 @@
 package net.nergi.misc;
 
 import java.lang.reflect.Constructor;
-import net.nergi.Utils;
+import net.nergi.util.Utils;
 import net.nergi.misc.objects.GameItem;
 
 /**

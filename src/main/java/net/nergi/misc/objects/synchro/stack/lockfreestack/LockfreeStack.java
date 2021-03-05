@@ -1,9 +1,9 @@
-package net.nergi.misc.objects.synchro.lockfreestack;
+package net.nergi.misc.objects.synchro.stack.lockfreestack;
 
 import java.util.NoSuchElementException;
 import java.util.concurrent.atomic.AtomicInteger;
-import net.nergi.MethodNotImplementedException;
-import net.nergi.misc.objects.synchro.S0000Stack;
+import net.nergi.util.MethodNotImplementedException;
+import net.nergi.misc.objects.synchro.stack.S0000Stack;
 
 /**
  * Synchronised stack that uses atomic references to eliminate the need for locks.

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import net.nergi.Solution;
-import net.nergi.Utils;
+import net.nergi.util.Utils;
 
 /** Solution for 845d. */
 @SuppressWarnings("unused")

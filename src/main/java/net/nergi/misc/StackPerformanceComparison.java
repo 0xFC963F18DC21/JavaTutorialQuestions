@@ -1,9 +1,9 @@
 package net.nergi.misc;
 
-import net.nergi.misc.objects.synchro.StackPerformanceTester;
-import net.nergi.misc.objects.synchro.coarselinkedstack.CoarseLinkedStack;
-import net.nergi.misc.objects.synchro.linkedstack.LinkedStack;
-import net.nergi.misc.objects.synchro.lockfreestack.LockfreeStack;
+import net.nergi.misc.objects.synchro.stack.StackPerformanceTester;
+import net.nergi.misc.objects.synchro.stack.coarselinkedstack.CoarseLinkedStack;
+import net.nergi.misc.objects.synchro.stack.linkedstack.LinkedStack;
+import net.nergi.misc.objects.synchro.stack.lockfreestack.LockfreeStack;
 
 /**
  * Compares the performance of different locking mechanisms when using stacks in a concurrent

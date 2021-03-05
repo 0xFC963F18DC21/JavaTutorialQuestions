@@ -1,6 +1,6 @@
-package net.nergi.misc.objects.synchro.linkedstack;
+package net.nergi.misc.objects.synchro.stack.linkedstack;
 
-import net.nergi.misc.objects.synchro.S0000StackNode;
+import net.nergi.misc.objects.synchro.stack.S0000StackNode;
 
 /**
  * Simple linked stack node. Unsynchronised.

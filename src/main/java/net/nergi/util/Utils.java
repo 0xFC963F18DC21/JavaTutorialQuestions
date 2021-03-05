@@ -1,4 +1,4 @@
-package net.nergi;
+package net.nergi.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;

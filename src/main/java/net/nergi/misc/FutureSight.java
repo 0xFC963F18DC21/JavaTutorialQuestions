@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import net.nergi.FunctionalModifiers;
+import net.nergi.util.FunctionalModifiers;
 
 /** A demo on {@link Future} objects. */
 @SuppressWarnings("unused")

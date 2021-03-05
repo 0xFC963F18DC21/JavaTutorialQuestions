@@ -1,7 +1,7 @@
-package net.nergi.misc.objects.synchro.lockfreestack;
+package net.nergi.misc.objects.synchro.stack.lockfreestack;
 
 import java.util.concurrent.atomic.AtomicMarkableReference;
-import net.nergi.misc.objects.synchro.S0000StackNode;
+import net.nergi.misc.objects.synchro.stack.S0000StackNode;
 
 /**
  * A markable node that supports atomic operations.

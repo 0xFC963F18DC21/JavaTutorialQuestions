@@ -1,4 +1,4 @@
-package net.nergi.misc.objects.lazy;
+package net.nergi.util.lazy;
 
 import java.util.concurrent.Callable;
 import java.util.function.Supplier;
@@ -14,14 +14,14 @@ import java.util.function.Supplier;
  *
  * @param <T> Apparent type of value being lazy-loaded.
  */
-public class LazyValue<T> {
+public class LazyReference<T> {
 
   private final Callable<? extends T> getter;
   private T value;
   private boolean evaluated = false;
 
   // No outside instantiation is needed. The static methods perform all of the instantiation.
-  private LazyValue(Callable<T> getter) {
+  private LazyReference(Callable<T> getter) {
     this.getter = getter;
   }
 
@@ -42,12 +42,12 @@ public class LazyValue<T> {
    * @param <T> Apparent type of lazy-loaded value.
    * @return Lazy-loader that loads from the given callable.
    */
-  public static <T> LazyValue<T> fromCallable(Callable<? extends T> callable) {
-    return new LazyValue<>(callable::call);
+  public static <T> LazyReference<T> fromCallable(Callable<? extends T> callable) {
+    return new LazyReference<>(callable::call);
   }
 
   /**
-   * Make a lazy-loaded value from a supplier object. In general, once can use a callable object
+   * Make a lazy-loaded value from a supplier object. In general, once can use a supplier object
    * directly, or use a lambda instead:
    *
    * <pre>{@code () -> value
@@ -63,8 +63,8 @@ public class LazyValue<T> {
    * @param <T> Apparent type of lazy-loaded value.
    * @return Lazy-loader that loads from the given supplier.
    */
-  public static <T> LazyValue<T> fromSupplier(Supplier<? extends T> supplier) {
-    return new LazyValue<>(supplier::get);
+  public static <T> LazyReference<T> fromSupplier(Supplier<? extends T> supplier) {
+    return new LazyReference<>(supplier::get);
   }
 
   /**

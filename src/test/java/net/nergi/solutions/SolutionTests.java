@@ -1,6 +1,6 @@
 package net.nergi.solutions;
 
-import static net.nergi.Utils.mutableListOf;
+import static net.nergi.util.Utils.mutableListOf;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;

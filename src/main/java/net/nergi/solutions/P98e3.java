@@ -24,12 +24,12 @@ public class P98e3 implements Solution {
   /** Runs the solution to the problem. */
   @Override
   public void exec() {
-    if (Main.otherArgs.isEmpty()) {
+    if (Main.OTHER_ARGS.isEmpty()) {
       System.out.println("This solution requires an integer input.");
       return;
     }
 
-    int x = Integer.parseInt(Main.otherArgs.get(0));
+    int x = Integer.parseInt(Main.OTHER_ARGS.get(0));
     while (x != 1) {
       System.out.print(x + " ");
       x = next(x);

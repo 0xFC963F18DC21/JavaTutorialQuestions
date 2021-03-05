@@ -1,7 +1,7 @@
-package net.nergi.misc.objects.synchro.linkedstack;
+package net.nergi.misc.objects.synchro.stack.linkedstack;
 
 import java.util.NoSuchElementException;
-import net.nergi.misc.objects.synchro.S0000Stack;
+import net.nergi.misc.objects.synchro.stack.S0000Stack;
 
 /**
  * A simple unsynchronised linked stack.

@@ -3,7 +3,7 @@ package net.nergi.solutions;
 import java.util.Set;
 import java.util.stream.Collectors;
 import net.nergi.Solution;
-import net.nergi.Utils;
+import net.nergi.util.Utils;
 
 /** Solution for 1aeb. */
 @SuppressWarnings("unused")

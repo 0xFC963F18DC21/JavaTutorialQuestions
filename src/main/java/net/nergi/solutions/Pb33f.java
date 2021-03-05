@@ -1,6 +1,6 @@
 package net.nergi.solutions;
 
-import static net.nergi.Utils.pass;
+import static net.nergi.util.Utils.pass;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

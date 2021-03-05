@@ -2,7 +2,7 @@ package net.nergi.solutions;
 
 import java.util.Map;
 import net.nergi.Solution;
-import net.nergi.Utils;
+import net.nergi.util.Utils;
 
 /** Solution for dd4c. */
 @SuppressWarnings("unused")

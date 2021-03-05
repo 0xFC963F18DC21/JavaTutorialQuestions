@@ -3,7 +3,7 @@ package net.nergi.solutions;
 import java.io.IOException;
 import java.util.ArrayList;
 import net.nergi.Solution;
-import net.nergi.Utils;
+import net.nergi.util.Utils;
 
 /** Solution for e093. */
 @SuppressWarnings("unused")

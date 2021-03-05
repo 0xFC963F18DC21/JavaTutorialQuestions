@@ -38,7 +38,7 @@ public class P153d implements Solution {
              *
              */
 
-            switch (Integer.parseInt(Main.otherArgs.get(0))) {
+            switch (Integer.parseInt(Main.OTHER_ARGS.get(0))) {
               case 0:
                 throw new A();
               case 1:

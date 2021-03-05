@@ -1,7 +1,7 @@
 package net.nergi.solutions;
 
 import net.nergi.Solution;
-import net.nergi.Utils;
+import net.nergi.util.Utils;
 import net.nergi.solutions.Pb401.GenericSet;
 import net.nergi.solutions.Pb401.MemoryEfficientGenericSet;
 import net.nergi.solutions.Pb401.SpeedEfficientGenericSet;

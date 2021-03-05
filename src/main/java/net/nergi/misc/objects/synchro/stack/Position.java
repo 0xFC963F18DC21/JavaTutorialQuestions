@@ -1,4 +1,4 @@
-package net.nergi.misc.objects.synchro;
+package net.nergi.misc.objects.synchro.stack;
 
 /**
  * Holds two stack nodes; a node and its predecessor.

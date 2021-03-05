@@ -1,7 +1,7 @@
 package net.nergi.solutions;
 
 import net.nergi.Solution;
-import net.nergi.Utils;
+import net.nergi.util.Utils;
 
 /** Solution for 96df. */
 @SuppressWarnings("unused")
