@@ -1,6 +1,7 @@
-package net.nergi.util;
+package net.nergi.util.functional;
 
 import java.util.NoSuchElementException;
+import java.util.function.Function;
 
 /**
  * A two-state class. Typically used in functional programming for handling exceptions by
@@ -15,7 +16,7 @@ import java.util.NoSuchElementException;
  * @param <L> Type held by Left instance.
  * @param <R> Type held by Right instance.
  */
-public abstract class Either<L, R> {
+public abstract class Either<L, R> implements Functor<R> {
 
   /**
    * Make a new Left instance with the given item held inside.
@@ -86,6 +87,39 @@ public abstract class Either<L, R> {
     }
 
     throw new NoSuchElementException("Not a Right.");
+  }
+
+  /**
+   * Applies a mapping function to the contents of a Right-Either.
+   * Leaves a Left-Either alone.
+   *
+   * @param function Mapping function
+   * @param <U>      Output type
+   * @return A (possibly) mapped Either.
+   */
+  @Override
+  public <U> Functor<U> fmap(Function<? super R, ? extends U> function) {
+    if (isRight()) {
+      return rightFrom(function.apply(fromRight()));
+    } else {
+      return leftFrom(fromLeft());
+    }
+  }
+
+  /**
+   * Replace the contents of this Either instance only if it is a Right-Either.
+   *
+   * @param item New item
+   * @param <U>  Type of the new item
+   * @return A (possibly) replaced Either.
+   */
+  @Override
+  public <U> Functor<U> replace(U item) {
+    if (isRight()) {
+      return rightFrom(item);
+    } else {
+      return leftFrom(fromLeft());
+    }
   }
 
   private static class Left<L, R> extends Either<L, R> {

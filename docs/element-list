@@ -9,4 +9,5 @@ net.nergi.misc.objects.synchro.stack.linkedstack
 net.nergi.misc.objects.synchro.stack.lockfreestack
 net.nergi.solutions
 net.nergi.util
+net.nergi.util.functional
 net.nergi.util.lazy
