@@ -1,6 +1,7 @@
 package net.nergi.util.functional;
 
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.function.Function;
 
 /**
@@ -9,9 +10,6 @@ import java.util.function.Function;
  *
  * <p>Typically, Right is used to hold the result of successful operations, and Left is used to
  * hold exceptions or other errors that occur during an operation.
- *
- * <p>A consequence of this is that one cannot use <code>var</code> as the JVM will not be able to
- * infer the other type than the one given.
  *
  * @param <L> Type held by Left instance.
  * @param <R> Type held by Right instance.
@@ -126,6 +124,7 @@ public abstract class Either<L, R> implements Functor<R> {
     }
   }
 
+  // Left-Either instance
   private static class Left<L, R> extends Either<L, R> {
 
     private final L item;
@@ -137,8 +136,33 @@ public abstract class Either<L, R> implements Functor<R> {
     public L getItem() {
       return item;
     }
+
+    @Override
+    public String toString() {
+      return "Left (" + item + ")";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+
+      Left<?, ?> left = (Left<?, ?>) o;
+      return Objects.equals(item, left.item);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(getClass(), item);
+    }
   }
 
+  // Right-Either instance
   private static class Right<L, R> extends Either<L, R> {
 
     private final R item;
@@ -149,6 +173,30 @@ public abstract class Either<L, R> implements Functor<R> {
 
     public R getItem() {
       return item;
+    }
+
+    @Override
+    public String toString() {
+      return "Right (" + item + ")";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      }
+
+      Right<?, ?> right = (Right<?, ?>) o;
+      return Objects.equals(item, right.item);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(getClass(), item);
     }
   }
 }
