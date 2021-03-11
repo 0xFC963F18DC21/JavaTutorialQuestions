@@ -533,6 +533,12 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="net/nergi/solutions/P9a9b.NoteValue.html#EIGHTH">EIGHTH</a></span> - <a href="net/nergi/solutions/P9a9b.NoteValue.html" title="enum in net.nergi.solutions">P9a9b.NoteValue</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="net/nergi/util/Either.html" title="class in net.nergi.util"><span class="type-name-link">Either</span></a>&lt;<a href="net/nergi/util/Either.html" title="type parameter in Either">L</a>,&#8203;<a href="net/nergi/util/Either.html" title="type parameter in Either">R</a>&gt; - Class in <a href="net/nergi/util/package-summary.html">net.nergi.util</a></dt>
+<dd>
+<div class="block">A two-state class.</div>
+</dd>
+<dt><span class="member-name-link"><a href="net/nergi/util/Either.html#%3Cinit%3E()">Either()</a></span> - Constructor for class <a href="net/nergi/util/Either.html" title="class in net.nergi.util">Either</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="net/nergi/misc/objects/synchro/queue/coarselinkedqueue/CoarseLinkedQueue.html#element()">element()</a></span> - Method in class <a href="net/nergi/misc/objects/synchro/queue/coarselinkedqueue/CoarseLinkedQueue.html" title="class in net.nergi.misc.objects.synchro.queue.coarselinkedqueue">CoarseLinkedQueue</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="net/nergi/solutions/P5981.Ellipse.html#%3Cinit%3E(double,double)">Ellipse(double, double)</a></span> - Constructor for class <a href="net/nergi/solutions/P5981.Ellipse.html" title="class in net.nergi.solutions">P5981.Ellipse</a></dt>
@@ -955,6 +961,14 @@ loadScripts(document, 'script');</script>
 <dt><span class="member-name-link"><a href="net/nergi/util/lazy/LazyReference.html#fromCallable(java.util.concurrent.Callable)">fromCallable(Callable&lt;? extends T&gt;)</a></span> - Static method in class <a href="net/nergi/util/lazy/LazyReference.html" title="class in net.nergi.util.lazy">LazyReference</a></dt>
 <dd>
 <div class="block">Make a lazy-loaded value from a callable object.</div>
+</dd>
+<dt><span class="member-name-link"><a href="net/nergi/util/Either.html#fromLeft()">fromLeft()</a></span> - Method in class <a href="net/nergi/util/Either.html" title="class in net.nergi.util">Either</a></dt>
+<dd>
+<div class="block">Attempts to get the Left value.</div>
+</dd>
+<dt><span class="member-name-link"><a href="net/nergi/util/Either.html#fromRight()">fromRight()</a></span> - Method in class <a href="net/nergi/util/Either.html" title="class in net.nergi.util">Either</a></dt>
+<dd>
+<div class="block">Attempts to get the Right value.</div>
 </dd>
 <dt><span class="member-name-link"><a href="net/nergi/util/lazy/LazyReference.html#fromSupplier(java.util.function.Supplier)">fromSupplier(Supplier&lt;? extends T&gt;)</a></span> - Static method in class <a href="net/nergi/util/lazy/LazyReference.html" title="class in net.nergi.util.lazy">LazyReference</a></dt>
 <dd>
@@ -1626,8 +1640,16 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Checks whether the current node is a leaf node, and not a branch node.</div>
 </dd>
+<dt><span class="member-name-link"><a href="net/nergi/util/Either.html#isLeft()">isLeft()</a></span> - Method in class <a href="net/nergi/util/Either.html" title="class in net.nergi.util">Either</a></dt>
+<dd>
+<div class="block">Is this a Left-Either instance?</div>
+</dd>
 <dt><span class="member-name-link"><a href="net/nergi/solutions/Pf79b.html#isPalindromic(java.lang.String)">isPalindromic(String)</a></span> - Static method in class <a href="net/nergi/solutions/Pf79b.html" title="class in net.nergi.solutions">Pf79b</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="member-name-link"><a href="net/nergi/util/Either.html#isRight()">isRight()</a></span> - Method in class <a href="net/nergi/util/Either.html" title="class in net.nergi.util">Either</a></dt>
+<dd>
+<div class="block">Is this a Right-Either instance?</div>
+</dd>
 <dt><span class="member-name-link"><a href="net/nergi/solutions/P5981.Shape.html#isSquare()">isSquare()</a></span> - Method in class <a href="net/nergi/solutions/P5981.Shape.html" title="class in net.nergi.solutions">P5981.Shape</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="net/nergi/solutions/Pe6fd.BitSet.html#isValid(int)">isValid(int)</a></span> - Method in interface <a href="net/nergi/solutions/Pe6fd.BitSet.html" title="interface in net.nergi.solutions">Pe6fd.BitSet</a></dt>
@@ -1714,6 +1736,10 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="net/nergi/solutions/P96df.LeafNode.html#%3Cinit%3E(E)">LeafNode(E)</a></span> - Constructor for class <a href="net/nergi/solutions/P96df.LeafNode.html" title="class in net.nergi.solutions">P96df.LeafNode</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="member-name-link"><a href="net/nergi/util/Either.html#leftFrom(L)">leftFrom(L)</a></span> - Static method in class <a href="net/nergi/util/Either.html" title="class in net.nergi.util">Either</a></dt>
+<dd>
+<div class="block">Make a new Left instance with the given item held inside.</div>
+</dd>
 <dt><span class="member-name-link"><a href="net/nergi/misc/OptionalPropagation.html#liftA2(java.util.function.BiFunction,java.util.Optional,java.util.Optional)">liftA2(BiFunction&lt;? super T, ? super U, ? extends R&gt;, Optional&lt;T&gt;, Optional&lt;U&gt;)</a></span> - Static method in class <a href="net/nergi/misc/OptionalPropagation.html" title="class in net.nergi.misc">OptionalPropagation</a></dt>
 <dd>
 <div class="block">Applies a function onto two optionals.</div>
@@ -2873,6 +2899,10 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="net/nergi/solutions/Pfe94.html#reverseEachStringMonolithic(java.util.List)">reverseEachStringMonolithic(List&lt;String&gt;)</a></span> - Static method in class <a href="net/nergi/solutions/Pfe94.html" title="class in net.nergi.solutions">Pfe94</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="member-name-link"><a href="net/nergi/util/Either.html#rightFrom(R)">rightFrom(R)</a></span> - Static method in class <a href="net/nergi/util/Either.html" title="class in net.nergi.util">Either</a></dt>
+<dd>
+<div class="block">Make a new Right instance with the given item held inside.</div>
+</dd>
 <dt><span class="member-name-link"><a href="net/nergi/misc/DequeRandomDemo.html#run()">run()</a></span> - Method in class <a href="net/nergi/misc/DequeRandomDemo.html" title="class in net.nergi.misc">DequeRandomDemo</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="net/nergi/misc/FunctionalPerformance.html#run()">run()</a></span> - Method in class <a href="net/nergi/misc/FunctionalPerformance.html" title="class in net.nergi.misc">FunctionalPerformance</a></dt>

@@ -33,9 +33,9 @@ public class LazyReference<T> {
    *
    * or
    *
-   * () -> {<br />
-   *   ...<br />
-   *   return value;<br />
+   * () -> {
+   *   ...
+   *   return value;
    * }}</pre>
    *
    * @param callable Callable object to load from.
@@ -54,9 +54,9 @@ public class LazyReference<T> {
    *
    * or
    *
-   * () -> {<br />
-   *   ...<br />
-   *   return value;<br />
+   * () -> {
+   *   ...
+   *   return value;
    * }}</pre>
    *
    * @param supplier Supplier object to load from.
