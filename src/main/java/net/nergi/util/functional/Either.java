@@ -100,7 +100,11 @@ public abstract class Either<L, R> implements Functor<R> {
   @Override
   public <U> Functor<U> fmap(Function<? super R, ? extends U> function) {
     if (isRight()) {
-      return rightFrom(function.apply(fromRight()));
+      try {
+        return rightFrom(function.apply(fromRight()));
+      } catch (Exception e) {
+        return leftFrom(e);
+      }
     } else {
       return leftFrom(fromLeft());
     }
