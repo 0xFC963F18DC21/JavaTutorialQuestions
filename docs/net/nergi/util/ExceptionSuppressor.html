@@ -15,7 +15,7 @@
 <script type="text/javascript" src="../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
-<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "alt-color";
 var rowColor = "row-color";
@@ -83,7 +83,7 @@ loadScripts(document, 'script');</script>
 <pre>public final class <span class="type-name-label">ExceptionSuppressor</span>
 extends Object</pre>
 <div class="block">A block runner that suppresses and collects thrown exceptions. If it fails to successfully
- catch an exception, it will rethrow the exception, nested within a <code>RuntimeException</code>.</div>
+ catch an exception, it will rethrow the exception, nested within a <a href="FallThroughException.html" title="class in net.nergi.util"><code>FallThroughException</code></a>.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -162,13 +162,21 @@ extends Object</pre>
 </td>
 </tr>
 <tr class="row-color" id="i3">
+<td class="col-first"><code>&lt;T extends Throwable&gt;<br>void</code></td>
+<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#rethrowAny(java.lang.Class)">rethrowAny</a></span>&#8203;(Class&lt;T&gt;&nbsp;throwableClass)</code></th>
+<td class="col-last">
+<div class="block">Finds the first instance of a certain <code>Throwable</code> class (or one of its sublcasses and
+ throws it.</div>
+</td>
+</tr>
+<tr class="alt-color" id="i4">
 <td class="col-first"><code>void</code></td>
-<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#suppressedExecute(java.lang.Runnable)">suppressedExecute</a></span>&#8203;(Runnable&nbsp;action)</code></th>
+<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#suppressedExecute(net.nergi.util.ThrowingRunnable)">suppressedExecute</a></span>&#8203;(<a href="ThrowingRunnable.html" title="interface in net.nergi.util">ThrowingRunnable</a>&nbsp;action)</code></th>
 <td class="col-last">
 <div class="block">Run an action with this expression suppressor.</div>
 </td>
 </tr>
-<tr class="alt-color" id="i4">
+<tr class="row-color" id="i5">
 <td class="col-first"><code>&lt;T&gt;&nbsp;T</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#suppressedSubmit(java.util.concurrent.Callable,T)">suppressedSubmit</a></span>&#8203;(Callable&lt;T&gt;&nbsp;action,
 T&nbsp;defaultValue)</code></th>
@@ -208,7 +216,8 @@ T&nbsp;defaultValue)</code></th>
 <li>
 <section class="detail" id="&lt;init&gt;(java.lang.Class...)">
 <h3>ExceptionSuppressor</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="member-name">ExceptionSuppressor</span>&#8203;(<span class="parameters">Class&lt;? extends Throwable&gt;...&nbsp;toCatch)</span></div>
+<div class="member-signature"><span class="annotations">@SafeVarargs
+</span><span class="modifiers">public</span>&nbsp;<span class="member-name">ExceptionSuppressor</span>&#8203;(<span class="parameters">Class&lt;? extends Throwable&gt;...&nbsp;toCatch)</span></div>
 <div class="block">Make a suppressor that catches the given exception classes and their subclasses.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -236,9 +245,9 @@ T&nbsp;defaultValue)</code></th>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="suppressedExecute(java.lang.Runnable)">
+<section class="detail" id="suppressedExecute(net.nergi.util.ThrowingRunnable)">
 <h3>suppressedExecute</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="member-name">suppressedExecute</span>&#8203;(<span class="parameters">Runnable&nbsp;action)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="member-name">suppressedExecute</span>&#8203;(<span class="parameters"><a href="ThrowingRunnable.html" title="interface in net.nergi.util">ThrowingRunnable</a>&nbsp;action)</span></div>
 <div class="block">Run an action with this expression suppressor.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -294,6 +303,24 @@ T&nbsp;defaultValue)</span></div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd><code>true</code> if no exceptions were suppressed, <code>false</code> otherwise.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="rethrowAny(java.lang.Class)">
+<h3>rethrowAny</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T extends Throwable&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="member-name">rethrowAny</span>&#8203;(<span class="parameters">Class&lt;T&gt;&nbsp;throwableClass)</span>
+                                      throws <span class="exceptions">T extends Throwable</span></div>
+<div class="block">Finds the first instance of a certain <code>Throwable</code> class (or one of its sublcasses and
+ throws it.
+ If it is not found, this method will not throw.</div>
+<dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><code>T</code> - Raw <code>Throwable</code> subclass</dd>
+<dt>Parameters:</dt>
+<dd><code>throwableClass</code> - <code>Throwable</code> subclass to throw</dd>
+<dt>Throws:</dt>
+<dd><code>T</code> - If subclass found in suppressed exceptions.</dd>
 </dl>
 </section>
 </li>

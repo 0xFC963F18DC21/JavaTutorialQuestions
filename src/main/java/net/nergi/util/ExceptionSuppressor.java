@@ -8,7 +8,7 @@ import java.util.concurrent.Callable;
 
 /**
  * A block runner that suppresses and collects thrown exceptions. If it fails to successfully
- * catch an exception, it will rethrow the exception, nested within a {@link RuntimeException}.
+ * catch an exception, it will rethrow the exception, nested within a {@link FallThroughException}.
  */
 public final class ExceptionSuppressor {
 
@@ -37,6 +37,7 @@ public final class ExceptionSuppressor {
    *
    * @param toCatch Exception superclasses
    */
+  @SafeVarargs
   public ExceptionSuppressor(Class<? extends Throwable>... toCatch) {
     filter.addAll(Arrays.asList(toCatch));
   }
@@ -50,6 +51,12 @@ public final class ExceptionSuppressor {
     filter.addAll(toCatch);
   }
 
+  /**
+   * Decides whether an exception should be caught and suppressed, or be left alone.
+   *
+   * @param t Exception
+   * @return  Should this exception be caught?
+   */
   private boolean shouldCatch(Throwable t) {
     return filter.stream().anyMatch(c -> c.isAssignableFrom(t.getClass()));
   }
@@ -59,14 +66,14 @@ public final class ExceptionSuppressor {
    *
    * @param action Action to run
    */
-  public void suppressedExecute(Runnable action) {
+  public void suppressedExecute(ThrowingRunnable action) {
     try {
       action.run();
     } catch (Throwable t) {
       if (shouldCatch(t)) {
         suppressed.add(t);
       } else {
-        throw new RuntimeException(t);
+        throw new FallThroughException(t);
       }
     }
   }
@@ -87,7 +94,7 @@ public final class ExceptionSuppressor {
       if (shouldCatch(t)) {
         suppressed.add(t);
       } else {
-        throw new RuntimeException(t);
+        throw new FallThroughException(t);
       }
 
       return defaultValue;
@@ -119,5 +126,23 @@ public final class ExceptionSuppressor {
    */
   public boolean isCleanExecution() {
     return suppressed.isEmpty();
+  }
+
+  /**
+   * Finds the first instance of a certain {@link Throwable} class (or one of its sublcasses and
+   * throws it.
+   * If it is not found, this method will not throw.
+   *
+   * @param throwableClass {@link Throwable} subclass to throw
+   * @param <T>            Raw {@link Throwable} subclass
+   * @throws T If subclass found in suppressed exceptions.
+   */
+  @SuppressWarnings("unchecked")
+  public <T extends Throwable> void rethrowAny(Class<T> throwableClass) throws T {
+    for (Throwable t : suppressed) {
+      if (throwableClass.isAssignableFrom(t.getClass())) {
+        throw (T) t;
+      }
+    }
   }
 }
