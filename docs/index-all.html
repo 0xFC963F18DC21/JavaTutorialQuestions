@@ -363,6 +363,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Clear the current stack.</div>
 </dd>
+<dt><span class="member-name-link"><a href="net/nergi/util/ExceptionSuppressor.html#clearSuppressed()">clearSuppressed()</a></span> - Method in class <a href="net/nergi/util/ExceptionSuppressor.html" title="class in net.nergi.util">ExceptionSuppressor</a></dt>
+<dd>
+<div class="block">Clears out all of the suppressed exceptions from this exception suppressor.</div>
+</dd>
 <dt><span class="member-name-link"><a href="net/nergi/solutions/Pdd4c.Clock.html#%3Cinit%3E(int)">Clock(int)</a></span> - Constructor for class <a href="net/nergi/solutions/Pdd4c.Clock.html" title="class in net.nergi.solutions">Pdd4c.Clock</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="net/nergi/solutions/Pdd4c.Clock.html#%3Cinit%3E(int,int,int)">Clock(int, int, int)</a></span> - Constructor for class <a href="net/nergi/solutions/Pdd4c.Clock.html" title="class in net.nergi.solutions">Pdd4c.Clock</a></dt>
@@ -2983,7 +2987,10 @@ loadScripts(document, 'script');</script>
 <dt><span class="member-name-link"><a href="net/nergi/solutions/Pdd4c.Ticker.html#run()">run()</a></span> - Method in class <a href="net/nergi/solutions/Pdd4c.Ticker.html" title="class in net.nergi.solutions">Pdd4c.Ticker</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="net/nergi/util/ThrowingRunnable.html#run()">run()</a></span> - Method in interface <a href="net/nergi/util/ThrowingRunnable.html" title="interface in net.nergi.util">ThrowingRunnable</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Run this <a href="net/nergi/util/ThrowingRunnable.html" title="interface in net.nergi.util"><code>ThrowingRunnable</code></a>'s method, where any exceptions thrown inside are propagated
+ outwards.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:S">S</h2>
 <dl class="index">
@@ -3238,7 +3245,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><span class="member-name-link"><a href="net/nergi/misc/objects/synchro/stack/S0000StackNode.html#successor">successor</a></span> - Variable in class <a href="net/nergi/misc/objects/synchro/stack/S0000StackNode.html" title="class in net.nergi.misc.objects.synchro.stack">S0000StackNode</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="member-name-link"><a href="net/nergi/util/ExceptionSuppressor.html#suppressedExecute(net.nergi.util.ThrowingRunnable)">suppressedExecute(ThrowingRunnable)</a></span> - Method in class <a href="net/nergi/util/ExceptionSuppressor.html" title="class in net.nergi.util">ExceptionSuppressor</a></dt>
+<dt><span class="member-name-link"><a href="net/nergi/util/ExceptionSuppressor.html#suppressedExecute(net.nergi.util.ThrowingRunnable)">suppressedExecute(ThrowingRunnable&lt;?&gt;)</a></span> - Method in class <a href="net/nergi/util/ExceptionSuppressor.html" title="class in net.nergi.util">ExceptionSuppressor</a></dt>
 <dd>
 <div class="block">Run an action with this expression suppressor.</div>
 </dd>
@@ -3295,8 +3302,10 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><span class="member-name-link"><a href="net/nergi/solutions/P0378.ThreeTieredComparator.html#%3Cinit%3E(net.nergi.solutions.P0378.PersonComparator,net.nergi.solutions.P0378.PersonComparator,net.nergi.solutions.P0378.PersonComparator)">ThreeTieredComparator(P0378.PersonComparator, P0378.PersonComparator, P0378.PersonComparator)</a></span> - Constructor for class <a href="net/nergi/solutions/P0378.ThreeTieredComparator.html" title="class in net.nergi.solutions">P0378.ThreeTieredComparator</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="net/nergi/util/ThrowingRunnable.html" title="interface in net.nergi.util"><span class="type-name-link">ThrowingRunnable</span></a> - Interface in <a href="net/nergi/util/package-summary.html">net.nergi.util</a></dt>
-<dd>&nbsp;</dd>
+<dt><a href="net/nergi/util/ThrowingRunnable.html" title="interface in net.nergi.util"><span class="type-name-link">ThrowingRunnable</span></a>&lt;<a href="net/nergi/util/ThrowingRunnable.html" title="type parameter in ThrowingRunnable">T</a> extends Throwable&gt; - Interface in <a href="net/nergi/util/package-summary.html">net.nergi.util</a></dt>
+<dd>
+<div class="block">An <code>Runnable</code> derivative that is allowed to throw exceptions.</div>
+</dd>
 <dt><span class="member-name-link"><a href="net/nergi/solutions/Pdd4c.AlarmClock.html#tick()">tick()</a></span> - Method in class <a href="net/nergi/solutions/Pdd4c.AlarmClock.html" title="class in net.nergi.solutions">Pdd4c.AlarmClock</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="net/nergi/solutions/Pdd4c.Clock.html#tick()">tick()</a></span> - Method in class <a href="net/nergi/solutions/Pdd4c.Clock.html" title="class in net.nergi.solutions">Pdd4c.Clock</a></dt>
@@ -3307,6 +3316,11 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><span class="member-name-link"><a href="net/nergi/solutions/Pc2b8.Rectangle.html#topLeft">topLeft</a></span> - Variable in class <a href="net/nergi/solutions/Pc2b8.Rectangle.html" title="class in net.nergi.solutions">Pc2b8.Rectangle</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="member-name-link"><a href="net/nergi/util/ThrowingRunnable.html#toRunnable()">toRunnable()</a></span> - Method in interface <a href="net/nergi/util/ThrowingRunnable.html" title="interface in net.nergi.util">ThrowingRunnable</a></dt>
+<dd>
+<div class="block">Convert this <a href="net/nergi/util/ThrowingRunnable.html" title="interface in net.nergi.util"><code>ThrowingRunnable</code></a> to a normal <code>Runnable</code> that throws an unchecked
+ <a href="net/nergi/util/FallThroughException.html" title="class in net.nergi.util"><code>FallThroughException</code></a> if an exception is thrown while running it.</div>
+</dd>
 <dt><span class="member-name-link"><a href="net/nergi/misc/objects/GameItem.html#toString()">toString()</a></span> - Method in class <a href="net/nergi/misc/objects/GameItem.html" title="class in net.nergi.misc.objects">GameItem</a></dt>
 <dd>
 <div class="block">Gets a string representation of the current item.</div>

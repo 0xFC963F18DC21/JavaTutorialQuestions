@@ -15,8 +15,8 @@
 <script type="text/javascript" src="../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
-<script type="text/javascript">var data = {"i0":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+<script type="text/javascript">var data = {"i0":6,"i1":18};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],16:["t5","Default Methods"]};
 var altColor = "alt-color";
 var rowColor = "row-color";
 var tableTab = "table-tab";
@@ -73,11 +73,13 @@ loadScripts(document, 'script');</script>
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">net.nergi.util</a></div>
-<h1 title="Interface ThrowingRunnable" class="title">Interface ThrowingRunnable</h1>
+<h1 title="Interface ThrowingRunnable" class="title">Interface ThrowingRunnable&lt;T extends Throwable&gt;</h1>
 </div>
 <section class="description">
 <hr>
-<pre>public interface <span class="type-name-label">ThrowingRunnable</span></pre>
+<pre>public interface <span class="type-name-label">ThrowingRunnable&lt;T extends Throwable&gt;</span></pre>
+<div class="block">An <code>Runnable</code> derivative that is allowed to throw exceptions. Lambdas that can be used to
+ form normal <code>Runnable</code>s can also be used to create <a href="ThrowingRunnable.html" title="interface in net.nergi.util"><code>ThrowingRunnable</code></a>s.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -86,7 +88,7 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method.summary">
 <h2>Method Summary</h2>
 <div class="member-summary" id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="active-table-tab">All Methods</button><button role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="table-tab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t3" class="table-tab" onclick="show(4);">Abstract Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" id="t0" class="active-table-tab">All Methods</button><button role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t2" class="table-tab" onclick="show(2);">Instance Methods</button><button role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t3" class="table-tab" onclick="show(4);">Abstract Methods</button><button role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" id="t5" class="table-tab" onclick="show(16);">Default Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel">
 <table class="summary-table" aria-labelledby="t0">
 <thead>
@@ -100,7 +102,18 @@ loadScripts(document, 'script');</script>
 <tr class="alt-color" id="i0">
 <td class="col-first"><code>void</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#run()">run</a></span>()</code></th>
-<td class="col-last">&nbsp;</td>
+<td class="col-last">
+<div class="block">Run this <a href="ThrowingRunnable.html" title="interface in net.nergi.util"><code>ThrowingRunnable</code></a>'s method, where any exceptions thrown inside are propagated
+ outwards.</div>
+</td>
+</tr>
+<tr class="row-color" id="i1">
+<td class="col-first"><code>default Runnable</code></td>
+<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#toRunnable()">toRunnable</a></span>()</code></th>
+<td class="col-last">
+<div class="block">Convert this <a href="ThrowingRunnable.html" title="interface in net.nergi.util"><code>ThrowingRunnable</code></a> to a normal <code>Runnable</code> that throws an unchecked
+ <a href="FallThroughException.html" title="class in net.nergi.util"><code>FallThroughException</code></a> if an exception is thrown while running it.</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -121,10 +134,24 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="run()">
 <h3>run</h3>
 <div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="member-name">run</span>()
-  throws <span class="exceptions">Throwable</span></div>
+  throws <span class="exceptions"><a href="ThrowingRunnable.html" title="type parameter in ThrowingRunnable">T</a> extends Throwable</span></div>
+<div class="block">Run this <a href="ThrowingRunnable.html" title="interface in net.nergi.util"><code>ThrowingRunnable</code></a>'s method, where any exceptions thrown inside are propagated
+ outwards.</div>
 <dl class="notes">
 <dt>Throws:</dt>
-<dd><code>Throwable</code></dd>
+<dd><code><a href="ThrowingRunnable.html" title="type parameter in ThrowingRunnable">T</a></code> - Any exception thrown inside.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="toRunnable()">
+<h3>toRunnable</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">Runnable</span>&nbsp;<span class="member-name">toRunnable</span>()</div>
+<div class="block">Convert this <a href="ThrowingRunnable.html" title="interface in net.nergi.util"><code>ThrowingRunnable</code></a> to a normal <code>Runnable</code> that throws an unchecked
+ <a href="FallThroughException.html" title="class in net.nergi.util"><code>FallThroughException</code></a> if an exception is thrown while running it.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>A <code>Runnable</code> that throws unchecked exceptions.</dd>
 </dl>
 </section>
 </li>

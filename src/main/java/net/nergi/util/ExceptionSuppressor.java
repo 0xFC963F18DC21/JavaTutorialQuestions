@@ -66,7 +66,7 @@ public final class ExceptionSuppressor {
    *
    * @param action Action to run
    */
-  public void suppressedExecute(ThrowingRunnable action) {
+  public void suppressedExecute(ThrowingRunnable<?> action) {
     try {
       action.run();
     } catch (Throwable t) {
@@ -126,6 +126,18 @@ public final class ExceptionSuppressor {
    */
   public boolean isCleanExecution() {
     return suppressed.isEmpty();
+  }
+
+  /**
+   * Clears out all of the suppressed exceptions from this exception suppressor.
+   *
+   * @return <code>true</code> if there were exceptions cleared out, <code>false</code> otherwise.
+   */
+  public boolean clearSuppressed() {
+    final int previousSize = suppressed.size();
+    suppressed.clear();
+
+    return previousSize == 0;
   }
 
   /**
