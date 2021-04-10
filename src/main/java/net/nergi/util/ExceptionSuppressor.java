@@ -58,7 +58,7 @@ public final class ExceptionSuppressor {
    * @return  Should this exception be caught?
    */
   private boolean shouldCatch(Throwable t) {
-    return filter.stream().anyMatch(c -> c.isAssignableFrom(t.getClass()));
+    return filter.stream().parallel().anyMatch(c -> c.isAssignableFrom(t.getClass()));
   }
 
   /**

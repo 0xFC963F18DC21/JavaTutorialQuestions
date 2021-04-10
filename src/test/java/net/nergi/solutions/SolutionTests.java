@@ -6,21 +6,30 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Supplier;
+import net.nergi.solutions.Pb33f.FileLogger;
+import net.nergi.solutions.Pb33f.LogLevel;
 import net.nergi.solutions.Pe6fd.BitSet;
 import net.nergi.solutions.Pe6fd.BitSet32;
 import net.nergi.solutions.Pe6fd.BitSet64;
 import net.nergi.solutions.Pe6fd.BitSet8;
 import net.nergi.solutions.Pe6fd.BitSetArray;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 /** This class contains testing for all solution classes. */
-public class SolutionTests {
+class SolutionTests {
+
+  @TempDir
+  public static Path sharedTemp;
 
   @Test
-  public void next98E3() {
+  void next98E3() {
     assertEquals(16, P98e3.next(5));
     assertEquals(8, P98e3.next(16));
     assertEquals(10, P98e3.next(3));
@@ -28,7 +37,7 @@ public class SolutionTests {
   }
 
   @Test
-  public void isPalindromicF79B() {
+  void isPalindromicF79B() {
     assertTrue(Pf79b.isPalindromic("w"));
     assertTrue(Pf79b.isPalindromic("hh"));
     assertTrue(Pf79b.isPalindromic("wow"));
@@ -39,7 +48,7 @@ public class SolutionTests {
   }
 
   @Test
-  public void pigLatiniseF7C3() {
+  void pigLatiniseF7C3() {
     assertEquals("eyhay", Pf7c3.pigLatinise("hey"));
     assertEquals("Eyhay", Pf7c3.pigLatinise("Hey"));
 
@@ -48,7 +57,7 @@ public class SolutionTests {
   }
 
   @Test
-  public void getWords67DD() {
+  void getWords67DD() {
     assertEquals(mutableListOf("a", "new", "day"), P67dd.getWords("a new day"));
     assertEquals(mutableListOf("21", "12", "2012"), P67dd.getWords("21/12/2012"));
     assertEquals(
@@ -58,7 +67,7 @@ public class SolutionTests {
   }
 
   @Test
-  public void rectangleC2B8() {
+  void rectangleC2B8() {
     Pc2b8.Rectangle rectangle1 = new Pc2b8.Rectangle(new Pc2b8.Point(0, 0), 4, 4);
 
     Pc2b8.Rectangle rectangle2 = new Pc2b8.Rectangle(new Pc2b8.Point(1, 1), 2, 2);
@@ -84,7 +93,7 @@ public class SolutionTests {
   }
 
   @Test
-  public void bitSet36FD() {
+  void bitSet36FD() {
     final Supplier<BitSet> intersectionTestSetSupplier =
         () -> {
           BitSet8 set = new BitSet8();
@@ -170,7 +179,7 @@ public class SolutionTests {
   }
 
   @Test
-  public void streamMethodsFE94() {
+  void streamMethodsFE94() {
     final List<String> testList = List.of("The", "quick", "brown", "fox");
     final List<String> expectedReversals = List.of("ehT", "kciuq", "nworb", "xof");
 
@@ -189,7 +198,7 @@ public class SolutionTests {
   }
 
   @Test
-  public void streamMethods68E6() {
+  void streamMethods68E6() {
     final List<Integer> list1 = List.of(1, 2, 3, 4, 5, 9);
     final List<Integer> list2 = List.of(1, 10, 100, 1000, 10000);
     final List<Integer> list3 = List.of(6, 7, 8);
@@ -217,5 +226,27 @@ public class SolutionTests {
     assertEquals(8, minOfMaxes);
     assertEquals(Integer.MAX_VALUE, minOfMaxesEmpty);
     assertEquals(Integer.MIN_VALUE, minOfMaxesListOfEmptyLists);
+  }
+
+  @Test
+  void fileLoggingMethodsB33F() throws IOException {
+    final Path logFilePath = sharedTemp.resolve("log_test.txt");
+    final FileLogger log = new FileLogger(logFilePath.toAbsolutePath().toString());
+
+    try {
+      log.log(LogLevel.INFO, "This is important info!");
+      log.log(LogLevel.VERBOSE,
+          "This piece of text is considered by the programmer to be important.");
+      log.log(LogLevel.WARNING, "This warning is insignificant.");
+      log.close();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+    final List<String> lines = Files.readAllLines(logFilePath);
+
+    assertFalse(lines.stream().anyMatch(s -> s.startsWith("INFO")));
+    assertFalse(lines.stream().anyMatch(s -> s.startsWith("VERBOSE")));
+    assertTrue(lines.stream().anyMatch(s -> s.startsWith("WARNING: This warning is insignificant.")));
   }
 }

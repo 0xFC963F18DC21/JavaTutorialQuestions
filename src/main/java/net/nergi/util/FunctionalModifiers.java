@@ -1,7 +1,10 @@
 package net.nergi.util;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.concurrent.Callable;
 import java.util.function.BiFunction;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -22,6 +25,7 @@ public final class FunctionalModifiers {
    * @param defaultValue Default value if an exception occurs
    * @param <T>          Return type
    * @return Returned value from block or default value if an exception occurs
+   * @deprecated {@link ExceptionSuppressor} created to replace this method.
    */
   @Deprecated(since = "2021/03/03")
   public static <T> T exceptionCoalesce(Callable<T> callable, T defaultValue) {
@@ -105,5 +109,30 @@ public final class FunctionalModifiers {
   public static <T, U, R> BiFunction<U, T, R> flip(
       BiFunction<? super T, ? super U, ? extends R> function) {
     return (u, t) -> function.apply(t, u);
+  }
+
+  /**
+   * Applies a function to some objects in an order dictated by the comparator.
+   *
+   * @param key      Sort key
+   * @param function Function to apply to the objects
+   * @param ts       Objects to apply the functions to
+   * @param <T>      Object type
+   */
+  @SafeVarargs
+  public static <T> void applyInOrder(Comparator<T> key, Consumer<T> function, T... ts) {
+    Arrays.stream(ts).sorted(key).forEach(function);
+  }
+
+  /**
+   * Applies a function to some comparable objects in an order dictated by the items' sort order.
+   *
+   * @param function Function to apply to the objects
+   * @param ts       Objects to apply the functions to
+   * @param <T>      Comparable objects type
+   */
+  @SafeVarargs
+  public static <T extends Comparable<T>> void applyInOrder(Consumer<T> function, T... ts) {
+    Arrays.stream(ts).sorted().forEach(function);
   }
 }

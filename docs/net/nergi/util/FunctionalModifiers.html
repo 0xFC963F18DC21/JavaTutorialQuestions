@@ -15,7 +15,7 @@
 <script type="text/javascript" src="../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
-<script type="text/javascript">var data = {"i0":9,"i1":41,"i2":9,"i3":9,"i4":9,"i5":9};
+<script type="text/javascript">var data = {"i0":9,"i1":9,"i2":9,"i3":41,"i4":9,"i5":9,"i6":9,"i7":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "alt-color";
 var rowColor = "row-color";
@@ -103,6 +103,23 @@ extends Object</pre>
 </thead>
 <tbody>
 <tr class="alt-color" id="i0">
+<td class="col-first"><code>static &lt;T&gt;&nbsp;void</code></td>
+<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#applyInOrder(java.util.Comparator,java.util.function.Consumer,T...)">applyInOrder</a></span>&#8203;(Comparator&lt;T&gt;&nbsp;key,
+Consumer&lt;T&gt;&nbsp;function,
+T...&nbsp;ts)</code></th>
+<td class="col-last">
+<div class="block">Applies a function to some objects in an order dictated by the comparator.</div>
+</td>
+</tr>
+<tr class="row-color" id="i1">
+<td class="col-first"><code>static &lt;T extends Comparable&lt;T&gt;&gt;<br>void</code></td>
+<th class="col-second" scope="row"><code><span class="member-name-link"><a href="#applyInOrder(java.util.function.Consumer,T...)">applyInOrder</a></span>&#8203;(Consumer&lt;T&gt;&nbsp;function,
+T...&nbsp;ts)</code></th>
+<td class="col-last">
+<div class="block">Applies a function to some comparable objects in an order dictated by the items' sort order.</div>
+</td>
+</tr>
+<tr class="alt-color" id="i2">
 <td class="col-first"><code>static &lt;T,&#8203;
 U,&#8203;
 R&gt;&nbsp;Function&lt;T,&#8203;Function&lt;U,&#8203;R&gt;&gt;</code></td>
@@ -113,15 +130,17 @@ R&gt;&nbsp;Function&lt;T,&#8203;Function&lt;U,&#8203;R&gt;&gt;</code></td>
  argument in order to get the desired result.</div>
 </td>
 </tr>
-<tr class="row-color" id="i1">
+<tr class="row-color" id="i3">
 <td class="col-first"><code>static &lt;T&gt;&nbsp;T</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#exceptionCoalesce(java.util.concurrent.Callable,T)">exceptionCoalesce</a></span>&#8203;(Callable&lt;T&gt;&nbsp;callable,
 T&nbsp;defaultValue)</code></th>
 <td class="col-last">
-<div class="block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment"><a href="ExceptionSuppressor.html" title="class in net.nergi.util"><code>ExceptionSuppressor</code></a> created to replace this method.</div>
+</div>
 </td>
 </tr>
-<tr class="alt-color" id="i2">
+<tr class="alt-color" id="i4">
 <td class="col-first"><code>static &lt;T,&#8203;
 U,&#8203;
 R&gt;&nbsp;BiFunction&lt;U,&#8203;T,&#8203;R&gt;</code></td>
@@ -130,7 +149,7 @@ R&gt;&nbsp;BiFunction&lt;U,&#8203;T,&#8203;R&gt;</code></td>
 <div class="block">Flip the argument order in a <code>BiFunction</code>.</div>
 </td>
 </tr>
-<tr class="row-color" id="i3">
+<tr class="row-color" id="i5">
 <td class="col-first"><code>static &lt;T,&#8203;
 U,&#8203;
 R&gt;&nbsp;Function&lt;U,&#8203;R&gt;</code></td>
@@ -140,7 +159,7 @@ T&nbsp;arg)</code></th>
 <div class="block">Partially apply a two-argument function onto a single argument.</div>
 </td>
 </tr>
-<tr class="alt-color" id="i4">
+<tr class="alt-color" id="i6">
 <td class="col-first"><code>static &lt;T,&#8203;
 R&gt;&nbsp;Supplier&lt;R&gt;</code></td>
 <th class="col-second" scope="row"><code><span class="member-name-link"><a href="#partialApply(java.util.function.Function,T)">partialApply</a></span>&#8203;(Function&lt;? super T,&#8203;? extends R&gt;&nbsp;function,
@@ -149,7 +168,7 @@ T&nbsp;arg)</code></th>
 <div class="block">Fully apply a single-argument function onto an argument.</div>
 </td>
 </tr>
-<tr class="row-color" id="i5">
+<tr class="row-color" id="i7">
 <td class="col-first"><code>static &lt;T,&#8203;
 U,&#8203;
 R&gt;&nbsp;BiFunction&lt;T,&#8203;U,&#8203;R&gt;</code></td>
@@ -182,7 +201,9 @@ R&gt;&nbsp;BiFunction&lt;T,&#8203;U,&#8203;R&gt;</code></td>
 <div class="member-signature"><span class="annotations">@Deprecated(since="2021/03/03")
 </span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="member-name">exceptionCoalesce</span>&#8203;(<span class="parameters">Callable&lt;T&gt;&nbsp;callable,
 T&nbsp;defaultValue)</span></div>
-<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment"><a href="ExceptionSuppressor.html" title="class in net.nergi.util"><code>ExceptionSuppressor</code></a> created to replace this method.</div>
+</div>
 <div class="block">Runs a block. If an exception occurs, return the default value. Else return the calculated
  value from the block. Deprecated; replace with an <a href="ExceptionSuppressor.html" title="class in net.nergi.util"><code>ExceptionSuppressor</code></a> instance.</div>
 <dl class="notes">
@@ -294,6 +315,40 @@ R&gt;</span>&nbsp;<span class="return-type">BiFunction&lt;U,&#8203;T,&#8203;R&gt
 <dd><code>function</code> - <code>BiFunction</code> to flip</dd>
 <dt>Returns:</dt>
 <dd>Flipped function.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="applyInOrder(java.util.Comparator,java.util.function.Consumer,T...)">
+<h3 id="applyInOrder(java.util.Comparator,java.util.function.Consumer,java.lang.Object[])">applyInOrder</h3>
+<div class="member-signature"><span class="annotations">@SafeVarargs
+</span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="member-name">applyInOrder</span>&#8203;(<span class="parameters">Comparator&lt;T&gt;&nbsp;key,
+Consumer&lt;T&gt;&nbsp;function,
+T...&nbsp;ts)</span></div>
+<div class="block">Applies a function to some objects in an order dictated by the comparator.</div>
+<dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><code>T</code> - Object type</dd>
+<dt>Parameters:</dt>
+<dd><code>key</code> - Sort key</dd>
+<dd><code>function</code> - Function to apply to the objects</dd>
+<dd><code>ts</code> - Objects to apply the functions to</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="applyInOrder(java.util.function.Consumer,T...)">
+<h3 id="applyInOrder(java.util.function.Consumer,java.lang.Comparable[])">applyInOrder</h3>
+<div class="member-signature"><span class="annotations">@SafeVarargs
+</span><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T extends Comparable&lt;T&gt;&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="member-name">applyInOrder</span>&#8203;(<span class="parameters">Consumer&lt;T&gt;&nbsp;function,
+T...&nbsp;ts)</span></div>
+<div class="block">Applies a function to some comparable objects in an order dictated by the items' sort order.</div>
+<dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><code>T</code> - Comparable objects type</dd>
+<dt>Parameters:</dt>
+<dd><code>function</code> - Function to apply to the objects</dd>
+<dd><code>ts</code> - Objects to apply the functions to</dd>
 </dl>
 </section>
 </li>

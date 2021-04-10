@@ -30,7 +30,8 @@ public class ImmutablePair<F, S> {
   }
 
   /**
-   * Make a new pair from the given objects.
+   * Make a new pair from the given objects. It is only safe to use this class with immutable
+   * objects due to the use of their hash code in a map.
    *
    * @param first  First item in pair
    * @param second Second item in pair

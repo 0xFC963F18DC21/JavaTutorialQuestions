@@ -27,6 +27,9 @@ public final class Utils {
     return br;
   }
 
+  /** OS-dependent newline character sequence. */
+  public static final String ENDL = System.lineSeparator();
+
   /**
    * Constructs an immutable list of items. Depreciated. Use List.of() instead.
    *

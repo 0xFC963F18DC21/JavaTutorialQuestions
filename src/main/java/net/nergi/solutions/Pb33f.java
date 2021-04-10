@@ -14,6 +14,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import net.nergi.Solution;
 import net.nergi.solutions.P888a.ImmutablePair;
+import net.nergi.util.Utils;
 
 /** Solution for b33f. */
 @SuppressWarnings("unused")
@@ -48,10 +49,10 @@ public class Pb33f implements Solution {
     );
 
     // Print results
-    testInspect1.ifPresent((pair) -> consoleLogger.log(pair.getFirst(), pair.getSecond()));
-    testInspect2.ifPresent((pair) -> consoleLogger.log(pair.getFirst(), pair.getSecond()));
-    testInspect3.ifPresent((pair) -> consoleLogger.log(pair.getFirst(), pair.getSecond()));
-    testInspect4.ifPresent((pair) -> consoleLogger.log(pair.getFirst(), pair.getSecond()));
+    testInspect1.ifPresent(pair -> consoleLogger.log(pair.getFirst(), pair.getSecond()));
+    testInspect2.ifPresent(pair -> consoleLogger.log(pair.getFirst(), pair.getSecond()));
+    testInspect3.ifPresent(pair -> consoleLogger.log(pair.getFirst(), pair.getSecond()));
+    testInspect4.ifPresent(pair -> consoleLogger.log(pair.getFirst(), pair.getSecond()));
   }
 
   public enum LogLevel {
@@ -82,17 +83,15 @@ public class Pb33f implements Solution {
 
     public void inspectFile(String filePath, StringInspector inspector) {
       try {
-        final BufferedReader fileReader = new BufferedReader(
-            new FileReader(filePath)
-        );
-
-        String line;
-        do {
-          line = fileReader.readLine();
-          inspector.inspect(line).ifPresent(
-              (pair) -> internalLogger.log(pair.getFirst(), pair.getSecond())
-          );
-        } while (line != null);
+        try (BufferedReader fileReader = new BufferedReader(new FileReader(filePath))) {
+          String line;
+          do {
+            line = fileReader.readLine();
+            inspector.inspect(line).ifPresent(
+                (pair) -> internalLogger.log(pair.getFirst(), pair.getSecond())
+            );
+          } while (line != null);
+        }
       } catch (FileNotFoundException e) {
         internalLogger.log(LogLevel.FATAL, "File not found: " + filePath);
       } catch (IOException e) {
@@ -102,7 +101,7 @@ public class Pb33f implements Solution {
 
   }
 
-  public static class FileLogger implements Logger {
+  public static class FileLogger implements Logger, AutoCloseable {
 
     private final BufferedWriter outputWriter;
 
@@ -111,9 +110,7 @@ public class Pb33f implements Solution {
     }
 
     public FileLogger(String filePath) throws IOException {
-      this.outputWriter = new BufferedWriter(
-          new FileWriter(filePath)
-      );
+      this.outputWriter = new BufferedWriter(new FileWriter(filePath));
     }
 
     @Override
@@ -121,13 +118,20 @@ public class Pb33f implements Solution {
       try {
         switch (logLevel) {
           case INFO, VERBOSE -> pass();
-          default -> outputWriter.write(logLevel + ": " + message);
+          default -> {
+            outputWriter.write(logLevel + ": " + message);
+            outputWriter.newLine();
+          }
         }
       } catch (IOException e) {
         throw new RuntimeException("FileLogger's BufferedWriter failed to output to file!", e);
       }
     }
 
+    @Override
+    public void close() throws Exception {
+      outputWriter.close();
+    }
   }
 
   public static class KnownWordsStringInspector implements StringInspector {

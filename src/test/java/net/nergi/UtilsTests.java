@@ -11,11 +11,11 @@ import java.util.List;
 import net.nergi.util.Utils;
 import org.junit.jupiter.api.Test;
 
-public class UtilsTests {
+class UtilsTests {
 
   @Test
   @SuppressWarnings("deprecation")
-  public void listOfTests() {
+  void listOfTests() {
     /* Suppressing annotation for deprecation warnings required as this unit test was used to test
      * the (now deprecated) Utils.listOf() method.
      */
@@ -24,7 +24,7 @@ public class UtilsTests {
   }
 
   @Test
-  public void arrayListOfTests() {
+  void arrayListOfTests() {
     var tArray = Arrays.asList(1, 2, 3, 4, 5);
     var diffTArray = Arrays.asList(5, 4, 3, 2, 1);
 
@@ -33,7 +33,7 @@ public class UtilsTests {
   }
 
   @Test
-  public void hashMapOfTests() {
+  void hashMapOfTests() {
     Integer[] arr1 = new Integer[] {1, 2, 3, 4, 5};
     String[] arr2 = new String[] {"a", "b", "c", "d", "e"};
     String[] arr3 = new String[] {"e", "d", "c", "b", "a"};
